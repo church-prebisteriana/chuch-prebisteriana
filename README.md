@@ -12,7 +12,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+```C:\Users\Tiago\Documents\PROJETOS GITHUB\the socity code\church-prebisteriana\src\app\image\logo_igreja.png
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
