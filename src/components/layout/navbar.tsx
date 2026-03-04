@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"; // Adicionado useEffect
 import { usePathname, useRouter } from "next/navigation"; // Adicionado useRouter
 import SocialButtons from "@/src/components/ui/social_icons";
-import logoIgreja from "@/src/app/image/logo_igreja.png";
+import logoIgreja from "@/public/image/logo_igreja.png";
 import Image from "next/image";
 import { Menu, ArrowLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";

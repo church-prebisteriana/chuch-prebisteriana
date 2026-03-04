@@ -1,17 +1,17 @@
 // "use client";
 
 // import Image from "next/image";
-// import churchMembers from "@/src/app/image/foto da igreja 1.jpg";
+// import churchMembers from "@/public/image/foto da igreja 1.jpg";
 // import { motion } from "framer-motion";
 // import HeroSection from "@/src/components/ui/HeroBanner";
 // import { Button } from "@/src/components/ui/button";
 // import { NavItem } from "@/lib/utils";
-// import photo1 from "@/src/app/image/foto da igreja 1.jpg";
-// import photo2 from "@/src/app/image/igreja/img_sobre_historia.png";
-// import photo3 from "@/src/app/image/igreja/manual.png";
-// import minister from "@/src/app/image/igreja/advice/pastor-emersn.jpg";
-// import official from "@/src/app/image/igreja/advice/rodrigo.jpg";
-// import official2 from "@/src/app/image/igreja/advice/ronaldo.jpg";
+// import photo1 from "@/public/image/foto da igreja 1.jpg";
+// import photo2 from "@/public/image/igreja/img_sobre_historia.png";
+// import photo3 from "@/public/image/igreja/manual.png";
+// import minister from "@/public/image/igreja/advice/pastor-emersn.jpg";
+// import official from "@/public/image/igreja/advice/rodrigo.jpg";
+// import official2 from "@/public/image/igreja/advice/ronaldo.jpg";
 // import { useCallback, useEffect, useState } from "react";
 // import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -230,16 +230,16 @@ import {
 } from "lucide-react";
 
 // Assets (Mantendo seus imports originais)
-import churchMembers from "@/src/app/image/foto da igreja 1.jpg";
-import photo1 from "@/src/app/image/foto da igreja 1.jpg";
-import photo2 from "@/src/app/image/igreja/img_sobre_historia.png";
-import photo3 from "@/src/app/image/igreja/manual.png";
-import minister from "@/src/app/image/igreja/advice/pastor-emersn.jpg";
-import official from "@/src/app/image/igreja/advice/rodrigo.jpg";
-import official2 from "@/src/app/image/igreja/advice/ronaldo.jpg";
-import confession from "@/src/app/image/minister/confissão de fé.png";
-import catecismoMaior from "@/src/app/image/minister/catecismo maior.png";
-import catecismoMenos from "@/src/app/image/minister/catecismo menor.png";
+import churchMembers from "@/public/image/foto da igreja 1.jpg";
+import photo1 from "@/public/image/foto da igreja 1.jpg";
+import photo2 from "@/public/image/igreja/img_sobre_historia.png";
+import photo3 from "@/public/image/igreja/manual.png";
+import minister from "@/public/image/igreja/advice/pastor-emersn.jpg";
+import official from "@/public/image/igreja/advice/rodrigo.jpg";
+import official2 from "@/public/image/igreja/advice/ronaldo.jpg";
+import confession from "@/public/image/minister/confissão de fé.png";
+import catecismoMaior from "@/public/image/minister/catecismo maior.png";
+import catecismoMenos from "@/public/image/minister/catecismo menor.png";
 
 export default function SectionChurch() {
   const containerRef = useRef(null);

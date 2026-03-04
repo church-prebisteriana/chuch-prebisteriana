@@ -51,7 +51,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ImageHome from "../../ui/ImagensHome";
-import logoIgreja from "@/src/app/image/logo_igreja.png";
+import logoIgreja from "@/public/image/logo_igreja.png";
 export default function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, -100]);

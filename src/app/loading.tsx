@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import logoIgreja from "@/src/app/image/logo_igreja.png";
+import logoIgreja from "@/public/image/logo_igreja.png";
 import { motion } from "framer-motion";
 
 

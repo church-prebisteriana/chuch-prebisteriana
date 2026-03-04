@@ -1,5 +1,5 @@
 import Image from "next/image";
-import igreja from "@/src/app/image/foto da igreja 1.jpg";
+import igreja from "@/public/image/foto da igreja 1.jpg";
 
 export default function SectionLocation() {
   const googleMapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7030.014738914519!2d-48.676105!3d-28.237456!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9526b59da003170b%3A0x24b727d4197f0209!2sIgreja%20Presbiteriana%20de%20Imbituba!5e0!3m2!1spt-BR!2sus!4v1772157027667!5m2!1spt-BR!2sus";

@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 
 // Assets (Mantendo seus imports originais)
-import churchMembers from "@/src/app/image/igreja/fotos dos membros da igreja.jpg";
-import photo1 from "@/src/app/image/minister/ministries-1-390x495.png";
-import photo2 from "@/src/app/image/minister/ministries-1-390x495.jpg";
-import photo3 from "@/src/app/image/minister/ministries-10-390x495.png";
-import photo4 from "@/src/app/image/minister/fotos de crianças.png";
-import photo5 from "@/src/app/image/minister/ministries-7-1200x800-original.jpg";
+import churchMembers from "@/public/image/igreja/fotos dos membros da igreja.jpg";
+import photo1 from "@/public/image/minister/ministries-1-390x495.png";
+import photo2 from "@/public/image/minister/ministries-1-390x495.jpg";
+import photo3 from "@/public/image/minister/ministries-10-390x495.png";
+import photo4 from "@/public/image/minister/fotos de crianças.png";
+import photo5 from "@/public/image/minister/ministries-7-1200x800-original.jpg";
 
 import { usePathname, useRouter } from "next/navigation";
 

@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import autor1 from "@/src/app/image/membros/pastor-emersn.jpg";
-import autor2 from "@/src/app/image/membros/suelly.jpg";
+import autor1 from "@/public/image/membros/pastor-emersn.jpg";
+import autor2 from "@/public/image/membros/suelly.jpg";
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";

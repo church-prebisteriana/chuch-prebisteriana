@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import photoIgreja from "@/src/app/image/photo_church.png";
-import photoIgreja2 from "@/src/app/image/foto da igreja 1.jpg";
-import photoIgreja3 from "@/src/app/image/foto da igreja 2.jpg";
-import photoIgreja4 from "@/src/app/image/foto da igreja 3.jpg";
-import photoIgreja5 from "@/src/app/image/foto da igreja 4.jpg";
-import photoIgreja6 from "@/src/app/image/foto da igreja 5.jpg";
-import photoIgreja7 from "@/src/app/image/foto da igreja 6.jpg";
+import photoIgreja from "@/public/image/photo_church.png";
+import photoIgreja2 from "@/public/image/foto da igreja 1.jpg";
+import photoIgreja3 from "@/public/image/foto da igreja 2.jpg";
+import photoIgreja4 from "@/public/image/foto da igreja 3.jpg";
+import photoIgreja5 from "@/public/image/foto da igreja 4.jpg";
+import photoIgreja6 from "@/public/image/foto da igreja 5.jpg";
+import photoIgreja7 from "@/public/image/foto da igreja 6.jpg";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
