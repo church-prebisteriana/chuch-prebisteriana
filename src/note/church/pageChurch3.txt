@@ -1,0 +1,166 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { MoveRight, Cross, Info, ShieldCheck } from "lucide-react";
+
+// Assets (Mantendo seus imports)
+import churchMembers from "@/src/app/image/foto da igreja 1.jpg";
+import photo1 from "@/src/app/image/foto da igreja 1.jpg";
+import photo2 from "@/src/app/image/igreja/img_sobre_historia.png";
+import photo3 from "@/src/app/image/igreja/manual.png";
+import minister from "@/src/app/image/igreja/advice/pastor-emersn.jpg";
+import official from "@/src/app/image/igreja/advice/rodrigo.jpg";
+import official2 from "@/src/app/image/igreja/advice/ronaldo.jpg";
+
+export default function SectionChurch() {
+  const [activeHistory, setActiveHistory] = useState(0);
+
+  const historyData = [
+    { title: "Nossa Caminhada", place: "Imbituba", img: photo1, icon: <Cross size={20} />, desc: "Uma história escrita por mãos de fé no litoral catarinense." },
+    { title: "Herança Reformada", place: "Brasil", img: photo2, icon: <ShieldCheck size={20} />, desc: "Conheça nossas raízes e a solidez da nossa doutrina nacional." },
+    { title: "Ordem e Fé", place: "Constituição", img: photo3, icon: <Info size={20} />, desc: "O Manual Presbiteriano norteando nossa caminhada cristã." },
+  ];
+
+  const council = [
+    { name: "Emerson Baran", role: "Pastor", photo: minister },
+    { name: "Rodrigo Pinho", role: "Presbítero", photo: official },
+    { name: "Ronaldo Damazio", role: "Tesoureiro", photo: official2 },
+  ];
+
+  return (
+    <section className="bg-[#0e1111] text-zinc-100 min-h-screen">
+      
+      {/* 1. HERO - TEXTO VAZADO E PROFUNDIDADE */}
+      <div className="relative h-[90vh] flex items-center px-6 md:px-20 overflow-hidden">
+        <div className="z-20 max-w-5xl">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-igreja-teal font-mono tracking-[0.4em] uppercase text-sm mb-4"
+          >
+            Igreja Presbiteriana de Imbituba
+          </motion.p>
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="text-6xl md:text-[10rem] font-black uppercase leading-[0.85] tracking-tighter italic opacity-90"
+          >
+            Fé que <br /> <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #fff" }}>Permanece</span>
+          </motion.h1>
+        </div>
+        <motion.div 
+          initial={{ x: "20%", opacity: 0 }}
+          animate={{ x: 0, opacity: 0.5 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute right-[-10%] top-0 h-full w-2/3 z-10"
+        >
+          <Image src={churchMembers} alt="Igreja" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0e1111] via-transparent to-transparent" />
+        </motion.div>
+      </div>
+
+      {/* 2. NARRATIVA DE HISTÓRIA - INTERATIVO */}
+      <div className="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-20 items-center">
+        <div className="relative aspect-square md:aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl border border-white/5">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeHistory}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-full w-full"
+            >
+              <Image src={historyData[activeHistory].img} alt="História" fill className="object-cover" />
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-12 tracking-tight">Onde o passado <br/> molda o <span className="text-igreja-teal italic">amanhã.</span></h2>
+          <div className="space-y-4">
+            {historyData.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveHistory(idx)}
+                className={`w-full group flex items-center justify-between p-8 rounded-2xl transition-all border ${activeHistory === idx ? "bg-white text-black border-white" : "border-white/10 hover:border-white/40"}`}
+              >
+                <div className="flex items-center gap-6">
+                  <span className={`text-xl font-mono ${activeHistory === idx ? "text-igreja-teal" : "text-zinc-500"}`}>0{idx + 1}</span>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold uppercase tracking-widest">{item.title}</h3>
+                    <p className={`text-sm ${activeHistory === idx ? "text-zinc-600" : "text-zinc-400 opacity-0 group-hover:opacity-100"} transition-all mt-1`}>
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+                <MoveRight className={activeHistory === idx ? "translate-x-0" : "-translate-x-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all"} />
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 3. LIDERANÇA - O "CONSELHO" EM EXPOSIÇÃO */}
+      <div className="bg-zinc-100 text-black py-32 rounded-t-[5rem]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
+              Nosso <br /> <span className="text-igreja-teal">Conselho</span>
+            </h2>
+            <p className="max-w-xs text-zinc-500 font-medium border-l-2 border-igreja-teal pl-4 leading-relaxed">
+              Homens dedicados ao pastoreio e ao cuidado da comunidade local sob a soberania de Deus.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {council.map((person, idx) => (
+              <motion.div 
+                key={idx}
+                whileHover={{ y: -20 }}
+                className="relative h-[600px] group rounded-3xl overflow-hidden shadow-2xl"
+              >
+                <Image src={person.photo} alt={person.name} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+                
+                {/* Overlay Informativo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex flex-col justify-end p-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-igreja-teal font-mono text-sm uppercase tracking-widest mb-2 font-bold">{person.role}</p>
+                  <h4 className="text-white text-3xl font-bold uppercase tracking-tighter">{person.name}</h4>
+                  <div className="h-1 w-0 group-hover:w-full bg-igreja-teal transition-all duration-700 mt-4" />
+                </div>
+
+                {/* Nome flutuante em repouso */}
+                <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-2 rounded-full group-hover:opacity-0 transition-opacity">
+                  <span className="text-white text-xs font-bold uppercase tracking-[0.2em]">{person.name}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 4. SEÇÃO FINAL - IMPACTO MINIMALISTA */}
+      <div className="py-40 bg-zinc-100 flex flex-col items-center justify-center border-t border-zinc-200">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="text-center"
+        >
+          <p className="text-zinc-400 font-mono tracking-[0.5em] uppercase text-xs mb-10 italic">Unidos em Cristo</p>
+          <h3 className="text-4xl md:text-7xl font-light text-zinc-900 tracking-tight mb-12">Venha nos fazer <span className="font-serif italic font-medium">uma visita.</span></h3>
+          <button className="group relative px-12 py-5 bg-black text-white rounded-full overflow-hidden transition-all hover:pr-16">
+            <span className="relative z-10 font-bold uppercase tracking-widest text-sm">Localização</span>
+            <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-6 transition-all">
+              <MoveRight size={20} />
+            </div>
+          </button>
+        </motion.div>
+      </div>
+
+    </section>
+  );
+}

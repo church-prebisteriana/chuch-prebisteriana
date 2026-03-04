@@ -1,0 +1,43 @@
+{/* {navItems.map((item, index) => (
+    <li key={index} className="mb-2">
+      {item.submenu ? (
+        <>
+          <button
+            onClick={() => {
+              // Verificamos se o nome do item faz parte do tipo MenuType
+              const name = item.name as MenuType;
+              setOpenDropdown(openDropdown === name ? null : name);
+            }}
+            className={`font-extralight w-full text-left pl-6 py-2 transition-colors duration-300 ${
+              openDropdown === item.name
+                ? " bg-igreja-teal text-white" // Cor quando aberto
+                : "hover:bg-igreja-teal hover:text-white" // Hover quando fechado
+            }`}
+          >
+            {item.name}
+          </button>
+          {openDropdown === item.name && (
+            <ul className="bg-gray-50 py-2">
+              {item.submenu.map((subItem, subIndex) => (
+                <li
+                  key={subIndex}
+                  // onClick={() => handleNavigation(item.href)}
+                  className="font-extralight pl-10 py-4 hover:bg-igreja-teal hover:text-white cursor-pointer"
+                >
+                  {subItem}
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      ) : (
+      
+        <span
+          // onClick={() => handleNavigation(item.href)}
+          className=" font-extralight block w-full pl-6 py-2 hover:bg-igreja-teal hover:text-white cursor-pointer"
+        >
+          {item.name}
+        </span>
+      )}
+    </li>
+  ))} */}

@@ -1,0 +1,167 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, ArrowRight, ArrowDown, Users, History, BookOpen } from "lucide-react";
+
+// Assets (Mantendo seus caminhos originais)
+import churchMembers from "@/src/app/image/foto da igreja 1.jpg";
+import photo1 from "@/src/app/image/foto da igreja 1.jpg";
+import photo2 from "@/src/app/image/igreja/img_sobre_historia.png";
+import photo3 from "@/src/app/image/igreja/manual.png";
+import minister from "@/src/app/image/igreja/advice/pastor-emersn.jpg";
+import official from "@/src/app/image/igreja/advice/rodrigo.jpg";
+import official2 from "@/src/app/image/igreja/advice/ronaldo.jpg";
+
+export default function SectionChurch() {
+  const [selectedLeader, setSelectedLeader] = useState(0);
+
+  const stats = [
+    { label: "Nossa História", icon: <History size={20} />, img: photo1, description: "Uma trajetória de fé em Imbituba." },
+    { label: "IPB Brasil", icon: <BookOpen size={20} />, img: photo2, description: "Nossa herança reformada mundial." },
+    { label: "O Manual", icon: <Plus size={20} />, img: photo3, description: "Nossas diretrizes e doutrina." },
+  ];
+
+  const council = [
+    { name: "Emerson Baran", role: "Pastor", photo: minister },
+    { name: "Rodrigo Pinho", role: "Presbítero", photo: official },
+    { name: "Ronaldo Damazio", role: "Tesoureiro", photo: official2 },
+  ];
+
+  return (
+    <section className="bg-[#0a0a0a] text-white min-h-screen selection:bg-igreja-teal selection:text-black">
+      
+      {/* 1. HEADER BRUTALISTA */}
+      <div className="relative pt-32 pb-20 px-6 border-b border-white/10">
+        <div className="max-w-screen-2xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} 
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-4 mb-8 text-igreja-teal uppercase tracking-[0.4em] font-bold text-sm"
+          >
+            <div className="h-1 w-12 bg-igreja-teal" />
+            Conheça a Igreja
+          </motion.div>
+          
+          <h1 className="text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-12">
+            Somos <br /> <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '2px white' }}>Imbituba</span>
+          </h1>
+
+          <div className="grid md:grid-cols-2 gap-10 items-end">
+            <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-2xl leading-tight">
+              Uma comunidade que respira o Evangelho e vive para a glória de Deus na cidade portuária.
+            </p>
+            <div className="flex justify-end">
+              <motion.div 
+                animate={{ y: [0, 15, 0] }} 
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="p-6 rounded-full border border-white/20"
+              >
+                <ArrowDown size={40} className="text-igreja-teal" />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. GRID DE EXPLORAÇÃO ASYMMETRIC */}
+      <div className="py-24 px-6 max-w-screen-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {stats.map((item, idx) => (
+            <motion.div 
+              key={idx}
+              whileHover={{ scale: 0.98 }}
+              className={`relative overflow-hidden group rounded-3xl bg-zinc-900 border border-white/5 
+                ${idx === 0 ? "md:col-span-7 h-[500px]" : idx === 1 ? "md:col-span-5 h-[500px]" : "md:col-span-12 h-[400px]"}`}
+            >
+              <Image src={item.img} alt={item.label} fill className="object-cover opacity-40 group-hover:opacity-60 transition-all duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 p-10 flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                  <div className="p-4 bg-white/10 backdrop-blur-md rounded-2xl">{item.icon}</div>
+                  <ArrowRight className="opacity-0 group-hover:opacity-100 -rotate-45 group-hover:rotate-0 transition-all" size={32} />
+                </div>
+                <div>
+                  <h3 className="text-4xl font-bold mb-2 uppercase">{item.label}</h3>
+                  <p className="text-zinc-400 text-lg">{item.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* 3. CONSELHO: DESIGN DE "DASHBOARD" MODERNO */}
+      <div className="bg-white text-black py-32 px-6">
+        <div className="max-w-screen-2xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-20">
+            
+            {/* Esquerda: Lista de Nomes */}
+            <div className="w-full md:w-1/2">
+              <div className="flex items-center gap-3 mb-10 text-zinc-400 font-bold uppercase tracking-widest text-xs">
+                <Users size={16} /> Liderança Local
+              </div>
+              <div className="space-y-4">
+                {council.map((person, idx) => (
+                  <button
+                    key={idx}
+                    onMouseEnter={() => setSelectedLeader(idx)}
+                    className={`w-full text-left p-8 rounded-3xl transition-all flex items-center justify-between group
+                      ${selectedLeader === idx ? "bg-black text-white" : "hover:bg-zinc-100 border border-transparent hover:border-zinc-200"}`}
+                  >
+                    <div>
+                      <span className="text-xs uppercase opacity-50 block mb-1 font-mono">0{idx + 1} // {person.role}</span>
+                      <h4 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">{person.name}</h4>
+                    </div>
+                    <div className={`h-12 w-12 rounded-full flex items-center justify-center transition-all
+                      ${selectedLeader === idx ? "bg-igreja-teal text-black" : "bg-black text-white opacity-0 group-hover:opacity-100"}`}>
+                      <Plus size={24} />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Direita: Preview da Foto (Dinâmico) */}
+            <div className="w-full md:w-1/2 relative h-[600px] hidden md:block">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedLeader}
+                  initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  exit={{ opacity: 0, scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.5, ease: "circOut" }}
+                  className="relative h-full w-full rounded-[40px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border-[12px] border-zinc-100"
+                >
+                  <Image 
+                    src={council[selectedLeader].photo} 
+                    alt={council[selectedLeader].name} 
+                    fill 
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-10 left-10 right-10 p-6 bg-black/80 backdrop-blur-xl text-white rounded-2xl">
+                    <p className="text-sm uppercase tracking-widest text-igreja-teal font-bold mb-1">Membro do Conselho</p>
+                    <p className="text-xs opacity-60">Igreja Presbiteriana de Imbituba - SC</p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+              
+              {/* Elemento decorativo atrás */}
+              <div className="absolute -top-10 -right-10 w-64 h-64 bg-igreja-teal/20 rounded-full blur-[100px] -z-10" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* 4. RODAPÉ DA SEÇÃO */}
+      <div className="py-20 text-center border-t border-white/5 bg-zinc-950">
+        <h2 className="text-zinc-600 text-sm uppercase tracking-[0.5em] mb-4">Próximo Passo</h2>
+        <button className="text-white text-3xl md:text-5xl font-bold hover:text-igreja-teal transition-colors flex items-center gap-4 mx-auto w-fit">
+          Ver Ministérios <ArrowRight size={40} />
+        </button>
+      </div>
+
+    </section>
+  );
+}

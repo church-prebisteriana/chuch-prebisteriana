@@ -1,0 +1,570 @@
+  Um estilo escuro bem estiloso
+ 
+  export default function Loading() {
+   return (
+     <motion.div 
+       initial={{ opacity: 1 }}
+       exit={{ opacity: 0 }}
+       className="fixed inset-0 z-[200] flex items-center justify-center bg-slate-950 overflow-hidden"
+     >
+       {/* 1. FUNDO DE LUZ (Efeito de vitral/prisma) */}
+       <div className="absolute inset-0 flex items-center justify-center">
+         {[...Array(6)].map((_, i) => (
+           <motion.div
+             key={i}
+             initial={{ opacity: 0, scale: 0, rotate: i * 60 }}
+             animate={{ 
+               opacity: [0, 0.1, 0], 
+               scale: [0.5, 1.5, 0.5],
+               rotate: (i * 60) + 360 
+             }}
+             transition={{ 
+               duration: 5, 
+               repeat: Infinity, 
+               delay: i * 0.5,
+               ease: "easeInOut" 
+             }}
+             className="absolute w-[500px] h-[500px] border-[0.5px] border-igreja-dourado/20"
+             style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+           />
+         ))}
+       </div>
+
+       {/* 2. O NÚCLEO (Logo surgindo do escuro) */}
+       <div className="relative flex flex-col items-center z-10">
+         <motion.div
+           initial={{ filter: "brightness(0) blur(20px)", scale: 0.8 }}
+           animate={{ filter: "brightness(1) blur(0px)", scale: 1 }}
+           transition={{ duration: 2, ease: "easeOut" }}
+           className="relative w-28 h-28"
+         >
+           {/* Logo Principal */}
+           <Image 
+             src={logoIgreja} 
+             alt="Logo" 
+             fill 
+             className="object-contain" 
+           />
+          
+           {/* Brilho Externo (Glow) */}
+           <motion.div 
+             animate={{ opacity: [0.2, 0.5, 0.2] }}
+             transition={{ duration: 2, repeat: Infinity }}
+             className="absolute inset-0 bg-igreja-teal blur-2xl -z-10 rounded-full"
+           />
+         </motion.div>
+
+         {/* 3. TEXTO "FRAGMENTADO" */}
+         <div className="mt-12 text-center">
+           <motion.h2 
+             initial={{ letterSpacing: "1em", opacity: 0 }}
+             animate={{ letterSpacing: "0.3em", opacity: 1 }}
+             transition={{ duration: 1.5, ease: "backOut" }}
+             className="font-ibarra text-xl text-white font-light uppercase"
+           >
+             Igreja Presbiteriana de Imbituba
+           </motion.h2>
+          
+           <motion.div 
+             initial={{ width: 0 }}
+             animate={{ width: "100%" }}
+             transition={{ duration: 2, delay: 0.5 }}
+             className="h-px bg-gradient-to-r from-transparent via-igreja-dourado to-transparent mt-2"
+           />
+          
+           <p className="mt-4 font-geist text-[9px] text-igreja-dourado/60 tracking-[0.5em] uppercase">
+             Soli Deo Gloria
+           </p>
+         </div>
+       </div>
+
+       {/* 4. ELEMENTOS DE CÓDIGO/TECH (Decorativo) */}
+       <div className="absolute top-10 left-10 space-y-2 opacity-20">
+         <motion.div animate={{ width: [0, 40, 0] }} transition={{ duration: 3, repeat: Infinity }} className="h-px bg-white w-10" />
+         <motion.div animate={{ width: [0, 60, 0] }} transition={{ duration: 4, repeat: Infinity }} className="h-px bg-white w-14" />
+       </div>
+     </motion.div>
+   );
+ }
+
+
+
+
+ Modelo lega de carregamento abrindo a tela
+ export default function Loading() {
+   return (
+     <motion.div 
+       exit={{ opacity: 0 }}
+       className="fixed inset-0 z-[200] flex items-center justify-center bg-white overflow-hidden"
+     >
+       {/* 1. AS PORTAS (Painéis laterais que se afastam) */}
+       <motion.div 
+         initial={{ x: 0 }}
+         animate={{ x: "-100%" }}
+         transition={{ duration: 1.5, delay: 2.5, ease: [0.87, 0, 0.13, 1] }}
+         className="absolute inset-y-0 left-0 w-1/2 bg-igreja-teal z-50 flex items-center justify-end pr-4"
+       >
+         <motion.div 
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 0.2 }}
+           className="text-white font-ibarra text-8xl font-bold select-none"
+         >
+           IP
+         </motion.div>
+       </motion.div>
+
+       <motion.div 
+         initial={{ x: 0 }}
+         animate={{ x: "100%" }}
+         transition={{ duration: 1.5, delay: 2.5, ease: [0.87, 0, 0.13, 1] }}
+         className="absolute inset-y-0 right-0 w-1/2 bg-igreja-teal z-50 flex items-center justify-start pl-4"
+       >
+         <motion.div 
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 0.2 }}
+           className="text-white font-ibarra text-8xl font-bold select-none"
+         >
+           B
+         </motion.div>
+       </motion.div>
+
+       {/* 2. O CENTRO (O que está "atrás" das portas) */}
+       <div className="relative flex flex-col items-center">
+         {/* Círculos Concêntricos (Ondas de som/espiritualidade) */}
+         {[...Array(3)].map((_, i) => (
+           <motion.div
+             key={i}
+             initial={{ scale: 0, opacity: 0 }}
+             animate={{ scale: [1, 2], opacity: [0.5, 0] }}
+             transition={{
+               duration: 2,
+               repeat: Infinity,
+               delay: i * 0.6,
+               ease: "easeOut"
+             }}
+             className="absolute border border-igreja-dourado rounded-full w-40 h-40"
+           />
+         ))}
+
+         <motion.div
+           initial={{ scale: 0.8, opacity: 0 }}
+           animate={{ scale: 1, opacity: 1 }}
+           transition={{ duration: 1 }}
+           className="relative w-24 h-24 z-10"
+         >
+           <Image 
+             src={logoIgreja} 
+             alt="Logo" 
+             fill 
+             className="object-contain" 
+           />
+         </motion.div>
+
+         <motion.div 
+           initial={{ opacity: 0, y: 10 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ delay: 0.5 }}
+           className="mt-8 text-center"
+         >
+           <h2 className="font-ibarra text-xl tracking-[0.4em] text-igreja-teal font-medium">
+             IMBITUBA
+           </h2>
+           <div className="flex items-center justify-center gap-2 mt-2">
+             <motion.span 
+               animate={{ opacity: [0, 1, 0] }}
+               transition={{ repeat: Infinity, duration: 1.5 }}
+               className="w-1.5 h-1.5 bg-igreja-dourado rounded-full" 
+             />
+             <p className="font-roboto text-[10px] text-slate-400 uppercase tracking-widest">
+               Desde 19xx
+             </p>
+             <motion.span 
+               animate={{ opacity: [0, 1, 0] }}
+               transition={{ repeat: Infinity, duration: 1.5, delay: 0.75 }}
+               className="w-1.5 h-1.5 bg-igreja-dourado rounded-full" 
+             />
+           </div>
+         </motion.div>
+       </div>
+
+       {/* 3. BARRA DE CARREGAMENTO NO TOPO (Sutil) */}
+       <motion.div 
+         initial={{ width: 0 }}
+         animate={{ width: "100%" }}
+         transition={{ duration: 3, ease: "linear" }}
+         className="absolute top-0 left-0 h-1 bg-igreja-dourado z-[60]"
+       />
+     </motion.div>
+   );
+ }
+
+
+ Outro modelo
+ export default function Loading() {
+   return (
+     <motion.div 
+       exit={{ opacity: 0 }}
+       className="fixed inset-0 z-[200] flex items-center justify-center bg-[#FAF9F6] overflow-hidden"
+     >
+       {/* 1. AS PARTÍCULAS DE LUZ (Aura) */}
+       {[...Array(12)].map((_, i) => (
+         <motion.div
+           key={i}
+           className="absolute rounded-full bg-igreja-teal/10 blur-xl"
+           style={{
+             width: Math.random() * 200 + 50,
+             height: Math.random() * 200 + 50,
+           }}
+           animate={{
+             x: [Math.random() * 200 - 100, Math.random() * 200 - 100],
+             y: [Math.random() * 200 - 100, Math.random() * 200 - 100],
+             scale: [1, 1.5, 1],
+             opacity: [0.1, 0.3, 0.1],
+           }}
+           transition={{
+             duration: Math.random() * 5 + 5,
+             repeat: Infinity,
+             ease: "easeInOut",
+           }}
+         />
+       ))}
+
+       <div className="relative flex flex-col items-center">
+         {/* 2. O SÍMBOLO EM ESTILO "MAGNETIC REVEAL" */}
+         <motion.div
+           initial={{ scale: 2, opacity: 0, filter: "blur(20px)" }}
+           animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+           transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+           className="relative w-32 h-32"
+         >
+           <Image 
+             src={logoIgreja} 
+             alt="Logo" 
+             fill 
+             className="object-contain drop-shadow-2xl" 
+           />
+         </motion.div>
+
+         {/* 3. TEXTO COM EFEITO DE "NÉVOA" */}
+         <div className="mt-12 overflow-hidden">
+           <motion.div
+             initial={{ y: "100%" }}
+             animate={{ y: 0 }}
+             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+           >
+             <h2 className="font-ibarra text-3xl text-igreja-teal/80 font-medium italic tracking-tight">
+               Bem-vindo
+             </h2>
+           </motion.div>
+         </div>
+
+         {/* 4. INDICADOR DE PROGRESSO CIRCULAR NÃO-FECHADO */}
+         <svg className="absolute -top-10 -left-10 w-52 h-52 rotate-[-90deg]">
+           <motion.circle
+             cx="104"
+             cy="104"
+             r="80"
+             stroke="#A28951"
+             strokeWidth="1"
+             fill="transparent"
+             strokeDasharray="502"
+             initial={{ strokeDashoffset: 502 }}
+             animate={{ strokeDashoffset: 0 }}
+             transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
+             className="opacity-20"
+           />
+         </svg>
+       </div>
+
+       {/* 5. TEXTO DE RODAPÉ MINIMALISTA */}
+       <motion.div 
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         transition={{ delay: 1.5 }}
+         className="absolute bottom-12 flex flex-col items-center"
+       >
+         <div className="h-10 w-px bg-gradient-to-b from-igreja-dourado to-transparent mb-4" />
+         <p className="font-roboto text-[9px] tracking-[0.8em] text-slate-400 uppercase">
+           Igreja Presbiteriana de Imbituba
+         </p>
+       </motion.div>
+     </motion.div>
+   );
+ }
+
+
+
+
+
+ Modelos de janela
+
+ export default function Loading() {
+   return (
+     <motion.div 
+       exit={{ opacity: 0 }}
+       className="fixed inset-0 z-[200] flex items-center justify-center bg-[#1a1a1a] overflow-hidden"
+     >
+       {/* 1. AS CAMADAS DE FUNDO (Efeito de persiana/páginas) */}
+       <motion.div 
+         initial={{ y: "-100%" }}
+         animate={{ y: "-50%" }}
+         transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+         className="absolute top-0 left-0 w-full h-full bg-igreja-teal z-10"
+       />
+       <motion.div 
+         initial={{ y: "100%" }}
+         animate={{ y: "50%" }}
+         transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+         className="absolute top-0 left-0 w-full h-full bg-igreja-teal z-10"
+       />
+
+       {/* 2. O CONTEÚDO CENTRAL (Revelado pela fenda) */}
+       <div className="relative z-20 flex flex-col items-center">
+        
+         {/* Logo que surge por trás de uma máscara */}
+         <div className="overflow-hidden">
+           <motion.div
+             initial={{ y: 100, opacity: 0 }}
+             animate={{ y: 0, opacity: 1 }}
+             transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+             className="relative w-24 h-24 mb-6"
+           >
+             <Image 
+               src={logoIgreja} 
+               alt="Logo" 
+               fill 
+               className="object-contain brightness-0 invert opacity-90" 
+             />
+           </motion.div>
+         </div>
+
+         {/* Texto com efeito de "Sombra" e brilho */}
+         <motion.div
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ delay: 1.2, duration: 1 }}
+           className="text-center"
+         >
+           <h2 className="font-ibarra text-3xl text-white font-extralight tracking-[0.3em] uppercase">
+             Imbituba
+           </h2>
+          
+           {/* Linha de progresso central que nasce do meio */}
+           <motion.div 
+             initial={{ width: 0 }}
+             animate={{ width: 120 }}
+             transition={{ delay: 1.5, duration: 2, ease: "easeInOut" }}
+             className="h-[1px] bg-igreja-dourado mx-auto mt-4"
+           />
+         </motion.div>
+       </div>
+
+       {/* 3. ELEMENTOS DE TEXTO VERTICAIS (Estilo Editorial) */}
+       <motion.div 
+         initial={{ opacity: 0, x: -20 }}
+         animate={{ opacity: 0.3, x: 0 }}
+         transition={{ delay: 1.8 }}
+         className="absolute left-10 top-1/2 -translate-y-1/2 hidden md:block"
+       >
+         <p className="[writing-mode:vertical-lr] text-white font-roboto text-[10px] tracking-[1em] uppercase">
+           Soli Deo Gloria
+         </p>
+       </motion.div>
+
+       <motion.div 
+         initial={{ opacity: 0, x: 20 }}
+         animate={{ opacity: 0.3, x: 0 }}
+         transition={{ delay: 1.8 }}
+         className="absolute right-10 top-1/2 -translate-y-1/2 hidden md:block"
+       >
+         <p className="[writing-mode:vertical-lr] text-white font-roboto text-[10px] tracking-[1em] uppercase rotate-180">
+           Reforma 1517
+         </p>
+       </motion.div>
+
+       {/* 4. O DETALHE FINAL: Partículas de "Poeira de Luz" */}
+       {[...Array(5)].map((_, i) => (
+         <motion.div
+           key={i}
+           animate={{ 
+             y: [0, -100],
+             opacity: [0, 0.5, 0],
+             x: [0, (i % 2 === 0 ? 20 : -20)]
+           }}
+           transition={{
+             duration: 4,
+             repeat: Infinity,
+             delay: i * 0.8,
+           }}
+           className="absolute bottom-0 w-1 h-1 bg-igreja-dourado rounded-full blur-[1px]"
+           style={{ left: `${20 * i + 10}%` }}
+         />
+       ))}
+     </motion.div>
+   );
+ }
+
+
+
+ export default function Loading() {
+       return (
+         <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white">
+           {/* <ScaleLoader color="#215D63" height={50} width={6} radius={2} /> */}
+           <GridLoader color="#215D63"/>
+           <p className="mt-4 font-ibarra text-xl text-slate-600 tracking-widest uppercase">
+             Carregando...
+           </p>
+         </div>
+       );
+     }
+    
+     export default function Loading() {
+       const texto = "carregando...";
+       const letras = texto.split("");
+       return (
+         <motion.div
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           exit={{ opacity: 0 }}
+           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white"
+         >
+           {/* Logo com animação de escala e flutuação */}
+           <motion.div
+             animate={{
+               y: [0, -15, 0],
+               scale: [1, 1.05, 1],
+             }}
+             transition={{
+               duration: 3,
+               repeat: Infinity,
+               ease: "easeInOut",
+             }}
+             className="relative w-32 h-32 mb-6"
+           >
+             <Image
+               src={logoIgreja}
+               alt="Logo Igreja"
+               fill
+               className="object-contain "
+             />
+           </motion.div>
+    
+           {/* Nome da Igreja com entrada suave */}
+           <motion.div
+             initial={{ y: 20, opacity: 0 }}
+             animate={{ y: 0, opacity: 1 }}
+             transition={{ delay: 0.5, duration: 0.8 }}
+             className="text-center "
+           >
+             <h2 className="font-ibarra text-2xl mb-5 text-igreja-teal font-bold tracking-tight animate-pulse ">
+               Igreja Presbiteriana de Imbituba
+             </h2>
+    
+             {/* Barrinha de progresso infinita estilizada */}
+             <motion.div 
+               className="mt-4 h-1 bg-igreja-dourado mx-auto rounded-full"
+               initial={{ width: 0 }}
+               animate={{ width: 100 }}
+               transition={{
+                 duration: 1.5,
+                 repeat: Infinity,
+                 ease: "easeInOut",
+               }}
+             />
+           </motion.div>
+        
+         </motion.div>
+       );
+     }
+    
+     export default function Loading() {
+       const texto = "carregando...";
+       const letras = texto.split("");
+    
+       return (
+         <motion.div
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           exit={{ opacity: 0 }}
+           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white"
+           style={{ perspective: 1000 }}  Adiciona profundidade para o efeito 3D
+         >
+           {/* Ícone da Igreja Rodando em 3D (Eixo Y) */}
+           <motion.div
+             animate={{ rotateY: 360 }}
+             transition={{
+               duration: 3,
+               repeat: Infinity,
+               ease: "linear",
+             }}
+             className="relative w-28 h-28 mb-10"
+           >
+             <Image
+               src={logoIgreja}
+               alt="Logo Igreja"
+               fill
+               className="object-contain"
+             />
+           </motion.div>
+    
+           {/* Nome da Igreja */}
+           <h2 className="font-ibarra text-2xl text-igreja-teal font-bold mb-4 animate-bounce">
+             Igreja Presbiteriana de Imbituba
+           </h2>
+    
+           {/* Texto "carregando..." com efeito de onda Maiúscula/Minúscula */}
+           <div className="flex space-x-0.5">
+             {letras.map((letra, i) => (
+               <motion.span
+                 key={i}
+                 className="font-roboto text-lg text-igreja-dourado font-medium"
+                 animate={{
+                    O efeito de "Maiúscula" é simulado aumentando o tamanho e mudando o peso
+                   textTransform: ["lowercase", "uppercase", "lowercase"],
+                   scale: [1, 1.4, 1],
+                   color: ["#A28951", "#215D63", "#A28951"],
+    
+                 }}
+                 transition={{
+                   duration: 1,
+                   repeat: Infinity,
+                   delay: i * 0.1,  Velocidade da onda
+                   ease: "easeInOut"
+                 }}
+               >
+                 {letra === " " ? "\u00A0" : letra}
+               </motion.span>
+             ))}
+           </div>
+         </motion.div>
+       );
+     }
+    
+     export default function Loading() {
+       return (
+         <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white">
+           {/* Logo com animação de pulso do Tailwind */}
+    
+           <div className="relative w-32 h-32 animate-pulse">
+    
+             <Image
+               src={logoIgreja}
+               alt="Carregando..."
+               fill
+               className="object-contain"
+             />
+           </div>
+    
+           {/* Texto com movimento suave */}
+           <div className="mt-8 text-center animate-bounce">
+             <p className="font-ibarra text-2xl text-igreja-teal font-bold tracking-tight">
+               Igreja Presbiteriana de Imbituba
+            </p>
+            <p className="text-xs text-slate-400 uppercase tracking-[0.3em] mt-2">
+              Carregando conteúdo
+             </p>
+          </div>
+    
+         </div>
+       );
+     }

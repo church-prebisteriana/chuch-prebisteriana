@@ -1,0 +1,139 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, Circle } from "lucide-react";
+
+// Assets
+import churchMembers from "@/src/app/image/igreja/fotos dos membros da igreja.jpg";
+import photo1 from "@/src/app/image/minister/ministries-1-390x495.png";
+import photo2 from "@/src/app/image/minister/ministries-1-390x495.jpg";
+import photo3 from "@/src/app/image/minister/ministries-10-390x495.png";
+import photo4 from "@/src/app/image/minister/fotos de crianças.png";
+import photo5 from "@/src/app/image/minister/ministries-7-1200x800-original.jpg";
+
+export default function MinistriesPage() {
+  const ministries = [
+    { id: "01", title: "UPH", label: "Homens", img: photo1, side: "left" },
+    { id: "02", title: "SAF", label: "Mulheres", img: photo2, side: "right" },
+    { id: "03", title: "UPA", label: "Adolescentes", img: photo3, side: "left" },
+    { id: "04", title: "UCP", label: "Crianças", img: photo4, side: "right" },
+    { id: "05", title: "CASAIS", label: "Famílias", img: photo5, side: "left" },
+  ];
+
+  return (
+    <section className="bg-[#0a0d0a] text-[#d1d5db] min-h-screen pb-40">
+      {/* 1. HEADER MINIMALISTA E BRUTALISTA */}
+      <div className="relative h-[60vh] flex flex-col justify-end px-6 md:px-20 pb-20 border-b border-lime-500/20">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 grayscale">
+            <Image src={churchMembers} alt="Igreja" fill className="object-cover" />
+        </div>
+        
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="relative z-10"
+        >
+          <h1 className="text-7xl md:text-[12rem] font-black leading-[0.8] tracking-tighter text-lime-400">
+            CORPO <br /> ATIVO.
+          </h1>
+          <p className="mt-8 max-w-xl text-xl md:text-2xl font-light text-lime-100/60 uppercase tracking-widest">
+            A engrenagem do reino através do serviço.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* 2. LINHA DO TEMPO / RADAR CENTRAL */}
+      <div className="relative max-w-7xl mx-auto px-6 py-40">
+        
+        {/* Linha Central Decorativa */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-lime-500/50 via-lime-500/10 to-transparent hidden md:block" />
+
+        <div className="space-y-40 md:space-y-80">
+          {ministries.map((item, index) => (
+            <div 
+              key={index} 
+              className={`flex flex-col md:flex-row items-center justify-between w-full ${
+                item.side === "right" ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              {/* BLOCO DE IMAGEM */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="relative w-full md:w-[45%] aspect-video rounded-2xl overflow-hidden border border-lime-500/30 group"
+              >
+                <Image 
+                  src={item.img} 
+                  alt={item.title} 
+                  fill 
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                />
+                <div className="absolute inset-0 bg-lime-950/40 group-hover:opacity-0 transition-opacity" />
+              </motion.div>
+
+              {/* PONTO CENTRAL (RADAR) */}
+              <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center">
+                <motion.div 
+                   whileInView={{ scale: [1, 1.5, 1] }}
+                   transition={{ repeat: Infinity, duration: 2 }}
+                   className="w-4 h-4 bg-lime-400 rounded-full shadow-[0_0_20px_#a3e635]" 
+                />
+              </div>
+
+              {/* BLOCO DE TEXTO */}
+              <motion.div 
+                initial={{ opacity: 0, x: item.side === "left" ? 50 : -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className={`w-full md:w-[40%] mt-10 md:mt-0 ${
+                    item.side === "right" ? "text-left" : "md:text-right"
+                }`}
+              >
+                <span className="text-lime-500 font-mono text-xl mb-4 block">{item.id}</span>
+                <h2 className="text-6xl md:text-9xl font-black text-white leading-none mb-4 group-hover:text-lime-400 transition-colors uppercase">
+                  {item.title}
+                </h2>
+                <p className="text-xl md:text-2xl text-zinc-500 font-medium tracking-tight mb-6 uppercase">
+                  {item.label}
+                </p>
+                <button className={`flex items-center gap-3 text-lime-400 font-bold uppercase tracking-widest text-sm hover:gap-6 transition-all ${
+                    item.side === "right" ? "justify-start" : "md:justify-end justify-start"
+                }`}>
+                  Explorar <ArrowRight size={18} />
+                </button>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 3. RODAPÉ DE ALTO IMPACTO (FOOTER DE ENCERRAMENTO) */}
+      <div className="px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="max-w-7xl mx-auto bg-lime-400 text-black p-12 md:p-32 rounded-[2rem] flex flex-col items-center text-center overflow-hidden relative"
+        >
+          {/* Elemento de fundo decorativo */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+             <div className="scale-[3] rotate-12 font-black text-black text-[20rem] leading-none">
+                ACTION
+             </div>
+          </div>
+
+          <h3 className="relative z-10 text-4xl md:text-8xl font-black uppercase leading-[0.8] mb-12">
+            NÃO SEJA APENAS <br /> UM OUVINTE.
+          </h3>
+          <p className="relative z-10 text-xl md:text-3xl font-bold max-w-2xl mb-12">
+             Toda grande obra começa com um "estou aqui". Encontre seu ministério e sirva.
+          </p>
+          <button className="relative z-10 px-16 py-8 bg-black text-lime-400 rounded-full font-black text-2xl hover:scale-105 transition-transform shadow-2xl">
+            ENCONTRAR MEU LUGAR
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
