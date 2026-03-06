@@ -1,0 +1,155 @@
+import HeroSection from "@/src/components/ui/HeroBanner";
+import photo1 from "@/public/image/hystoryIPB_Imb/history.jpg";
+import photo2 from "@/public/image/hystoryIPB_Imb/sala local.jpg";
+import Image from "next/image";
+import Land from "@/public/image/hystoryIPB_Imb/terreno.jpg";
+import HandMass from "@/public/image/hystoryIPB_Imb/Projeto Mão na massa 2.jpg";
+import inauguration from "@/public/image/hystoryIPB_Imb/inauguração.jpg";
+
+export default function HystoryIPB_Imbituba() {
+  return (
+    <div className="bg-[#0a0a0a] text-[#e0e0e0] min-h-screen font-sans selection:bg-blue-600">
+      {/* 1. HERO EXPERIMENTAL */}
+      <section className="relative h-[90vh] overflow-hidden">
+        <Image 
+          src={photo1} 
+          alt="História" 
+          fill 
+          className="object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+        <div className="absolute bottom-10 left-4 md:left-20 z-10">
+          <span className="text-blue-500 font-mono tracking-[0.5em] uppercase text-sm">Est. 2016</span>
+          <h1 className="text-6xl md:text-[10rem] font-black leading-none tracking-tighter text-white uppercase italic">
+            Origens<span className="text-blue-600">.</span>
+          </h1>
+        </div>
+      </section>
+
+      <main className="max-w-[1400px] mx-auto px-6 py-20 relative">
+        
+        {/* 2. INTRODUÇÃO ASSIMÉTRICA */}
+        <section className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-40">
+          <div className="md:col-span-7">
+            <h2 className="text-4xl md:text-6xl font-bold mb-10 leading-tight">
+              A preciosa boa mão do Senhor sobre <span className="text-blue-600">Imbituba</span>.
+            </h2>
+            <div className="space-y-6 text-lg text-neutral-400 text-justify">
+              <p>
+                O processo iniciou com o Rev. Emerson Baran Santos e sua família, 
+                convidados pela JMN em 2016. Chegaram em 30/12/2016 em uma cidade 
+                onde 83% da população ainda carecia do anúncio do Evangelho.
+              </p>
+              <p>
+                O missionário percorreu todas as ruas de 20 bairros, por 3 vezes, 
+                pregando e orando à medida que as pessoas pediam. Os primeiros cultos? 
+                No salão da casa da família.
+              </p>
+            </div>
+          </div>
+          <div className="md:col-span-5 relative mt-12 md:mt-0">
+             <div className="sticky top-20 border-l-2 border-blue-600 pl-8 space-y-4">
+                <p className="text-xs font-mono uppercase tracking-widest text-neutral-500">Demografia 2017</p>
+                <p className="text-4xl font-black">45.000 <span className="text-sm font-light uppercase">Habitantes</span></p>
+                <p className="text-neutral-500">Hoje somos mais de 54.000 vidas alcançadas pela graça.</p>
+             </div>
+          </div>
+        </section>
+
+        {/* 3. O PRIMEIRO LOCAL (GRID MÁSCARA) */}
+        <section className="relative mb-60">
+          <div className="absolute -top-20 right-0 text-[15vw] font-black text-white/[0.03] select-none pointer-events-none">
+            LOCUS
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-12 items-center">
+            <div className="md:col-span-6 relative z-10">
+              <div className="bg-blue-600 p-8 md:p-16 shadow-2xl">
+                <h3 className="text-3xl font-black uppercase mb-6">Primeiro Local</h3>
+                <p className="leading-relaxed text-justify">
+                  Com a graça do bom Deus, alugamos um salão na Av. Brasil. 
+                  O objetivo era o discipulado nos lares: falar do Evangelho, 
+                  ensinar a seguir a Cristo e tirar dúvidas bíblicas. 
+                  Desde o início, sustentamos missões de Laguna à Austrália.
+                </p>
+              </div>
+            </div>
+            <div className="md:col-span-8 md:col-start-5 mt-[-50px] md:mt-0">
+              <Image 
+                src={photo2} 
+                alt="Primeiro Local" 
+                className="w-full h-[500px] object-cover rounded-none grayscale group-hover:grayscale-0 transition-all shadow-2xl" 
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 4. A VIDA DA IGREJA (BENTO BOX DARK) */}
+        <section className="mb-60">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="md:col-span-2 bg-neutral-900 p-10 flex flex-col justify-between border border-neutral-800">
+               <h4 className="text-5xl font-black italic">16 frentes de trabalho constante.</h4>
+               <p className="mt-10 text-neutral-400">Escola Dominical (6 classes), Grupos Familiares, Mini-Vigílias, Sociedades Internas e apoio missionário global.</p>
+            </div>
+            <div className="bg-blue-600 p-10 font-bold text-2xl">
+              Fé Reformada: Doutrina que atrai corações cansados de ensinos falsos.
+            </div>
+            <div className="bg-neutral-800 p-10 text-sm md:col-span-3">
+               Catecúmenos (52h de aula), Mensagens em Redes Sociais, Eventos Especiais, Aconselhamento e Visitação.
+            </div>
+          </div>
+        </section>
+
+        {/* 5. MÃO NA MASSA (VISUAL BRUTALISTA) */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-0 mb-60 bg-white text-black">
+          <div className="relative h-[600px]">
+            <Image src={Land} alt="Terreno" fill className="object-cover" />
+            <div className="absolute inset-0 bg-blue-600/20" />
+          </div>
+          <div className="p-12 md:p-24 flex flex-col justify-center">
+            <h2 className="text-5xl font-black uppercase mb-8 leading-none">Terreno & <br/>Mão na Massa</h2>
+            <p className="text-lg leading-relaxed text-justify mb-8">
+              31 voluntários. 30 dias. Um templo de 34x11 metros erguido para a glória de Deus. 
+              Sob a coordenação do Presb. Paulo Ivo e em parceria com a Confederação Nacional de UPHs.
+            </p>
+            <div className="relative h-64 w-full">
+              <Image src={HandMass} alt="Obra" fill className="object-cover grayscale" />
+            </div>
+          </div>
+        </section>
+
+        {/* 6. A ORGANIZAÇÃO (O FINAL) */}
+        <section className="relative">
+          <div className="flex flex-col items-center text-center space-y-12">
+            <Image 
+              src={inauguration} 
+              alt="Inauguração" 
+              width={1000} 
+              height={600} 
+              className="rounded-none shadow-[40px_40px_0px_0px_rgba(37,99,235,1)]"
+            />
+            
+            <div className="max-w-3xl space-y-8 pt-20">
+              <h2 className="text-5xl font-black uppercase italic tracking-tighter">03 de Dezembro de 2023</h2>
+              <div className="h-[2px] w-40 bg-blue-600 mx-auto" />
+              <p className="text-2xl font-light text-neutral-300">
+                O dia em que o campo missionário da JMN tornou-se oficialmente a 
+                <strong> Igreja Presbiteriana de Imbituba</strong>.
+              </p>
+              <p className="text-neutral-500 text-justify">
+                Agradecemos à JMN, ao antigo Presbitério de Florianópolis, ao PLSC 
+                e a cada irmão que cooperou desde 2017. Toda a honra e glória ao nosso Deus!
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      {/* FOOTER SOLI DEO GLORIA */}
+      <footer className="py-40 text-center border-t border-neutral-900">
+        <h3 className="text-[10vw] font-black opacity-10 tracking-widest leading-none">SOLI DEO GLORIA</h3>
+      </footer>
+    </div>
+  );
+}

@@ -1,0 +1,115 @@
+"use client";
+import ButtonComponent from "@/src/components/form/Button";
+import FormFields from "@/src/components/form/FormInput";
+import SocialButtons from "@/src/components/ui/social_icons";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { FaArrowRight, FaTerminal } from "react-icons/fa";
+
+export default function PageContacts() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const HandleChange = (e: any) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  return (
+    <div className="min-h-screen bg-white p-4 md:p-10 font-mono text-black">
+      {/* GRID SISTÊMICO BRUTALISTA */}
+      <div className="max-w-7xl mx-auto border-[4px] border-black">
+        
+        {/* TÍTULO IMPACTANTE - ESTILO MANCHETE */}
+        <div className="border-b-[4px] border-black p-6 bg-igreja-teal text-white">
+          <h1 className="text-5xl md:text-9xl font-black uppercase leading-none tracking-tighter">
+            CONTATO_ <br /> IMEDIATO
+          </h1>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          
+          {/* COLUNA DE INFORMAÇÕES (CRUAS) */}
+          <div className="border-b-[4px] lg:border-b-0 lg:border-r-[4px] border-black p-8 flex flex-col justify-between space-y-12">
+            <section className="space-y-6">
+              <div className="bg-black text-white inline-block px-4 py-1 text-sm font-bold uppercase">
+                Status: Aberto para visitas
+              </div>
+              <p className="text-2xl font-bold leading-tight uppercase">
+                Não somos uma empresa. Somos pessoas. <br /> 
+                Venha como você está, sem filtros.
+              </p>
+              
+              <div className="space-y-2 text-lg">
+                <p className="border-l-4 border-igreja-dourado pl-4 font-bold">LOCAL: Av. Vinte Um de Junho, s/n - Centro</p>
+                <p className="border-l-4 border-igreja-dourado pl-4 font-bold">ZAP: (48) 99868-0229</p>
+                <p className="border-l-4 border-igreja-dourado pl-4 font-bold">MAIL: ipbimbituba@gmail.com</p>
+              </div>
+            </section>
+
+            <section>
+              <p className="mb-4 font-black uppercase underline decoration-4 decoration-igreja-teal">Nossas Redes //</p>
+              <SocialButtons className="justify-start gap-8" size={30} />
+            </section>
+          </div>
+
+          {/* COLUNA DO FORMULÁRIO (ESTILO "INPUT DE SISTEMA") */}
+          <div className="p-8 bg-gray-50">
+            <div className="flex items-center gap-2 mb-8 text-igreja-teal">
+              <FaTerminal />
+              <span className="font-black uppercase tracking-widest">Input_Data_System</span>
+            </div>
+
+            <form className="space-y-8">
+              <div className="group">
+                <label className="block font-black uppercase text-xs mb-2 group-focus-within:text-igreja-teal">01. Identificação</label>
+                <FormFields 
+                  name="name" 
+                  placeholder="DIGITE SEU NOME" 
+                  onChange={HandleChange} 
+                  value={formData.name}
+                  className="w-full bg-transparent border-b-4 border-black p-4 text-xl font-bold placeholder:text-gray-300 focus:outline-none focus:border-igreja-teal transition-colors"
+                />
+              </div>
+
+              <div className="group">
+                <label className="block font-black uppercase text-xs mb-2 group-focus-within:text-igreja-teal">02. Canal de Retorno</label>
+                <FormFields 
+                  name="email" 
+                  placeholder="SEU@EMAIL.COM" 
+                  onChange={HandleChange} 
+                  value={formData.email}
+                  className="w-full bg-transparent border-b-4 border-black p-4 text-xl font-bold placeholder:text-gray-300 focus:outline-none focus:border-igreja-teal transition-colors"
+                />
+              </div>
+
+              <div className="group">
+                <label className="block font-black uppercase text-xs mb-2 group-focus-within:text-igreja-teal">03. O que você tem a dizer?</label>
+                <FormFields 
+                  name="message" 
+                  type="textarea"
+                  placeholder="ESCREVA AQUI..." 
+                  onChange={HandleChange} 
+                  value={formData.message}
+                  className="w-full bg-transparent border-b-4 border-black p-4 text-xl font-bold placeholder:text-gray-300 focus:outline-none focus:border-igreja-teal min-h-[120px] transition-colors"
+                />
+              </div>
+
+              <motion.button 
+                whileTap={{ scale: 0.95, x: 5, y: 5 }}
+                className="w-full bg-black text-white p-6 font-black text-2xl uppercase flex items-center justify-center gap-4 hover:bg-igreja-teal hover:text-white transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none active:shadow-none"
+              >
+                EXECUTAR ENVIO <FaArrowRight />
+              </motion.button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      {/* RODAPÉ BRUTALISTA */}
+      <footer className="max-w-7xl mx-auto mt-4 flex justify-between items-center text-[10px] font-bold uppercase">
+        <p>© 2026 IPB IMBITUBA // SEM DIREITOS RESERVADOS À BELEZA VAZIA</p>
+        <p>BUILD_VERSION: 3.5.0</p>
+      </footer>
+    </div>
+  );
+}

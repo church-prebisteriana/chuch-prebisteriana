@@ -240,6 +240,7 @@ import official2 from "@/public/image/igreja/advice/ronaldo.jpg";
 import confession from "@/public/image/minister/confissão de fé.png";
 import catecismoMaior from "@/public/image/minister/catecismo maior.png";
 import catecismoMenos from "@/public/image/minister/catecismo menor.png";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function SectionChurch() {
   const containerRef = useRef(null);
@@ -252,6 +253,8 @@ export default function SectionChurch() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [currentIndex2, setCurrentIndex2] = useState(0);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const nextItem2 = () => {
     setCurrentIndex2((prev) => (prev + 1) % historyCards.length);
@@ -283,18 +286,21 @@ export default function SectionChurch() {
       subtitle: "Imbituba",
       img: photo1,
       color: "bg-igreja-teal",
+      href: "/church/hystoryIPB_Imbituba",
     },
     {
       title: "Raízes Reformadas",
       subtitle: "IPB Brasil",
       img: photo2,
       color: "bg-slate-800",
+      href: "/church/hystoryIPB",
     },
     {
       title: "Nossa Doutrina",
       subtitle: "Manual",
       img: photo3,
       color: "bg-amber-700",
+      href: "/church/hystoryIPB_Imbituba",
     },
   ];
 
@@ -318,6 +324,15 @@ export default function SectionChurch() {
       bio: "Zelando com integridade pela mordomia cristã.",
     },
   ];
+
+  const handleNavigation = (href?: string) => {
+    if (!href || href === "#") return;
+    if (href === pathname) {
+      return;
+    }
+
+    router.push(href);
+  };
 
   useEffect(() => {
     const updateSize = () => {
@@ -417,6 +432,7 @@ export default function SectionChurch() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
+                onClick={() => handleNavigation(item.href)}
                 // Flex no desktop, Hidden no mobile se não for o ativo
                 className={`w-full ${isVisible ? "flex" : "hidden lg:flex"}`}
               >
@@ -462,6 +478,7 @@ export default function SectionChurch() {
         <div className="flex lg:hidden items-center justify-between mt-10 px-4 max-w-[450px] mx-auto">
           <button
             onClick={prevItem2}
+            
             className="p-4 rounded-full bg-zinc-900 text-white active:scale-95 transition-transform"
           >
             <ArrowLeft size={24} />

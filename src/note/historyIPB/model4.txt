@@ -1,0 +1,131 @@
+import HeroSection from "@/src/components/ui/HeroBanner";
+import photo1 from "@/public/image/hystoryIPB_Imb/history.jpg";
+import photo2 from "@/public/image/hystoryIPB_Imb/sala local.jpg";
+import Image from "next/image";
+import Land from "@/public/image/hystoryIPB_Imb/terreno.jpg";
+import HandMass from "@/public/image/hystoryIPB_Imb/Projeto Mão na massa 2.jpg";
+import inauguration from "@/public/image/hystoryIPB_Imb/inauguração.jpg";
+
+export default function HistoryIPB_Imbituba() {
+  return (
+    <div className="bg-[#0a0a0a] text-white selection:bg-blue-500">
+      {/* 1. INTRODUÇÃO MONUMENTAL */}
+      <section className="relative h-screen flex flex-col justify-end p-8 md:p-20 overflow-hidden">
+        <Image 
+          src={photo1} 
+          alt="História IPB" 
+          fill 
+          className="object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000"
+        />
+        <div className="relative z-10 max-w-5xl">
+          <span className="text-blue-500 font-mono tracking-[0.3em] uppercase mb-4 block animate-pulse">
+            Desde 2016 • Imbituba/SC
+          </span>
+          <h1 className="text-6xl md:text-[120px] font-black leading-[0.9] tracking-tighter mb-8">
+            NOSSA <br /> HISTÓRIA.
+          </h1>
+          <p className="text-xl md:text-3xl font-light text-slate-300 leading-tight max-w-3xl">
+            "De fato, o Senhor foi gracioso... onde se viu a sua preciosa boa mão."
+          </p>
+        </div>
+      </section>
+
+      {/* 2. O CHAMADO (TEXTO FLUTUANTE) */}
+      <section className="py-32 px-6 flex justify-center">
+        <div className="max-w-4xl">
+          <p className="text-2xl md:text-4xl leading-relaxed text-justify font-light text-slate-400">
+            O processo iniciou com o <span className="text-white font-medium">Rev. Emerson Baran Santos</span> em setembro de 2016. 
+            A chegada em Imbituba, no dia 30/12/2016, trouxe uma família movida por grandes expectativas. 
+            Em uma cidade de <span className="text-blue-500">54.000 habitantes</span>, onde 83% da população ainda aguardava o anúncio do Evangelho Reformado.
+          </p>
+        </div>
+      </section>
+
+      {/* 3. A CAMINHADA (VISUAL SPLIT) */}
+      <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen items-center">
+        <div className="p-8 md:p-20 space-y-12">
+          <h2 className="text-5xl font-bold tracking-tighter italic text-blue-500">O Primeiro Local</h2>
+          <p className="text-lg text-slate-400 leading-relaxed text-justify">
+            Até agosto, os cultos eram realizados num pequeno salão na casa da família missionária. 
+            Raramente vinham visitantes. Mas o missionário não parou: percorreu as ruas de 20 bairros, por 3 vezes, 
+            anunciando a Cristo. Depois, o Senhor proveu um salão na Av. Brasil e, em 2021, chegamos ao centro, na Av. Santa Catarina.
+          </p>
+          <div className="border-l-2 border-blue-500 pl-6 py-2">
+            <p className="text-sm font-mono uppercase tracking-widest text-slate-500">Estratégia</p>
+            <p className="text-xl italic">"Discipulado nos lares, tirando dúvidas e ensinando a necessidade de seguir a Cristo."</p>
+          </div>
+        </div>
+        <div className="relative h-full min-h-[500px]">
+          <Image src={photo2} alt="Primeiro Local" fill className="object-cover" />
+        </div>
+      </section>
+
+      {/* 4. A VIDA DA IGREJA (GRID DINÂMICO) */}
+      <section className="py-32 bg-white text-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-[10vw] font-black leading-none mb-20 opacity-10 select-none">EDIFICAÇÃO</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div className="space-y-4">
+              <span className="text-4xl font-bold text-blue-600">01.</span>
+              <h3 className="text-2xl font-bold uppercase">Cultos e EBD</h3>
+              <p className="text-slate-600">Escola Dominical com 6 classes, desde o berçário até adultos e catecúmenos.</p>
+            </div>
+            <div className="space-y-4">
+              <span className="text-4xl font-bold text-blue-600">02.</span>
+              <h3 className="text-2xl font-bold uppercase">Sociedades</h3>
+              <p className="text-slate-600">UPH, SAF, UMP e atividades constantes com casais, adolescentes e crianças.</p>
+            </div>
+            <div className="space-y-4">
+              <span className="text-4xl font-bold text-blue-600">03.</span>
+              <h3 className="text-2xl font-bold uppercase">Missões</h3>
+              <p className="text-slate-600">Sustento a 4 missionários: de Laguna à Austrália. Um campo que faz missões.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PROJETO MÃO NA MASSA (IMERSÃO TOTAL) */}
+      <section className="relative py-40 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative aspect-video shadow-2xl overflow-hidden rounded-lg">
+            <Image src={HandMass} alt="Obra" fill className="object-cover" />
+          </div>
+          <div className="space-y-6">
+            <h2 className="text-4xl font-black uppercase tracking-tighter">Projeto Mão na Massa</h2>
+            <p className="text-slate-400 text-lg leading-relaxed">
+              31 voluntários vindos de toda a parte do Brasil realizaram a obra em 30 dias. 
+              Um templo de 34x11 metros erguido por mãos voluntárias sob a coordenação do Presb. Paulo Ivo. 
+              A inauguração em 02/12/2023 foi o coroamento dessa bênção.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. O DESFECHO (MINIMALISMO FINAL) */}
+      <section className="py-40 bg-black flex flex-col items-center px-6">
+        <div className="max-w-3xl text-center space-y-12">
+          <div className="relative inline-block">
+            <Image src={inauguration} alt="Inauguração" width={900} height={500} className="rounded-sm grayscale opacity-60 hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 border-[20px] border-black/50 pointer-events-none"></div>
+          </div>
+          
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Igreja Organizada</h2>
+            <p className="text-slate-500 text-lg leading-relaxed">
+              Em 03/12/2023, por decisão do PLSC, o campo missionário tornou-se oficialmente a 
+              <span className="text-white"> Igreja Presbiteriana de Imbituba</span>. 
+              Registramos nosso agradecimento à JMN, aos intercessores e a cada membro que cooperou desde 2017.
+            </p>
+          </div>
+
+          <div className="pt-20">
+            <h3 className="text-5xl md:text-7xl font-black text-blue-600 tracking-tighter italic">
+              SOLI DEO GLORIA
+            </h3>
+            <p className="mt-4 text-slate-600 font-mono tracking-widest uppercase text-xs">A Deus toda a honra e toda a glória</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

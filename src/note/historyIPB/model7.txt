@@ -1,0 +1,110 @@
+import HeroSection from "@/src/components/ui/HeroBanner";
+import photo1 from "@/public/image/hystoryIPB_Imb/history.jpg";
+import photo2 from "@/public/image/hystoryIPB_Imb/sala local.jpg";
+import Image from "next/image";
+import Land from "@/public/image/hystoryIPB_Imb/terreno.jpg";
+import HandMass from "@/public/image/hystoryIPB_Imb/Projeto Mão na massa 2.jpg";
+import inauguration from "@/public/image/hystoryIPB_Imb/inauguração.jpg";
+
+export default function HystoryIPB_Imbituba() {
+  return (
+    <div className="bg-gray-50 min-h-screen pb-20">
+      <HeroSection title="Nossa História" image={photo1} />
+
+      <div className="max-w-5xl mx-auto px-6 mt-16">
+        <header className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">IPB Imbituba</h1>
+          <div className="h-1 w-24 bg-blue-600 mx-auto rounded-full"></div>
+          <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            Uma jornada de fé, perseverança e a manifestação da graça de Deus no litoral catarinense.
+          </p>
+        </header>
+
+        {/* --- TIMELINE CONTAINER --- */}
+        <div className="relative border-l-4 border-blue-200 ml-4 md:ml-0 md:left-1/2 md:-translate-x-1/2">
+          
+          {/* 1. O Início */}
+          <TimelineItem date="Setembro / 2016" title="O Chamado Missionário" side="left">
+            <p className="text-gray-700 leading-relaxed">
+              O Rev. Emerson Baran Santos aceitou o desafio da Junta de Missões Nacionais (JMN) para plantar uma igreja em Imbituba. 
+              A família chegou à cidade em 30/12/2016, encarando o desafio de evangelizar uma população de 83% de católicos nominais e espíritas.
+            </p>
+          </TimelineItem>
+
+          {/* 2. Primeiro Local */}
+          <TimelineItem date="Agosto / 2017" title="Primeiro Local de Culto" side="right" image={photo2}>
+            <p className="text-gray-700">
+              Após meses de cultos no salão da casa missionária, o Senhor providenciou o primeiro salão na Av. Brasil. 
+              Foi um tempo de discipulado intenso nos lares e distribuição estratégica de folhetos por 20 bairros da cidade.
+            </p>
+          </TimelineItem>
+
+          {/* 3. Atividades e Crescimento (Sem imagem para variar) */}
+          <TimelineItem date="2017 - 2021" title="Edificação e Missões" side="left">
+            <div className="grid grid-cols-1 gap-2 text-sm text-gray-600 italic">
+              <p>• Escola Dominical com 6 classes • Grupos Familiares • Apoio missionário internacional</p>
+              <p className="mt-2 not-italic text-gray-700">
+                Mesmo com os desafios da pandemia em 2020, a "boa mão do Senhor" não parou de agir, consolidando a Fé Reformada no coração dos novos membros.
+              </p>
+            </div>
+          </TimelineItem>
+
+          {/* 4. O Terreno */}
+          <TimelineItem date="Novembro / 2021" title="A Conquista do Terreno" side="right" image={Land}>
+            <p className="text-gray-700">
+              A igreja mudou-se para a Av. Santa Catarina, expandindo sua capacidade. O foco no Evangelho puro atraiu crentes decepcionados com falsos ensinos, fortalecendo a identidade presbiteriana na região.
+            </p>
+          </TimelineItem>
+
+          {/* 5. Mão na Massa */}
+          <TimelineItem date="Dezembro / 2023" title="Projeto Mão na Massa" side="left" image={HandMass}>
+            <p className="text-gray-700">
+              Uma mobilização incrível! 31 voluntários de todo o Brasil construíram nosso templo de 34x11 metros em apenas 30 dias. 
+              Um testemunho vivo de unidade e serviço ao Reino.
+            </p>
+          </TimelineItem>
+
+          {/* 6. Inauguração */}
+          <TimelineItem date="03 de Dezembro / 2023" title="Organização da Igreja" side="right" image={inauguration} highlight>
+            <p className="text-gray-700 font-medium">
+              O marco histórico: de campo missionário à Igreja Organizada sob a jurisdição do Presbitério Litorâneo Sul Catarinense. 
+              Toda a honra e glória ao nosso Deus por estes 7 anos de graça!
+            </p>
+          </TimelineItem>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Sub-componente para organizar a Timeline
+function TimelineItem({ date, title, children, side, image, highlight = false }) {
+  const isLeft = side === "left";
+  
+  return (
+    <div className={`relative mb-12 md:w-1/2 ${isLeft ? "md:pr-12 md:text-right" : "md:ml-auto md:pl-12 text-left"}`}>
+      {/* Círculo na linha */}
+      <div className="absolute top-0 w-8 h-8 bg-blue-600 border-4 border-white rounded-full -left-[20px] md:left-auto md:right-[-16px] z-10 hidden md:block"></div>
+      
+      <div className={`p-6 rounded-2xl shadow-lg transition-transform hover:scale-[1.02] ${highlight ? "bg-blue-900 text-white" : "bg-white border border-gray-100"}`}>
+        <span className={`text-sm font-bold uppercase tracking-widest ${highlight ? "text-blue-200" : "text-blue-600"}`}>
+          {date}
+        </span>
+        <h3 className={`text-2xl font-bold mt-1 mb-4 ${highlight ? "text-white" : "text-gray-800"}`}>
+          {title}
+        </h3>
+        
+        {image && (
+          <div className="mb-4 overflow-hidden rounded-lg">
+            <Image src={image} alt={title} className="w-full h-48 object-cover hover:scale-110 transition-duration-500" />
+          </div>
+        )}
+        
+        <div className={highlight ? "text-blue-50" : ""}>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}

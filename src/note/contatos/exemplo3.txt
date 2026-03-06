@@ -1,0 +1,173 @@
+"use client";
+import ButtonComponent from "@/src/components/form/Button";
+import FormFields from "@/src/components/form/FormInput";
+import SocialButtons from "@/src/components/ui/social_icons";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { FaTree, FaLeaf, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaSeedling } from "react-icons/fa";
+
+type typeFormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export default function PageContacts() {
+  const [formData, setFormData] = useState<typeFormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const HandleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  return (
+    <div className="min-h-screen bg-[#051f14] text-emerald-50 relative overflow-hidden font-sans flex items-center justify-center p-4">
+      
+      {/* --- EFEITO DE FUNDO: FLORESTA E FOLHAS --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Mancha de Luz da Manhã na Mata */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(16,185,129,0.1),transparent_70%)]" />
+        
+        {/* Folhas caindo suavemente (Particles) */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: "-10vh", x: Math.random() * 100 + "vw", opacity: 0, rotate: Math.random() * 360 }}
+            animate={{ 
+              y: "110vh", 
+              opacity: [0, 1, 1, 0],
+              x: `calc(${Math.random() * 100}vw + ${Math.sin(i) * 100}px)`,
+              rotate: Math.random() * 720
+            }}
+            transition={{ 
+              duration: Math.random() * 10 + 15, // Mais lento e calmo
+              repeat: Infinity, 
+              delay: Math.random() * 20,
+              ease: "linear"
+            }}
+            className="absolute w-3 h-3 text-green-500"
+          >
+             <FaLeaf size={Math.random() * 12 + 10} />
+          </motion.div>
+        ))}
+      </div>
+
+      <main className="relative z-10 w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        {/* COLUNA ESQUERDA: O ACOLHIMENTO DA MATA */}
+        <div className="lg:col-span-5 space-y-8 p-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+          >
+            <div className="flex items-center gap-3 text-emerald-400 mb-4 uppercase tracking-[0.3em] text-xs font-black">
+              <FaSeedling className="animate-pulse" />
+              <span>Raízes e Fé</span>
+            </div>
+            <h1 className="text-7xl md:text-8xl font-black leading-[0.8] tracking-tighter text-white">
+              CULTIVE <br /> 
+              <span className="text-transparent bg-clip-text bg-gradient-to-t from-emerald-800 via-emerald-500 to-green-100 uppercase italic">
+                Sua Fé
+              </span>
+            </h1>
+            <p className="mt-8 text-emerald-200/50 text-xl leading-tight max-w-sm">
+              Uma comunidade que respira vida, onde você pode lançar raízes profundas e florescer.
+            </p>
+          </motion.div>
+
+          {/* Cards de Contato "Biofílicos" */}
+          <div className="space-y-4">
+            {[
+              { icon: <FaMapMarkerAlt />, text: "Imbituba, Centro - SC", label: "Localização" },
+              { icon: <FaEnvelope />, text: "ipbimbituba@gmail.com", label: "E-mail" }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                whileHover={{ x: 10, backgroundColor: "rgba(16, 185, 129, 0.05)" }}
+                className="p-4 border-l-2 border-emerald-900 bg-emerald-950/20 rounded-r-xl transition-all"
+              >
+                <p className="text-[10px] uppercase font-bold text-emerald-700 tracking-widest">{item.label}</p>
+                <div className="flex items-center gap-3 mt-1">
+                  <span className="text-emerald-500">{item.icon}</span>
+                  <span className="text-emerald-100 font-medium">{item.text}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="pt-4">
+            <SocialButtons className="justify-start gap-6" hoverColor="text-emerald-500" />
+          </div>
+        </div>
+
+        {/* COLUNA DIREITA: O FORMULÁRIO "NINHO ORGANICO" */}
+        <motion.div
+          className="lg:col-span-7 relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          {/* Brilho de fundo Orgânico (Glow) */}
+          <div className="absolute -inset-4 bg-emerald-600/10 blur-[60px] rounded-full animate-pulse" />
+
+          <div className="relative bg-[#082a1b] border border-emerald-900/50 p-8 md:p-12 rounded-[2rem] shadow-[0_0_50px_-12px_rgba(16,185,129,0.15)]">
+            <header className="mb-10 flex justify-between items-end">
+              <div>
+                <h2 className="text-3xl font-black text-white uppercase italic">Floresça sua ideia</h2>
+                <div className="h-1 w-20 bg-emerald-600 mt-2" />
+              </div>
+              <FaLeaf size={40} className="text-emerald-700 opacity-20" />
+            </header>
+
+            <form className="space-y-6">
+              <div className="space-y-4">
+                <FormFields 
+                  name="name" 
+                  placeholder="Seu Nome" 
+                  onChange={HandleChange} 
+                  value={formData.name}
+                  className="w-full bg-emerald-950/20 border-emerald-900/40 focus:border-emerald-500 text-emerald-100 placeholder:text-emerald-800 p-5 rounded-xl transition-all"
+                />
+                <FormFields 
+                  name="email" 
+                  placeholder="Seu E-mail" 
+                  onChange={HandleChange} 
+                  value={formData.email}
+                  className="w-full bg-emerald-950/20 border-emerald-900/40 focus:border-emerald-500 text-emerald-100 placeholder:text-emerald-800 p-5 rounded-xl transition-all"
+                />
+                <FormFields 
+                  name="message" 
+                  type="textarea"
+                  placeholder="Deixe sua mensagem germinar aqui..." 
+                  onChange={HandleChange} 
+                  value={formData.message}
+                  className="w-full bg-emerald-950/20 border-emerald-900/40 focus:border-emerald-500 text-emerald-100 placeholder:text-emerald-800 p-5 rounded-xl min-h-[120px] transition-all"
+                />
+              </div>
+
+              <motion.button 
+                whileHover={{ 
+                  scale: 1.02, 
+                  boxShadow: "0 0 25px rgba(16, 185, 129, 0.4)" 
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600 py-6 rounded-2xl text-white font-black uppercase tracking-[0.2em] shadow-xl flex items-center justify-center gap-4 group transition-all"
+              >
+                CULTIVAR CONTATO
+                <FaLeaf className="group-hover:animate-spin" />
+              </motion.button>
+            </form>
+          </div>
+        </motion.div>
+
+      </main>
+
+      {/* FOOTER ESTILO BIOFÍLICO */}
+      <footer className="absolute bottom-6 w-full text-center text-emerald-900 text-[10px] font-bold tracking-[0.5em] uppercase pointer-events-none">
+        IPB Imbituba // Cultivando Fé na Terra
+      </footer>
+    </div>
+  );
+}

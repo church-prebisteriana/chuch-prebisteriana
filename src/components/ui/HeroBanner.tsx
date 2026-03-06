@@ -12,7 +12,7 @@ interface HeroSectionProps {
 export default function HeroSection({
   title,
   image,
-  height = "h-[50vh] md:h-[50rem]",
+  height = "h-[50vh] md:h-[70vh]",
 }: HeroSectionProps) {
   const pathname = usePathname();
   return (

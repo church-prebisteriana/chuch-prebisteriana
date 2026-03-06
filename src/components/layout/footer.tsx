@@ -37,7 +37,7 @@ export default function FooterPage() {
   ];
 
   return (
-    <footer className="bg-gray-100 px-6 md:px-12 py-16 font-roboto border-t border-neutral-200 ">
+    <footer className="bg-gray-50 px-6 md:px-12 py-16 font-roboto border-t border-neutral-200 ">
       {/* A mágica acontece aqui: grid-cols-1 para celular, 
         sm:grid-cols-2 para tablet e md:grid-cols-4 para desktop.
       */}
@@ -65,7 +65,6 @@ export default function FooterPage() {
                   opacity: 0,
                 }}
                 whileInView={{ x: 0, y: 0, opacity: 1 }}
-                viewport={{ once: true }}
                 transition={{
                   type: "spring",
                   stiffness: 80,
@@ -82,7 +81,6 @@ export default function FooterPage() {
                 <motion.ul
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
                   transition={{
                     type: "spring",
                     stiffness: 80,
@@ -103,19 +101,20 @@ export default function FooterPage() {
               ) : (
                 <motion.div
                   initial={{ x: 50, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
+                  whileInView={{ x: 0, opacity: 1 }}
                   transition={{
                     type: "spring",
                     stiffness: 80,
                     damping: 20,
-                    duration: 1.5,
-                    delay: 0.5,
+                    duration: 1,
+                    delay: 0.4,
                   }}
                   className="text-gray-600 text-sm leading-relaxed "
                 >
                   {item.name === "Contato" ? (
                     <div className="flex flex-col gap-4 text-gray-600 w-full md:min-w-[300px]">
                       {/* Bloco de Endereço */}
+
                       <div className="group">
                         <a
                           href="https://maps.google.com/?q=Av.+Vinte+Um+de+Junho,+Imbituba"
@@ -207,8 +206,7 @@ export default function FooterPage() {
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.5 }}
+        transition={{ duration: 1, delay: 0.6 }}
         className="max-w-4xl mx-auto mt-20 pt-10 border-t border-neutral-200 text-center"
       >
         <h4 className="text-igreja-teal font-bold uppercase tracking-widest text-xs mb-4">
@@ -227,7 +225,6 @@ export default function FooterPage() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.8 }}
         className="max-w-6xl mx-auto mt-12 pt-6 border-t border-neutral-100 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-[10px] uppercase tracking-widest"
       >

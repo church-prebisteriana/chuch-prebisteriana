@@ -46,9 +46,9 @@ export default function Navbar() {
       setMenuOpen(false);
       return;
     }
-    setTimeout(() => {
-      setMenuOpen(false);
-    }, 300);
+    // setTimeout(() => {
+    //   setMenuOpen(false);
+    // }, 3000);
 
     router.push(href);
   };
@@ -77,7 +77,7 @@ export default function Navbar() {
         { name: "Vídeos", href: "/media/videos" },
       ],
     },
-    { name: "Contato", href: "/contact" },
+    { name: "Contato", href: "/contacts" },
   ];
 
   return (
@@ -310,7 +310,10 @@ export default function Navbar() {
                 ) : (
                   /* ESTE É O BOTÃO QUE NÃO TEM LISTA */
                   <button
-                    onClick={() => handleNavigation(item.href)}
+                    onClick={() => {
+                      handleNavigation(item.href);
+                      setMenuOpen(false);
+                    }}
                     className={`font-extralight block w-full text-left pl-6 py-4 transition-all duration-200 outline-none
             ${
               isActive

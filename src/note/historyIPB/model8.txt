@@ -1,0 +1,107 @@
+import HeroSection from "@/src/components/ui/HeroBanner";
+import photo1 from "@/public/image/hystoryIPB_Imb/history.jpg";
+import photo2 from "@/public/image/hystoryIPB_Imb/sala local.jpg";
+import Image from "next/image";
+import Land from "@/public/image/hystoryIPB_Imb/terreno.jpg";
+import HandMass from "@/public/image/hystoryIPB_Imb/Projeto Mão na massa 2.jpg";
+import inauguration from "@/public/image/hystoryIPB_Imb/inauguração.jpg";
+
+export default function HistoryIPB_Imbituba() {
+  return (
+    <div className="bg-white text-slate-900 font-sans">
+      <HeroSection title="Nossa História" image={photo1} />
+
+      {/* Introdução Impactante */}
+      <section className="max-w-4xl mx-auto px-6 py-24 text-center">
+        <span className="text-blue-600 font-bold tracking-[0.2em] uppercase text-sm">Desde 2017</span>
+        <h1 className="text-5xl md:text-7xl font-black mt-4 mb-8 tracking-tighter">
+          Uma igreja, <br/><span className="text-slate-400">muitas vidas.</span>
+        </h1>
+        <p className="text-xl text-slate-600 leading-relaxed text-justify md:text-center">
+          O processo de plantação iniciou quando o Rev. Emerson Baran Santos aceitou o convite da JMN em 2016. 
+          A chegada em Imbituba no dia 30/12/2016 marcou o início de uma jornada onde a boa mão do Senhor foi visível em cada passo.
+        </p>
+      </section>
+
+      {/* Seção 01: O Início (Foto de Fundo com Texto Sobreposto) */}
+      <section className="relative w-full h-[80vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Image src={photo2} alt="Primeiro local" fill className="object-cover brightness-50" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div className="bg-white/95 backdrop-blur-sm p-8 md:p-16 max-w-2xl shadow-2xl">
+            <h2 className="text-3xl font-bold mb-6">O Primeiro Salão</h2>
+            <p className="text-lg text-slate-700 leading-relaxed">
+              O início foi marcado pela simplicidade. Cultos na casa missionária e a distribuição de folhetos em 20 bairros. 
+              Logo, o Senhor providenciou um salão para 60 pessoas na Av. Brasil. O objetivo era claro: falar do Evangelho e discipular nos lares.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção 02: Grid Assimétrico para Dinâmica */}
+      <section className="max-w-7xl mx-auto px-6 py-32">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div className="md:col-span-5 order-2 md:order-1">
+            <h2 className="text-4xl font-bold mb-6 tracking-tight">Crescimento constante</h2>
+            <p className="text-slate-600 mb-6 italic border-l-4 border-blue-600 pl-4">
+              "Crentes que buscavam a Fé Reformada encontraram aqui um porto seguro."
+            </p>
+            <p className="text-slate-700 leading-relaxed">
+              Mesmo com os atrasos da pandemia em 2020 e 2021, o trabalho não parou. Escola Dominical, 
+              Grupos Familiares e o apoio a missões nacionais e internacionais moldaram nossa identidade.
+            </p>
+          </div>
+          <div className="md:col-span-7 order-1 md:order-2">
+            <div className="relative h-[500px] w-full shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+              <Image src={Land} alt="Terreno" fill className="object-cover rounded-sm" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção 03: Grande Título e Construção */}
+      <section className="bg-slate-900 text-white py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
+             <div className="flex-1">
+                <div className="relative aspect-video w-full">
+                  <Image src={HandMass} alt="Mão na massa" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+             </div>
+             <div className="flex-1">
+                <h2 className="text-5xl font-black mb-8 italic">Mão na Massa.</h2>
+                <p className="text-slate-400 text-lg leading-relaxed">
+                  31 voluntários de todo o Brasil. 30 dias de trabalho intenso. Um templo de 34x11 metros erguido pela fé. 
+                  A construção foi mais que tijolos; foi a união do corpo de Cristo.
+                </p>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Final: Organização (Minimalismo) */}
+      <section className="py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="relative mb-20 text-center">
+            <Image src={inauguration} alt="Inauguração" width={1000} height={500} className="rounded-none shadow-xl" />
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-10 py-6 whitespace-nowrap">
+               <p className="font-bold text-xl uppercase tracking-widest">03 de Dezembro de 2023</p>
+            </div>
+          </div>
+          
+          <div className="space-y-8 text-slate-700 text-lg leading-relaxed mt-20">
+            <h2 className="text-4xl font-bold text-center text-slate-900 mb-12">Igreja Organizada</h2>
+            <p>
+              Por decisão do Presbitério Litorâneo Sul Catarinense, deixamos de ser campo missionário para nos tornarmos uma Igreja organizada.
+            </p>
+            <p>
+              Nossa gratidão eterna à JMN, ao Projeto Mão na Massa e a cada irmão que cooperou desde 2017. 
+              Acima de tudo, toda a honra e glória ao nosso Deus!
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

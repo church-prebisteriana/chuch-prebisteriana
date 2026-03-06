@@ -1,0 +1,154 @@
+"use client";
+import ButtonComponent from "@/src/components/form/Button";
+import FormFields from "@/src/components/form/FormInput";
+import SocialButtons from "@/src/components/ui/social_icons";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { FaDroplet, FaWaveSquare } from "react-icons/fa6";
+
+export default function PageContacts() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const HandleChange = (e: any) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  return (
+    <div className="min-h-screen bg-[#001219] text-cyan-50 relative overflow-hidden font-sans flex items-center justify-center p-4">
+      
+      {/* --- FUNDO LÍQUIDO (EFEITOS EM MOVIMENTO) --- */}
+      <div className="absolute inset-0 z-0">
+        {/* Mancha de água 1 */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+            borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 60% 30% 70% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-20 -left-20 w-96 h-96 bg-igreja-teal/30 blur-[80px]"
+        />
+        
+        {/* Mancha de água 2 */}
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            x: [0, 50, 0],
+            borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-900/40 blur-[100px]"
+        />
+
+        {/* Bolhas flutuantes */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: "110vh", x: Math.random() * 100 + "vw" }}
+            animate={{ y: "-10vh" }}
+            transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, delay: i * 2 }}
+            className="absolute w-4 h-4 bg-white/10 rounded-full blur-sm"
+          />
+        ))}
+      </div>
+
+      {/* --- CONTEÚDO PRINCIPAL --- */}
+      <main className="relative z-10 w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        
+        {/* LADO TEXTUAL - FLUÍDO */}
+        <div className="p-6 md:p-10 space-y-8">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <div className="flex items-center gap-3 text-igreja-dourado mb-4">
+              <FaDroplet className="animate-bounce" />
+              <span className="tracking-[0.5em] text-xs font-bold uppercase">Fluxo de Vida</span>
+            </div>
+            <h1 className="text-6xl md:text-8xl font-thin leading-none tracking-tighter">
+              Vem <br /> <span className="font-black italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Mergulhar</span>
+            </h1>
+            <p className="mt-6 text-cyan-100/60 text-lg leading-relaxed max-w-xs">
+              Deixe sua mensagem fluir. Como as águas que renovam, estamos aqui para ouvir você.
+            </p>
+          </motion.div>
+
+          {/* Cards de Contato Estilo "Vidro Molhado" */}
+          <div className="grid gap-4">
+             <div className="bg-white/5 border border-white/10 backdrop-blur-xl p-4 rounded-3xl flex items-center gap-4 hover:bg-white/10 transition-all">
+                <div className="w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center text-cyan-300 italic font-bold">@</div>
+                <span className="text-sm">ipbimbituba@gmail.com</span>
+             </div>
+             <div className="bg-white/5 border border-white/10 backdrop-blur-xl p-4 rounded-3xl flex items-center gap-4 hover:bg-white/10 transition-all">
+                <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-300 italic font-bold">W</div>
+                <span className="text-sm">(48) 99868-0229</span>
+             </div>
+          </div>
+          
+          <SocialButtons className="justify-start gap-6 opacity-50 hover:opacity-100 transition-opacity" />
+        </div>
+
+        {/* FORMULÁRIO - ESTILO GOTA/GLASSMORPHISM */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          className="relative group"
+        >
+          {/* Brilho da borda dinâmico */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent rounded-[3rem] blur-2xl group-hover:from-cyan-400/40 transition-all" />
+          
+          <div className="relative bg-white/5 border border-white/20 backdrop-blur-2xl p-8 md:p-12 rounded-[3rem] shadow-2xl overflow-hidden">
+            {/* Linha ondulada decorativa */}
+            <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
+                <svg className="relative block w-[200%] h-[40px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-cyan-500/10"></path>
+                </svg>
+            </div>
+
+            <form className="space-y-6 mt-6">
+              <FormFields 
+                name="name" 
+                placeholder="Qual seu nome?" 
+                onChange={HandleChange} 
+                value={formData.name}
+                className="w-full bg-white/5 border-b border-white/20 p-4 text-white placeholder:text-cyan-200/30 focus:bg-white/10 rounded-xl transition-all"
+              />
+              <FormFields 
+                name="email" 
+                placeholder="Seu e-mail" 
+                onChange={HandleChange} 
+                value={formData.email}
+                className="w-full bg-white/5 border-b border-white/20 p-4 text-white placeholder:text-cyan-200/30 focus:bg-white/10 rounded-xl transition-all"
+              />
+              <FormFields 
+                name="message" 
+                type="textarea"
+                placeholder="Sua mensagem fluindo aqui..." 
+                onChange={HandleChange} 
+                value={formData.message}
+                className="w-full bg-white/5 border-b border-white/20 p-4 text-white placeholder:text-cyan-200/30 focus:bg-white/10 rounded-xl min-h-[120px] transition-all"
+              />
+
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-500 hover:to-blue-600 py-5 rounded-2xl font-black uppercase tracking-[0.3em] shadow-lg shadow-cyan-900/50 flex items-center justify-center gap-3"
+              >
+                Enviar <FaWaveSquare className="animate-pulse" />
+              </motion.button>
+            </form>
+          </div>
+        </motion.div>
+
+      </main>
+
+      {/* CSS extra para animação de onda suave se necessário (opcional no Tailwind) */}
+      <style jsx>{`
+        @keyframes flow {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+    </div>
+  );
+}

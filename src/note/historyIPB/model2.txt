@@ -1,0 +1,106 @@
+import HeroSection from "@/src/components/ui/HeroBanner";
+import photo1 from "@/public/image/hystoryIPB_Imb/history.jpg";
+import photo2 from "@/public/image/hystoryIPB_Imb/sala local.jpg";
+import Image from "next/image";
+import Land from "@/public/image/hystoryIPB_Imb/terreno.jpg";
+import HandMass from "@/public/image/hystoryIPB_Imb/Projeto Mão na massa 2.jpg";
+import inauguration from "@/public/image/hystoryIPB_Imb/inauguração.jpg";
+
+export default function HistoryIPB_Imbituba() {
+  return (
+    <div className="bg-white selection:bg-black selection:text-white">
+      {/* 1. HERO MINIMALISTA */}
+      <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <Image src={photo1} alt="História" fill className="object-cover brightness-50 scale-105" priority />
+        <div className="relative z-10 text-center space-y-4 px-4">
+          <span className="text-white/70 uppercase tracking-[0.5em] text-sm">A Jornada da Fé</span>
+          <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter">IMBITUBA</h1>
+          <p className="text-white/80 max-w-xl mx-auto text-lg font-light italic">"A preciosa boa mão do Senhor sobre nós."</p>
+        </div>
+      </div>
+
+      {/* 2. O MANIFESTO (TEXTO PURO E IMPACTANTE) */}
+      <section className="py-32 px-6 max-w-4xl mx-auto">
+        <h2 className="text-sm font-bold text-blue-600 mb-12 uppercase tracking-widest">— O Início (2016)</h2>
+        <p className="text-3xl md:text-5xl font-medium leading-[1.1] text-slate-900 tracking-tight">
+          Tudo começou com um convite em setembro de 2016. A família missionária chegou com <span className="text-slate-400">grandes expectativas</span> na certeza de que o Senhor estava com eles.
+        </p>
+        <div className="mt-12 grid md:grid-cols-2 gap-12 text-slate-500 leading-relaxed">
+          <p>
+            Imbituba, com seus 54 mil habitantes, economia pulsante no porto e turismo, era 83% não-evangélica. O desafio era imenso, mas a vocação era maior.
+          </p>
+          <p>
+            O Rev. Emerson Baran Santos percorreu todas as ruas de 20 bairros, por 3 vezes, anunciando o Cristo e tornando a Igreja Presbiteriana conhecida na cidade.
+          </p>
+        </div>
+      </section>
+
+      {/* 3. IMAGEM FULL-BLEED COM TEXTO SOBREPOSTO */}
+      <section className="relative h-[80vh] w-full group">
+        <Image src={photo2} alt="Primeira Sede" fill className="object-cover brightness-75 grayscale group-hover:grayscale-0 transition-all duration-1000" />
+        <div className="absolute inset-0 flex items-center justify-center p-6">
+          <div className="bg-white p-12 max-w-2xl shadow-2xl translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+            <h3 className="text-2xl font-black mb-4 uppercase">O Primeiro Local</h3>
+            <p className="text-slate-600 leading-relaxed">
+              De um pequeno salão na casa da família para a Av. Brasil. O objetivo? Discipulado. Ensinar a necessidade de seguir a Cristo e tirar dúvidas bíblicas nos lares.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. A ESTRUTURA (DARK SECTION) */}
+      <section className="bg-black py-32 text-white">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-20">
+          <div className="space-y-6">
+            <h4 className="text-blue-500 font-mono">01. Atividades</h4>
+            <p className="text-3xl font-light">Escola Dominical, Grupos Familiares e Sociedades Internas.</p>
+          </div>
+          <div className="space-y-6">
+            <h4 className="text-blue-500 font-mono">02. Alcance</h4>
+            <p className="text-3xl font-light">Apoio a Laguna, Araranguá, Abaetetuba e até à Austrália.</p>
+          </div>
+          <div className="space-y-6">
+            <h4 className="text-blue-500 font-mono">03. Fé Reformada</h4>
+            <p className="text-3xl font-light">Doutrina bíblica sólida atraindo corações sedentos pela verdade.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. O TEMPLO (LAYOUT ASSIMÉTRICO) */}
+      <section className="py-32 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-16 items-center">
+          <div className="md:w-1/3 space-y-8">
+            <h2 className="text-6xl font-black leading-none italic text-slate-200">2023</h2>
+            <h3 className="text-4xl font-bold">Projeto Mão na Massa</h3>
+            <p className="text-slate-600">
+              31 voluntários de todo o Brasil. 30 dias de trabalho intenso. Um templo de 34x11 metros erguido para a glória de Deus.
+            </p>
+          </div>
+          <div className="md:w-2/3 grid grid-cols-2 gap-4">
+            <div className="relative h-[400px] mt-12">
+              <Image src={HandMass} alt="Construção" fill className="object-cover rounded-sm" />
+            </div>
+            <div className="relative h-[400px]">
+              <Image src={inauguration} alt="Inauguração" fill className="object-cover rounded-sm shadow-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ENCERRAMENTO (CLEAN & BOLD) */}
+      <section className="bg-slate-50 py-40 px-6 text-center">
+        <div className="max-w-3xl mx-auto space-y-12">
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight">
+            Hoje, uma Igreja Organizada. Para sempre, servos do Senhor.
+          </h2>
+          <p className="text-slate-500 text-lg">
+            Em 03/12/2023, o campo missionário tornou-se oficialmente Igreja Presbiteriana de Imbituba.
+          </p>
+          <div className="pt-12">
+            <p className="text-sm font-bold tracking-[1em] text-blue-600">SOLI DEO GLORIA</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
