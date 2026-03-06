@@ -58,6 +58,7 @@ export default function SectionVideo() {
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ 
             duration: 1, 
             ease: [0.22, 1, 0.36, 1] // Efeito de frenagem suave
@@ -76,7 +77,7 @@ export default function SectionVideo() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-         
+          viewport={{ once: true }}         
           transition={{ 
             duration: 0.8, 
             delay: 0.4, // Espera o título subir um pouco

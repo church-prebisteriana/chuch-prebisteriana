@@ -222,9 +222,6 @@ import {
 } from "framer-motion";
 import {
   ArrowUpRight,
-  ChevronRight,
-  ChevronLeft,
-  Quote,
   ArrowLeft,
   ArrowRight,
 } from "lucide-react";
@@ -275,9 +272,9 @@ export default function SectionChurch() {
   };
 
   const itemsFath = [
-    { title: "Confissão de fé", img: confession },
-    { title: "Catecismo Maior", img: catecismoMaior },
-    { title: "Catecismo Menor", img: catecismoMenos },
+    { title: "Confissão de fé", img: confession ,href: "/church/confessionOfFaith" },
+    { title: "Catecismo Maior", img: catecismoMaior ,href: "/church/largeCatechism" },
+    { title: "Catecismo Menor", img: catecismoMenos ,href: "/church/smallCatechism" },
   ];
 
   const historyCards = [
@@ -300,7 +297,7 @@ export default function SectionChurch() {
       subtitle: "Manual",
       img: photo3,
       color: "bg-amber-700",
-      href: "/church/hystoryIPB_Imbituba",
+      href: "/documents/contistuiçãoIPB.pdf",
     },
   ];
 
@@ -330,14 +327,16 @@ export default function SectionChurch() {
     if (href === pathname) {
       return;
     }
+    if(href === "/documents/contistuiçãoIPB.pdf") {
+      window.open(href, "_blank", "noopener noreferrer");
+      return;
+    }
 
     router.push(href);
   };
 
   useEffect(() => {
     const updateSize = () => {
-      // Se a tela for menor que 768px (Mobile/Tablet), mostramos apenas 1
-      // Caso contrário (Desktop), mostramos 3
       setItemsToShow(window.innerWidth < 768 ? 1 : 3);
     };
 
@@ -354,7 +353,7 @@ export default function SectionChurch() {
     setIndex((prev) => (prev - 1 + council.length) % council.length);
   }, [council.length]);
 
-  // Esta função pega a lista e "rotaciona" para que sempre mostre a quantidade certa
+  
   // const visibleItems = Array.from({ length: itemsToShow }).map((_, i) => {
   //   return adviceList[(index + i) % adviceList.length];
   // });
@@ -550,7 +549,7 @@ export default function SectionChurch() {
                   isVisible ? "flex" : "hidden md:flex"
                 }`}
               >
-                <div className="relative aspect-[3/4] overflow-hidden bg-zinc-100 rounded-sm shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2">
+                <div onClick={() => handleNavigation(item.href)} className="relative aspect-[3/4] overflow-hidden bg-zinc-100 rounded-sm shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2">
                   <Image
                     src={item.img}
                     alt={item.title}

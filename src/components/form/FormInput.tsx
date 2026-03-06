@@ -20,7 +20,7 @@ export default function FormFields({
   value,
   onChange,
 }: FormFieldProps) {
-  const baseClasses = `bg-transparent  border-b-2 w-full border-gray-300 py-2 focus:outline-none focus:border-[#215D63] transition-colors  placeholder:text-xl  placeholder:font-medium sm:text-3xl focus:placeholder-transparent `;
+  const baseClasses = `bg-transparent  border-b-2 w-full border-gray-300 py-2 focus:outline-none focus:border-[#215D63] transition-colors  placeholder:text-xl  placeholder:font-medium sm:text-2xl text-gray-500 focus:placeholder-transparent `;
   const errorBase = `bg-transparent border-b-2 w-full py-2 focus:outline-none focus: border-red-500 transition-colors placeholder:text-xl placeholder:font-medium focus:placeholder-transparent `;
   const [touched, setTouched] = useState(false);
 

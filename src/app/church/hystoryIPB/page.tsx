@@ -1,7 +1,7 @@
 import HystoryIPB from "./hystoryIPB";
 
 
-export default function Page() {
+export default function PageHystoryIPB() {
   return (
     <main>
       <HystoryIPB />

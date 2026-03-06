@@ -69,6 +69,7 @@ export default function SectionThree() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
+            viewport={{ once: true }}
             className="flex flex-col md:flex-row items-center gap-10 md:gap-20 w-full"
           >
             {/* Imagem maior no Desktop */}

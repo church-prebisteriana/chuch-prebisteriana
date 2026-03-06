@@ -11,6 +11,7 @@ export default function SectionOne() {
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
         
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
@@ -23,6 +24,7 @@ export default function SectionOne() {
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
          
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
@@ -35,7 +37,7 @@ export default function SectionOne() {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-      
+          viewport={{ once: true }}      
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
           <p className="text-gray-600 leading-relaxed text-lg md:text-2xl max-w-4xl text-justify">
@@ -51,7 +53,7 @@ export default function SectionOne() {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-        
+          viewport={{ once: true }}        
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="w-full md:w-auto"
         >

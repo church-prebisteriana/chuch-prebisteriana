@@ -1,0 +1,666 @@
+// "use client";
+// import HeroSection from "@/src/components/ui/HeroBanner";
+// import catecismoMenos from "@/public/image/small catechism/castelo.jpg";
+// import { motion } from "framer-motion";
+// import {
+//   Book,
+//   Sun,
+//   Wind,
+//   Anchor,
+//   Scale,
+//   Heart,
+//   CheckCircle,
+//   ArrowRight,
+//   ShieldCheck,
+//   MessageCircle,
+// } from "lucide-react";
+
+// export default function SmallCatechism() {
+//   // Variantes para animações suaves
+//   const fadeInLeft = {
+//     hidden: { opacity: 0, x: -60 },
+//     visible: { opacity: 1, x: 0 },
+//   };
+//   const fadeInRight = {
+//     hidden: { opacity: 0, x: 60 },
+//     visible: { opacity: 1, x: 0 },
+//   };
+//   const fadeInUp = {
+//     hidden: { opacity: 0, y: 40 },
+//     visible: { opacity: 1, y: 0 },
+//   };
+
+//   return (
+//     <main className="bg-[#fcfdfc] text-emerald-950 selection:bg-emerald-100 font-sans overflow-x-hidden">
+//       {/* CAPA MINIMALISTA */}
+//       <div className="relative h-[65vh] w-full overflow-hidden">
+//         <HeroSection title="Breve Catecismo" image={catecismoMenos} />
+//         <div className="absolute inset-0 bg-emerald-900/40" />
+//         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#fcfdfc] to-transparent" />
+//       </div>
+
+//       <article className="max-w-6xl mx-auto px-6 pb-32">
+//         {/* HEADER EDITORIAL ESTILO JOURNAL */}
+//         <header className="relative z-10 -mt-24 bg-emerald-900 p-12 md:p-24 shadow-2xl text-white mb-32 border-b-8 border-emerald-500">
+//           <motion.div
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8 }}
+//             variants={fadeInLeft}
+//             className="space-y-6"
+//           >
+//             <span className="text-emerald-400 font-black tracking-[0.4em] uppercase text-[10px] block">
+//               Westminster (1647 - 1648)
+//             </span>
+//             <h1 className="text-5xl md:text-8xl font-serif italic tracking-tighter leading-none">
+//               O Catecismo <br />{" "}
+//               <span className="not-italic font-sans font-black text-emerald-400 uppercase">
+//                 Menor
+//               </span>
+//             </h1>
+//             <p className="text-emerald-100/60 max-w-lg font-light leading-relaxed border-l border-emerald-500 pl-6">
+//               Uma síntese da fé reformada em linguagem acessível, servindo como
+//               guia de instrução para todas as gerações da igreja.
+//             </p>
+//           </motion.div>
+//         </header>
+
+//         {/* PARTE 1: O FIM E A REGRA (1-6) */}
+//         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
+//           {/* Pergunta 1 e 2 - Vem da ESQUERDA */}
+//           <motion.div
+//             className="lg:col-span-7 space-y-16"
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8 }}
+//             variants={fadeInLeft}
+//           >
+//             <div className="group">
+//               <span className="text-emerald-600 font-black text-xs uppercase tracking-widest mb-4 block">
+//                 Pergunta 1
+//               </span>
+//               <h2 className="text-3xl font-serif font-bold text-emerald-900 mb-6">
+//                 Qual é o fim principal do homem?
+//               </h2>
+//               <p className="text-2xl leading-relaxed text-zinc-600 italic bg-emerald-50 p-8 rounded-tr-[50px] border-l-4 border-emerald-600">
+//                 R: O fim principal do homem é glorificar a Deus, e gozá-lo para
+//                 sempre.
+//               </p>
+//               <p className="mt-4 font-mono text-[10px] text-zinc-400">
+//                 Ref.: Rom 11.36; Sal. 73.24-26; João. 17.22,24
+//               </p>
+//             </div>
+
+//             <div className="group pt-10 border-t border-zinc-100">
+//               <span className="text-emerald-600 font-black text-xs uppercase tracking-widest mb-4 block">
+//                 Pergunta 2
+//               </span>
+//               <h2 className="text-2xl font-bold text-emerald-900 mb-6">
+//                 Que regra Deus nos deu para nos dirigir na maneira de o
+//                 glorificar e gozar?
+//               </h2>
+//               <p className="text-lg leading-relaxed text-zinc-700 text-justify">
+//                 R: A palavra de Deus, que se acha nas Escrituras do Velho e do
+//                 Novo Testamentos, é a única regra para nos dirigir na maneira de
+//                 o glorificar e gozar.
+//               </p>
+//               <p className="mt-4 font-mono text-[10px] text-zinc-400 italic">
+//                 Ref.: .Gal.1.8,9; Isaías. 8.20; Luc. 16.29,31; II Tim. 3.15-17
+//               </p>
+//             </div>
+//           </motion.div>
+
+//           {/* Pergunta 3 e 4 - Vem da DIREITA */}
+//           <motion.div
+//             className="lg:col-span-5 bg-zinc-900 text-white p-10 shadow-xl self-start rounded-bl-[80px]"
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8, delay: 0.2 }}
+//             variants={fadeInRight}
+//           >
+//             <div className="space-y-12">
+//               <div>
+//                 <span className="text-emerald-500 font-bold text-[10px] uppercase block mb-4">
+//                   Pergunta 3
+//                 </span>
+//                 <h2 className="text-xl font-bold mb-4">
+//                   O que as Escrituras principalmente ensinam?
+//                 </h2>
+//                 <p className="text-emerald-100/70 text-sm leading-relaxed italic">
+//                   R: As Escrituras ensinam, principalmente, o que o homem deve
+//                   crer a respeito de Deus, e o dever que Deus requer do homem.
+//                 </p>
+//               </div>
+
+//               <div className="pt-8 border-t border-white/10">
+//                 <span className="text-emerald-500 font-bold text-[10px] uppercase block mb-4">
+//                   Pergunta 4
+//                 </span>
+//                 <h2 className="text-xl font-bold mb-4">O que é Deus?</h2>
+//                 <p className="text-emerald-50 text-lg leading-snug font-serif">
+//                   R: Deus é espírito, infinito, eterno e imutável em seu ser,
+//                   sabedoria, poder, santidade, justiça, bondade e verdade.
+//                 </p>
+//               </div>
+//             </div>
+//           </motion.div>
+//         </div>
+
+//         {/* PARTE 2: A DIVINDADE E DECRETOS (5-12) - GRID DE BAIXO PARA CIMA */}
+//         <motion.section
+//           className="mb-40"
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.8 }}
+//           variants={fadeInUp}
+//         >
+//           <div className="flex items-center gap-4 mb-16">
+//             <h2 className="text-4xl font-black uppercase tracking-tighter text-emerald-900">
+//               A Natureza <br />{" "}
+//               <span className="italic font-serif text-emerald-600 lowercase font-light">
+//                 de Deus
+//               </span>
+//             </h2>
+//             <div className="h-px grow bg-emerald-100" />
+//           </div>
+
+//           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+//             {[
+//               {
+//                 n: 5,
+//                 q: "Há mais de um Deus?",
+//                 r: "Há um só Deus, o Deus vivo e verdadeiro.",
+//                 v: "Dt. 6.4; Jr. 10.10",
+//               },
+//               {
+//                 n: 6,
+//                 q: "Quantas pessoas há na Divindade?",
+//                 r: "Há três pessoas na Divindade: O pai, o Filho e o Espírito Santo, e estas três pessoas são um Deus, da mesma substância, iguais em poder e glória.",
+//                 v: "Mt. 3.16,17; Mt. 28.19; II Co. 13.13",
+//               },
+//               {
+//                 n: 7,
+//                 q: "Que são os decretos de Deus?",
+//                 r: "Os Decretos de Deus são o seu eterno propósito, segundo o conselho da sua vontade, pelo qual, para a sua própria glória, ele preordenou tudo o que acontece.",
+//                 v: "Ef. 1.11; At. 4.27-28; Sl. 33.11",
+//               },
+//             ].map((i) => (
+//               <div
+//                 key={i.n}
+//                 className="p-8 border border-emerald-50 bg-white hover:shadow-xl transition-all group"
+//               >
+//                 <span className="text-4xl font-serif italic text-emerald-100 group-hover:text-emerald-200">
+//                   #{i.n}
+//                 </span>
+//                 <h3 className="font-bold text-emerald-900 mt-4 mb-4">{i.q}</h3>
+//                 <p className="text-sm text-zinc-600 text-justify mb-6">{i.r}</p>
+//                 <p className="text-[10px] text-emerald-400 font-mono italic">
+//                   {i.v}
+//                 </p>
+//               </div>
+//             ))}
+//           </div>
+
+//           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12">
+//             <motion.div
+//               initial="hidden"
+//               whileInView="visible"
+//               variants={fadeInLeft}
+//               className="bg-emerald-50 p-10 rounded-sm"
+//             >
+//               <h3 className="text-sm font-black uppercase text-emerald-700 mb-4 tracking-widest">
+//                 8 e 9. Execução e Criação
+//               </h3>
+//               <p className="text-emerald-950 mb-4">
+//                 <strong>Execução:</strong> Deus executa os seus decretos nas
+//                 obras da criação e da providência.
+//               </p>
+//               <p className="text-emerald-950 italic">
+//                 <strong>Obra da Criação:</strong> Aquela pela qual Deus fez
+//                 todas as coisas do nada, pela palavra do seu poder, no espaço de
+//                 seis dias, e tudo muito bem.
+//               </p>
+//             </motion.div>
+//             <motion.div
+//               initial="hidden"
+//               whileInView="visible"
+//               variants={fadeInRight}
+//               className="bg-emerald-900 text-white p-10 rounded-sm"
+//             >
+//               <h3 className="text-sm font-black uppercase text-emerald-400 mb-4 tracking-widest">
+//                 10 e 11. O Homem e Providência
+//               </h3>
+//               <p className="mb-4">
+//                 <strong>Criação do Homem:</strong> Deus criou o homem, macho e
+//                 fêmea, conforme a sua própria imagem, em conhecimento, retidão e
+//                 santidade.
+//               </p>
+//               <p className="text-emerald-200">
+//                 <strong>Providência:</strong> Sua maneira muito santa, sábia e
+//                 poderosa de preservar e governar todas as suas criaturas.
+//               </p>
+//             </motion.div>
+//           </div>
+//         </motion.section>
+
+//         {/* PARTE 3: O PACTO E A QUEDA (12-19) - VEM DE BAIXO */}
+//         <motion.section
+//           className="mb-40 bg-zinc-50 py-20 px-8 rounded-3xl"
+//           initial="hidden"
+//           whileInView="visible"
+//           variants={fadeInUp}
+//         >
+//           <div className="max-w-4xl mx-auto space-y-16">
+//             <header className="text-center">
+//               <h2 className="text-4xl font-black text-emerald-950 mb-4 uppercase">
+//                 O Pacto e a Queda
+//               </h2>
+//               <p className="text-zinc-400 italic">
+//                 Do estado de inocência à miséria do pecado
+//               </p>
+//             </header>
+
+//             <div className="space-y-10 text-lg text-zinc-700 leading-relaxed text-justify">
+//               <p>
+//                 <strong>12. Pacto de Vida:</strong> Quando Deus criou o homem,
+//                 fez com ele um pacto de vida, com a condição de perfeita
+//                 obediência, proibindo-lhe comer da árvore do conhecimento do bem
+//                 e do mal, sob pena de morte.
+//               </p>
+//               <p>
+//                 <strong>13-15. A Queda:</strong> Nossos primeiros pais caíram do
+//                 estado em que foram criados, pecando contra Deus pelo comerem do
+//                 fruto proibido.
+//               </p>
+//               <div className="p-10 bg-emerald-900 text-white rounded-tr-[80px] shadow-2xl">
+//                 <h3 className="text-2xl font-serif italic mb-6 text-emerald-400">
+//                   14. O que é pecado?
+//                 </h3>
+//                 <p className="text-3xl font-light">
+//                   "Pecado é qualquer falta de conformidade com a lei de Deus, ou
+//                   qualquer transgressão dessa lei."
+//                 </p>
+//               </div>
+//               <p>
+//                 <strong>16-17. Posteridade:</strong> Visto que o pacto foi feito
+//                 com Adão como representante, todo o gênero humano pecou nele e
+//                 caiu com ele. Essa queda reduziu o gênero humano a um estado de
+//                 pecado e miséria.
+//               </p>
+//               <p>
+//                 <strong>18. Pecado Original:</strong> Consiste na culpa do
+//                 primeiro pecado de Adão, na falta de retidão original e na
+//                 corrupção de toda a sua natureza.
+//               </p>
+//               <p>
+//                 <strong>19. Miséria:</strong> Perda da comunhão com Deus,
+//                 debaixo de sua ira e maldição, sujeito às misérias desta vida, à
+//                 morte e às penas do Inferno para sempre.
+//               </p>
+//             </div>
+//           </div>
+//         </motion.section>
+
+//         {/* PARTE 4: O REDENTOR (20-28) - VEM DA ESQUERDA */}
+//         <motion.section
+//           className="mb-40"
+//           initial="hidden"
+//           whileInView="visible"
+//           variants={fadeInLeft}
+//         >
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+//             <div className="relative">
+//               <div className="absolute -inset-4 border border-emerald-100 rounded-sm -z-10 translate-x-4 translate-y-4" />
+//               <div className="bg-white p-12 shadow-xl">
+//                 <ShieldCheck className="text-emerald-600 w-12 h-12 mb-8" />
+//                 <h2 className="text-4xl font-black text-emerald-950 mb-8 uppercase tracking-tighter">
+//                   O Redentor
+//                 </h2>
+//                 <p className="text-zinc-600 leading-relaxed text-justify mb-6">
+//                   <strong>20. Pacto de Graça:</strong> Tendo Deus eleito alguns
+//                   para a vida eterna, entrou com eles em um pacto de graça, para
+//                   os livrar do estado de pecado e miséria por meio de um
+//                   Redentor.
+//                 </p>
+//                 <p className="text-emerald-900 font-bold italic">
+//                   21. O único Redentor é o Senhor Jesus Cristo, que, sendo o
+//                   eterno Filho de Deus, se fez homem, em duas naturezas
+//                   distintas, e uma só pessoa, para sempre.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="space-y-10">
+//               <p className="text-zinc-700 leading-relaxed text-justify">
+//                 <strong>22. Encarnação:</strong> Cristo fez-se homem tomando um
+//                 verdadeiro corpo e uma alma racional, nascido da virgem Maria,
+//                 mas sem pecado.
+//               </p>
+//               <p className="text-zinc-700 leading-relaxed text-justify">
+//                 <strong>23-26. Ofícios:</strong> Cristo exerce o ofício de{" "}
+//                 <strong>Profeta</strong> (revelando a vontade de Deus),{" "}
+//                 <strong>Sacerdote</strong> (oferecendo-se em sacrifício e
+//                 intercessão) e <strong>Rei</strong> (sujeitando-nos e
+//                 governando-nos).
+//               </p>
+//               <p className="text-zinc-700 leading-relaxed text-justify italic border-l-4 border-emerald-100 pl-6">
+//                 <strong>27-28. Humilhação e Exaltação:</strong> De sua condição
+//                 baixa e morte na cruz até ressurgir dos mortos e estar sentado à
+//                 mão direita de Deus Pai.
+//               </p>
+//             </div>
+//           </div>
+//         </motion.section>
+
+//         {/* PARTE 5: APLICAÇÃO DA REDENÇÃO (29-38) - VEM DA DIREITA */}
+//         <motion.section
+//           className="mb-40"
+//           initial="hidden"
+//           whileInView="visible"
+//           variants={fadeInRight}
+//         >
+//           <div className="bg-emerald-950 text-white p-12 md:p-20 rounded-sm">
+//             <h2 className="text-5xl font-light italic mb-16 text-center text-emerald-400">
+//               A Obra do Espírito
+//             </h2>
+//             <div className="columns-1 md:columns-2 gap-16 space-y-12">
+//               <div>
+//                 <h4 className="text-emerald-500 font-black uppercase text-xs mb-4">
+//                   29-31. Vocação Eficaz
+//                 </h4>
+//                 <p className="text-sm leading-relaxed text-justify opacity-80">
+//                   Somos participantes da redenção pela eficaz aplicação do
+//                   Espírito Santo, operando em nós a fé. Vocação eficaz é a obra
+//                   pela qual Deus nos convence do pecado, ilumina nossos
+//                   entendimentos e nos habilita a abraçar Jesus Cristo.
+//                 </p>
+//               </div>
+//               <div>
+//                 <h4 className="text-emerald-500 font-black uppercase text-xs mb-4">
+//                   33-35. Justificação, Adoção e Santificação
+//                 </h4>
+//                 <p className="text-sm leading-relaxed text-justify opacity-80">
+//                   <strong>Justificação:</strong> Ato da livre graça onde Deus
+//                   perdoa nossos pecados e nos aceita como justos pela justiça de
+//                   Cristo. <strong>Adoção:</strong> Recebidos como filhos de
+//                   Deus. <strong>Santificação:</strong> Renovação segundo a
+//                   imagem de Deus para viver para a retidão.
+//                 </p>
+//               </div>
+//               <div className="md:col-span-2 bg-white/5 p-8 border border-white/10 italic text-emerald-100">
+//                 <p>
+//                   <strong>36-38. Bênçãos:</strong> Certeza do amor de Deus, paz
+//                   de consciência, alegria no Espírito, perseverança até ao fim,
+//                   e glória imediata após a morte e na ressurreição.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </motion.section>
+
+//         {/* PARTE 6: OS DEZ MANDAMENTOS (39-81) - GRID VEM DE BAIXO */}
+//         <motion.section
+//           className="mb-40"
+//           initial="hidden"
+//           whileInView="visible"
+//           variants={fadeInUp}
+//         >
+//           <div className="flex flex-col items-center mb-20 text-center">
+//             <Scale className="text-emerald-600 mb-4" size={40} />
+//             <h2 className="text-5xl font-black uppercase tracking-tighter text-emerald-950">
+//               A Lei Moral
+//             </h2>
+//             <p className="text-zinc-400 font-serif italic mt-2">
+//               O resumo do dever humano
+//             </p>
+//           </div>
+
+//           <div className="space-y-12 max-w-4xl mx-auto">
+//             <div className="p-10 border border-emerald-50 bg-white">
+//               <h3 className="text-xl font-bold text-emerald-900 mb-6">
+//                 39-44. O Prefácio e a Regra
+//               </h3>
+//               <p className="text-zinc-700 leading-[1.8] text-justify">
+//                 O dever exigido é obediência à Sua vontade. A regra é a lei
+//                 moral, resumida nos Dez Mandamentos. O prefácio nos ensina a
+//                 guardar os mandamentos por Ele ser o Senhor e nosso Redentor.
+//               </p>
+//             </div>
+
+//             {/* MANDAMENTOS GRID */}
+//             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+//               <div className="p-8 border-l-4 border-emerald-900 bg-emerald-50">
+//                 <h4 className="font-black text-emerald-900 mb-4">
+//                   I. "Não terás outros deuses"
+//                 </h4>
+//                 <p className="text-sm text-emerald-800 leading-relaxed">
+//                   Exige conhecer e adorar o único Deus verdadeiro. Proíbe negar
+//                   ou dar adoração a qualquer outro.
+//                 </p>
+//               </div>
+//               <div className="p-8 border-l-4 border-emerald-900 bg-emerald-50">
+//                 <h4 className="font-black text-emerald-900 mb-4">
+//                   II. "Não farás imagens"
+//                 </h4>
+//                 <p className="text-sm text-emerald-800 leading-relaxed">
+//                   Exige guardar puros o culto e ordenanças. Proíbe adorar a Deus
+//                   por meios não prescritos.
+//                 </p>
+//               </div>
+//               <div className="p-8 border-l-4 border-emerald-900 bg-emerald-50">
+//                 <h4 className="font-black text-emerald-900 mb-4">
+//                   III. "Não tomarás o nome em vão"
+//                 </h4>
+//                 <p className="text-sm text-emerald-800 leading-relaxed">
+//                   Exige uso santo dos nomes e atributos de Deus. Proíbe toda
+//                   profanação ou abuso.
+//                 </p>
+//               </div>
+//               <div className="p-8 border-l-4 border-emerald-900 bg-emerald-50">
+//                 <h4 className="font-black text-emerald-900 mb-4">
+//                   IV. "Lembra-te do Sábado"
+//                 </h4>
+//                 <p className="text-sm text-emerald-800 leading-relaxed">
+//                   Exige santificar um dia em cada sete (Domingo) com santo
+//                   repouso e adoração pública.
+//                 </p>
+//               </div>
+//             </div>
+
+//             {/* CONTINUAÇÃO MANDAMENTOS 5-10 */}
+//             <div className="p-10 bg-zinc-900 text-white rounded-sm">
+//               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-[11px] uppercase tracking-widest leading-relaxed opacity-80">
+//                 <p>
+//                   <strong>V. Honrar Pais:</strong> Deveres em todas as relações
+//                   de superioridade ou igualdade.
+//                 </p>
+//                 <p>
+//                   <strong>VI. Não matar:</strong> Preservar a vida própria e a
+//                   de nossos semelhantes.
+//                 </p>
+//                 <p>
+//                   <strong>VII. Não adulterar:</strong> Preservar a castidade no
+//                   coração, palavras e conduta.
+//                 </p>
+//                 <p>
+//                   <strong>VIII. Não furtar:</strong> Lícito adiantamento das
+//                   riquezas e bem-estar.
+//                 </p>
+//                 <p>
+//                   <strong>IX. Não dirás falso:</strong> Manutenção da verdade e
+//                   da reputação.
+//                 </p>
+//                 <p>
+//                   <strong>X. Não cobiçarás:</strong> Pleno contentamento com a
+//                   nossa condição.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </motion.section>
+
+//         {/* PARTE 7: FÉ E ARREPENDIMENTO (82-90) - VEM DA ESQUERDA */}
+//         <motion.section
+//           className="mb-40"
+//           initial="hidden"
+//           whileInView="visible"
+//           variants={fadeInLeft}
+//         >
+//           <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+//             <div className="md:w-1/2 space-y-8">
+//               <h2 className="text-4xl font-black text-emerald-950 uppercase tracking-tighter">
+//                 O Caminho do Escape
+//               </h2>
+//               <div className="space-y-6 text-zinc-700 leading-relaxed text-justify text-sm">
+//                 <p>
+//                   <strong>82-84. Incapacidade e Merecimento:</strong> Nenhum
+//                   homem é capaz de guardar perfeitamente a lei; cada pecado
+//                   merece a ira e a maldição de Deus.
+//                 </p>
+//                 <p>
+//                   <strong>85-87. Requisitos:</strong> Deus exige fé em Jesus
+//                   Cristo e arrependimento para a vida. Fé é receber e confiar
+//                   nEle para salvação. Arrependimento é tristeza pelo pecado e
+//                   resolução de nova obediência.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="md:w-1/2 bg-white p-12 shadow-2xl border-t-4 border-emerald-600">
+//               <Book className="text-emerald-600 mb-6" size={32} />
+//               <h3 className="text-xl font-bold text-emerald-900 mb-6">
+//                 88-90. A Eficácia da Palavra
+//               </h3>
+//               <p className="text-sm text-zinc-600 text-justify leading-relaxed">
+//                 Os meios ordinários são a Palavra, sacramentos e oração. O
+//                 Espírito torna a pregação eficaz para convencer e converter.
+//                 Devemos ler a Palavra com diligência, preparação e oração.
+//               </p>
+//             </div>
+//           </div>
+//         </motion.section>
+
+//         {/* PARTE 8: SACRAMENTOS (91-97) - VEM DA DIREITA */}
+//         <motion.section
+//           className="mb-40"
+//           initial="hidden"
+//           whileInView="visible"
+//           variants={fadeInRight}
+//         >
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+//             <div className="lg:col-span-1 bg-emerald-50 p-10 flex flex-col justify-center">
+//               <h3 className="text-2xl font-black text-emerald-900 uppercase tracking-tight mb-4">
+//                 Os Sacramentos
+//               </h3>
+//               <p className="text-sm text-emerald-800 italic">
+//                 91-92. Meios eficazes pela bênção de Cristo e obra do Espírito.
+//                 Sinais sensíveis onde bênçãos são seladas.
+//               </p>
+//             </div>
+//             <div className="p-10 border border-zinc-100 bg-white shadow-sm">
+//               <h4 className="font-bold text-emerald-900 mb-4">
+//                 94-95. Batismo
+//               </h4>
+//               <p className="text-sm text-zinc-600 text-justify">
+//                 Lavar com água em nome da Trindade. Sela a união com Cristo.
+//                 Deve ser ministrado a quem professa a fé e aos seus filhos.
+//               </p>
+//             </div>
+//             <div className="p-10 border border-zinc-100 bg-white shadow-sm">
+//               <h4 className="font-bold text-emerald-900 mb-4">
+//                 96-97. Ceia do Senhor
+//               </h4>
+//               <p className="text-sm text-zinc-600 text-justify">
+//                 Receber pão e vinho pela fé como alimento espiritual. Exige-se
+//                 auto-exame sobre conhecimento, fé, amor e obediência.
+//               </p>
+//             </div>
+//           </div>
+//         </motion.section>
+
+//         {/* PARTE 9: ORAÇÃO E CONCLUSÃO (98-107) - VEM DE BAIXO */}
+//         <motion.section
+//           className="mb-40"
+//           initial="hidden"
+//           whileInView="visible"
+//           variants={fadeInUp}
+//         >
+//           <div className="text-center mb-16">
+//             <MessageCircle className="mx-auto text-emerald-600 mb-4" />
+//             <h2 className="text-4xl font-black uppercase text-emerald-950">
+//               A Oração do Senhor
+//             </h2>
+//           </div>
+
+//           <div className="bg-emerald-900 text-white p-12 md:p-24 rounded-tr-[100px] rounded-bl-[100px] shadow-2xl relative overflow-hidden">
+//             <Wind className="absolute left-[-5%] top-[-5%] text-emerald-800 w-64 h-64 rotate-45" />
+//             <div className="relative z-10 grid md:grid-cols-2 gap-16 text-sm leading-relaxed text-justify text-emerald-100/80">
+//               <div className="space-y-6">
+//                 <p>
+//                   <strong>98. O que é oração:</strong> Oferecimento de desejos a
+//                   Deus, conformes à Sua vontade, em nome de Cristo.
+//                 </p>
+//                 <p>
+//                   <strong>100. Prefácio:</strong> "Pai Nosso" nos ensina a
+//                   aproximar com reverência e confiança, orando com os outros.
+//                 </p>
+//                 <p>
+//                   <strong>101. 1ª Petição:</strong> Glorificar o Seu nome em
+//                   tudo o que se dá a conhecer.
+//                 </p>
+//                 <p>
+//                   <strong>102. 2ª Petição:</strong> Destruição do reino de
+//                   Satanás e adiantamento do reino da graça.
+//                 </p>
+//                 <p>
+//                   <strong>103. 3ª Petição:</strong> Sermos capazes de conhecer e
+//                   submeter à Sua vontade.
+//                 </p>
+//               </div>
+//               <div className="space-y-6">
+//                 <p>
+//                   <strong>104. 4ª Petição:</strong> Porção suficiente das coisas
+//                   boas desta vida.
+//                 </p>
+//                 <p>
+//                   <strong>105. 5ª Petição:</strong> Perdão gratuito de nossos
+//                   pecados, habilitando-nos a perdoar.
+//                 </p>
+//                 <p>
+//                   <strong>106. 6ª Petição:</strong> Que Deus nos guarde ou livre
+//                   de sermos tentados a pecar.
+//                 </p>
+//                 <p>
+//                   <strong>107. Conclusão:</strong> "Porque teu é o reino...".
+//                   Confiança somente em Deus, atribuindo-Lhe toda a glória. Amém.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </motion.section>
+
+//         {/* RODAPÉ DA REVISTA */}
+//         <footer className="mt-40 pt-20 border-t border-emerald-950 text-center">
+//           <motion.div
+//             className="inline-block relative"
+//             initial="hidden"
+//             whileInView="visible"
+//             transition={{ duration: 1 }}
+//             variants={fadeInUp}
+//           >
+//             <div className="p-10 border-2 border-emerald-900 bg-white">
+//               <h2 className="text-4xl font-serif italic mb-6 text-emerald-900">
+//                 Final da Edição
+//               </h2>
+//               <p className="text-emerald-800/60 font-sans font-black uppercase tracking-[0.4em] text-[10px]">
+//                 Igreja Presbiteriana de Imbituba • 2026
+//               </p>
+//             </div>
+//           </motion.div>
+//         </footer>
+//       </article>
+//     </main>
+//   );
+// }

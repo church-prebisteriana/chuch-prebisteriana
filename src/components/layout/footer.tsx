@@ -71,6 +71,7 @@ export default function FooterPage() {
                   damping: 20,
                   delay: index * 0.1,
                 }}
+                viewport={{ once: true }}
                 className="font-bold text-lg mb-5 text-igreja-teal border-b border-igreja-teal/10 pb-2"
               >
                 {item.name}
@@ -87,6 +88,7 @@ export default function FooterPage() {
                     damping: 20,
                     delay: index * 0.1 + 0.2, // Aparece logo após o título daquela coluna
                   }}
+                  viewport={{ once: true }}
                   className="flex flex-col gap-3"
                 >
                   {item.submenu.map((subItem, subIndex) => (
@@ -109,6 +111,8 @@ export default function FooterPage() {
                     duration: 1,
                     delay: 0.4,
                   }}
+                  viewport={{ once: true }}
+                  
                   className="text-gray-600 text-sm leading-relaxed "
                 >
                   {item.name === "Contato" ? (
@@ -207,6 +211,7 @@ export default function FooterPage() {
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.6 }}
+        viewport={{ once: true }}
         className="max-w-4xl mx-auto mt-20 pt-10 border-t border-neutral-200 text-center"
       >
         <h4 className="text-igreja-teal font-bold uppercase tracking-widest text-xs mb-4">
@@ -226,6 +231,7 @@ export default function FooterPage() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}
+        viewport={{ once: true }}
         className="max-w-6xl mx-auto mt-12 pt-6 border-t border-neutral-100 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-[10px] uppercase tracking-widest"
       >
         <p>© {new Date().getFullYear()} Igreja Presbiteriana de Imbituba</p>

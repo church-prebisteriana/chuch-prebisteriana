@@ -47,6 +47,7 @@ export default function SectionTwo() {
               delay: 0.6 + (index * 0.2),
               ease: "easeInOut",
             }}
+            viewport={{ once: true }}
             className="flex flex-col group "
           >
             {/* 1. Imagem em proporção retangular (Landscape) */}

@@ -1,0 +1,168 @@
+import HeroSection from "@/src/components/ui/HeroBanner";
+import confession from "@/public/image/confissão de fé/confissão de fé.jpg";
+import { Quote, BookOpen, History, ShieldCheck, Landmark } from "lucide-react";
+
+export default function ConfissionOfFaith() {
+  return (
+    <main className="bg-[#f8f7f4] text-zinc-900 selection:bg-igreja-teal/30 font-serif">
+      {/* Capa do Artigo - Estilo Editorial Impactante */}
+      <div className="relative">
+        <HeroSection
+          title="Confissão de Fé de Westminster"
+          image={confession}
+        />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#f8f7f4] to-transparent" />
+      </div>
+
+      <article className="max-w-5xl mx-auto px-6 pb-32">
+        {/* Cabeçalho Superior */}
+        <header className="relative z-10 -mt-20 bg-white p-8 md:p-16 shadow-sm border-t-4 border-igreja-teal text-center mb-24">
+          <span className="text-igreja-teal font-sans font-bold tracking-[0.5em] uppercase text-xs mb-6 block">
+            Teologia e História
+          </span>
+          <h1 className="text-4xl md:text-7xl font-light tracking-tighter leading-none mb-8 text-zinc-800">
+            Introdução Geral e <br /> 
+            <span className="italic font-serif text-igreja-teal">História da Confissão</span>
+          </h1>
+          <div className="flex items-center justify-center gap-4 text-zinc-400 font-sans text-sm uppercase tracking-widest">
+            <span className="w-12 h-px bg-zinc-200" />
+            Padrões Presbiterianos
+            <span className="w-12 h-px bg-zinc-200" />
+          </div>
+        </header>
+
+        {/* Layout de Duas Colunas para Introdução */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+          <div className="lg:col-span-7 prose prose-zinc prose-lg">
+            <h2 className="text-igreja-teal font-sans font-black uppercase tracking-tighter text-3xl mb-8">
+              Parte 1 - Introdução
+            </h2>
+            <h3 className="font-serif italic text-2xl text-zinc-700 mb-6">O que é uma confissão de fé?</h3>
+            
+            {/* Capitular Estilo Revista */}
+            <p className="text-xl leading-relaxed text-zinc-700 text-justify first-letter:text-8xl first-letter:font-black first-letter:text-igreja-teal first-letter:mr-4 first-letter:float-left first-letter:leading-[0.8]">
+              Em resumo, uma confissão de fé é uma declaração sistematizada das
+              doutrinas fundamentais da Bíblia. Sendo assim, ela não substitui as
+              Escrituras, mas tem um propósito de servir como um guia para a
+              interpretação coerente da Palavra de Deus, ajudando a igreja a
+              manter-se firme na verdade. Os crentes reformados entendem que a
+              Bíblia é a autoridade máxima, mas reconhecem que uma confissão bem
+              estruturada é essencial para evitar interpretações erradas ou
+              subjetivas da fé cristã.
+            </p>
+          </div>
+          
+          <aside className="lg:col-span-5 flex flex-col justify-center bg-zinc-100 p-8 rounded-sm border-l-8 border-igreja-teal shadow-inner">
+            <Quote className="text-igreja-teal/20 w-16 h-16 mb-4" />
+            <p className="text-2xl font-light italic leading-snug text-zinc-600">
+              "Ter uma confissão de fé bem definida ajuda a igreja a permanecer firme contra heresias, modismos teológicos e interpretações equivocadas."
+            </p>
+          </aside>
+        </div>
+
+        {/* Seção 2 - Timeline Visual */}
+        <div className="mb-32">
+          <div className="flex items-center gap-4 mb-12">
+             <History className="text-igreja-teal" size={32} />
+             <h2 className="text-3xl md:text-5xl font-light tracking-tight">Breve Histórico</h2>
+          </div>
+          
+          <div className="space-y-12 pl-8 border-l border-zinc-200 relative">
+            <div className="relative">
+              <span className="absolute -left-[41px] top-0 w-[20px] h-[20px] bg-igreja-teal rounded-full" />
+              <h3 className="text-xl font-sans font-bold uppercase tracking-widest text-igreja-teal mb-4">2.1. O Contexto Político e Religioso</h3>
+              <p className="text-zinc-600 leading-relaxed max-w-3xl">
+                No século XVII, a Inglaterra estava em meio a uma crise profunda. O
+                rei Carlos I defendia uma igreja anglicana com forte influência
+                católica, enquanto o Parlamento, dominado pelos puritanos, desejava
+                uma reforma mais profunda na igreja.
+              </p>
+            </div>
+
+            <div className="relative">
+              <span className="absolute -left-[41px] top-0 w-[20px] h-[20px] bg-zinc-300 rounded-full" />
+              <h3 className="text-xl font-sans font-bold uppercase tracking-widest text-zinc-500 mb-4">2.2. A Assembleia de Westminster</h3>
+              <p className="text-zinc-600 leading-relaxed max-w-3xl">
+                Convocada em 1643, reuniu cerca de 120 teólogos. Os trabalhos duraram cinco anos, resultando na
+                Confissão, no Catecismo Maior e no Breve Catecismo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Card de Propósitos - Estilo Grid de Revista */}
+        <section className="bg-zinc-900 text-white p-10 md:p-20 rounded-sm mb-32 overflow-hidden relative">
+          <Landmark className="absolute right-[-5%] bottom-[-5%] w-64 h-64 text-white/5 rotate-12" />
+          <h2 className="text-4xl font-light mb-12 border-b border-white/10 pb-6 italic">2.3. O Propósito da Confissão</h2>
+          <div className="grid md:grid-cols-2 gap-10 font-sans">
+            {[
+              "Unificar a fé reformada na Inglaterra, Escócia e Irlanda.",
+              "Estabelecer um padrão doutrinário sólido, baseado nas Escrituras.",
+              "Rejeitar práticas e doutrinas católicas (transubstanciação/supremacia papal).",
+              "Defender a teologia reformada contra ensinos errôneos.",
+              "Prover um guia para ensino, pregação e defesa da verdade bíblica."
+            ].map((text, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <span className="text-igreja-teal font-black text-2xl">0{i+1}</span>
+                <p className="text-zinc-400 text-sm leading-relaxed uppercase tracking-wide">{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Corpo do Artigo Final - Grid de 3 Colunas para Motivos */}
+        <div className="mb-32">
+          <header className="mb-16 text-center">
+            <h2 className="text-zinc-400 font-sans font-bold uppercase tracking-[0.3em] text-xs mb-4">Seção Teológica</h2>
+            <h3 className="text-4xl md:text-6xl font-serif italic">Motivos para a Formulação</h3>
+          </header>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 border border-zinc-100 bg-white shadow-sm hover:shadow-xl transition-shadow group">
+              <ShieldCheck className="text-igreja-teal mb-6 group-hover:scale-110 transition-transform" />
+              <h4 className="font-bold mb-4 uppercase text-sm tracking-widest">Proteção Doutrinária</h4>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Serviu para estabelecer uma defesa clara da fé reformada contra erros, reafirmando a soberania de Deus e a suficiência das Escrituras.
+              </p>
+            </div>
+            
+            <div className="p-8 border border-zinc-100 bg-white shadow-sm hover:shadow-xl transition-shadow group">
+              <BookOpen className="text-igreja-teal mb-6 group-hover:scale-110 transition-transform" />
+              <h4 className="font-bold mb-4 uppercase text-sm tracking-widest">Padrão de Ensino</h4>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Um manual para pastores e uma base para catequese e discipulado nas igrejas reformadas ao redor do mundo.
+              </p>
+            </div>
+
+            <div className="p-8 border border-zinc-100 bg-white shadow-sm hover:shadow-xl transition-shadow group">
+              <Landmark className="text-igreja-teal mb-6 group-hover:scale-110 transition-transform" />
+              <h4 className="font-bold mb-4 uppercase text-sm tracking-widest">Unidade e Identidade</h4>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Garante uma fé comum entre os membros e preserva a identidade doutrinária do presbiterianismo mundial.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Conclusão Estilo Manifesto */}
+        <footer className="border-t border-zinc-200 pt-24 text-center">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-5xl font-serif italic mb-8 text-igreja-teal">Conclusão</h2>
+            <p className="text-xl text-zinc-500 leading-relaxed mb-12">
+              A Confissão de Fé de Westminster é um dos documentos mais
+              importantes da tradição reformada. Ela preserva a verdade bíblica,
+              orienta a vida da igreja e fortalece o ensino e o discipulado.
+            </p>
+            <div className="inline-block p-8 border-2 border-zinc-900 bg-zinc-900 text-white rounded-sm">
+              <p className="font-sans font-black uppercase tracking-tighter text-lg leading-tight">
+                “Toda a Escritura é divinamente inspirada e proveitosa para ensinar,
+                repreender, corrigir e instruir em justiça.”
+              </p>
+              <span className="text-igreja-teal font-mono text-sm mt-4 block">(2 Timóteo 3:16)</span>
+            </div>
+          </div>
+        </footer>
+      </article>
+    </main>
+  );
+}
