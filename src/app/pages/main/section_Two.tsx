@@ -1,5 +1,6 @@
 "use client";
 
+import { getFormattedDate } from "@/lib/utils";
 import photos1 from "@/public/image/event-1-390x273.jpg";
 import photos2 from "@/public/image/event-2-390x273.jpg";
 
@@ -14,20 +15,22 @@ interface NavItem {
 }
 
 export default function SectionTwo() {
+  const date = getFormattedDate();
+
   const items: NavItem[] = [
     {
       title: "Temer a Deus",
-      subtitles: "IPI, 23 Janeiro de 2023",
+      subtitles: `IPI, ${date}`,
       img: photos1,
     },
     {
       title: "Congregai-vos ",
-      subtitles: "IPI, 23 Janeiro de 2023",
+      subtitles: `IPI, ${date}`,
       img: photos2,
     },
     {
       title: "Base Bíblica Para Evangelização ",
-      subtitles: "IPI, 23 Janeiro de 2023",
+      subtitles: `IPI, ${date}`,
       img: photos3,
     },
   ];
@@ -41,10 +44,9 @@ export default function SectionTwo() {
             key={index}
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            
             transition={{
               duration: 0.8 + index * 0.2,
-              delay: 0.6 + (index * 0.2),
+              delay: 0.6 + index * 0.2,
               ease: "easeInOut",
             }}
             viewport={{ once: true }}

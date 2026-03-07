@@ -209,6 +209,8 @@ import HandMass from "@/public/image/hystoryIPB_Imb/Projeto Mão na massa 2.jpg"
 import inauguration from "@/public/image/hystoryIPB_Imb/inauguração.jpg";
 
 export default function HystoryIPB_Imbituba() {
+  const Year = new Date().getFullYear();
+  const ValueYear = Year - 2016;
   return (
     <div className="bg-[#1a4a4f] text-[#f4f4f4] min-h-screen font-sans selection:bg-[#215D63] selection:text-white">
       {/* 1. HERO REFINADO */}
@@ -258,7 +260,7 @@ export default function HystoryIPB_Imbituba() {
           <div className="md:col-span-4 flex items-center justify-center">
             <div className="p-8 border border-[#215D63] bg-[#215D63]/10 backdrop-blur-sm rounded-2xl text-center w-full">
               <span className="text-5xl font-black text-white italic">
-                7 Anos
+                {ValueYear} Anos
               </span>
               <p className="text-sm uppercase tracking-widest text-[#8ec1c7] mt-2 font-bold">
                 de Plantação
@@ -291,6 +293,8 @@ export default function HystoryIPB_Imbituba() {
             />
           </div>
         </section>
+
+        <div className="h-px bg-white w-full my-24" />
 
         <section className="mb-48 flex flex-col md:flex-row-reverse gap-x-28 gap-y-12 items-center px-3 md:px-10 ">
           <div className="w-full md:w-[45%] order-2 md:order-1 flex flex-col justify-center ">
@@ -357,6 +361,8 @@ export default function HystoryIPB_Imbituba() {
           </div>
         </section>
 
+        <div className="h-px bg-white w-full my-24" />
+
         <section className="mb-48 flex flex-col md:flex-row gap-x-28 gap-y-12 items-center px-6 md:px-16">
           {/* Texto ocupa 45% */}
           <div className="w-full md:w-[45%] order-2 md:order-1 flex flex-col justify-center">
@@ -422,7 +428,7 @@ export default function HystoryIPB_Imbituba() {
             </div>
           </div>
         </section>
-
+        <div className="h-px bg-white w-full my-24" />
         {/* 6. A ORGANIZAÇÃO (GRANDE FINAL) */}
         <section className="text-center">
           <div className="inline-block px-4 py-1 border border-[#215D63] text-[#8ec1c7] font-mono text-xs uppercase tracking-[0.4em] mb-12">

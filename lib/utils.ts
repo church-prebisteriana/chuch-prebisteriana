@@ -7,6 +7,15 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function getFormattedDate() {
+  const now = new Date();
+  const day = now.getDate().toString().padStart(2, "0");
+  const month = now.toLocaleString("pt-BR", { month: "long" });
+  const year = now.getFullYear();
+
+  return `${day} de ${month} de ${year}`;
+}
+
 export interface NavItem {
   title: string;
   subtitles?: string;

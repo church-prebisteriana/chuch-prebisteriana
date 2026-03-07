@@ -1,0 +1,295 @@
+
+// "use client";
+
+// import Image from "next/image";
+// import { motion } from "framer-motion";
+// import {
+//   Users,
+//   ShieldCheck,
+//   Anchor,
+//   BookOpen,
+//   Trophy,
+//   Flag,
+//   Quote,
+//   ScrollText,
+// } from "lucide-react";
+// import HeroSection from "@/src/components/ui/HeroBanner";
+
+// // Assets originais
+// import photoUPH from "@/public/image/UPH/União prebisteriana dos homens.jpg";
+// import logoUPH from "@/public/image/UPH/UPH logo.png";
+
+// export default function UPHContent() {
+//   // Variantes para animações de entrada
+//   const fadeInLeft = {
+//     hidden: { opacity: 0, x: -100 },
+//     visible: { opacity: 1, x: 0 },
+//   };
+//   const fadeInRight = {
+//     hidden: { opacity: 0, x: 100 },
+//     visible: { opacity: 1, x: 0 },
+//   };
+//   const fadeInUp = {
+//     hidden: { opacity: 0, y: 50 },
+//     visible: { opacity: 1, y: 0 },
+//   };
+
+//   return (
+//     <main className="bg-[#fdfdfb] text-emerald-950 font-serif overflow-x-hidden selection:bg-emerald-100">
+//       {/* 1. HERO COM DESIGN EDITORIAL */}
+//       <div className="relative">
+//         <HeroSection title="União Presbiteriana de Homens" image={photoUPH} />
+//         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#fdfdfb] to-transparent" />
+//       </div>
+
+//       <article className="max-w-6xl mx-auto px-6 pb-40">
+//         {/* 2. BOAS-VINDAS E LOGO (GRID ASSIMÉTRICO) */}
+//         <header className="relative z-10 -mt-24 bg-white p-10 md:p-20 shadow-2xl border-b-8 border-emerald-800 mb-32 rounded-sm">
+//           <div className="grid md:grid-cols-12 gap-12 items-center">
+//             <motion.div
+//               className="md:col-span-7 text-center md:text-left space-y-6"
+//               initial="hidden"
+//               whileInView="visible"
+//               viewport={{ once: true }}
+//               transition={{ duration: 0.8 }}
+//               variants={fadeInLeft}
+//             >
+//               <span className="text-emerald-700 font-sans font-black tracking-[0.5em] uppercase text-xs">
+//                 Sociedade Interna IPB
+//               </span>
+//               <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-none text-emerald-950 uppercase">
+//                 Seja <br />{" "}
+//                 <span className="italic font-serif text-emerald-600 lowercase tracking-normal">
+//                   Bem-vindo
+//                 </span>
+//               </h1>
+//               <p className="text-zinc-500 font-sans text-lg uppercase tracking-widest font-bold border-t border-zinc-100 pt-6">
+//                 À UPH da Igreja Presbiteriana de Imbituba
+//               </p>
+//             </motion.div>
+
+//             <motion.div
+//               className="md:col-span-5 flex justify-center"
+//               initial="hidden"
+//               whileInView="visible"
+//               viewport={{ once: true }}
+//               transition={{ duration: 0.8, delay: 0.2 }}
+//               variants={fadeInRight}
+//             >
+//               <div className="relative group">
+//                 <div className="absolute inset-0 bg-emerald-100 rounded-full scale-110 group-hover:scale-125 transition-transform duration-700 opacity-50" />
+//                 <Image
+//                   src={logoUPH}
+//                   alt="Logo UPH"
+//                   width={350}
+//                   height={350}
+//                   className="relative z-10 drop-shadow-2xl"
+//                 />
+//               </div>
+//             </motion.div>
+//           </div>
+//         </header>
+
+//         {/* 3. MOTO E IDENTIDADE (ACRESCENTADO) */}
+//         <motion.section
+//           className="mb-32 grid md:grid-cols-3 gap-8"
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.8 }}
+//           variants={fadeInUp}
+//         >
+//           <div className="bg-emerald-900 text-white p-10 rounded-sm flex flex-col items-center text-center shadow-lg">
+//             <Flag className="text-emerald-400 mb-4" size={32} />
+//             <h3 className="font-sans font-black uppercase text-sm mb-4 tracking-widest">
+//               O Moto
+//             </h3>
+//             <p className="font-serif italic text-xl">
+//               "Confiança em Jesus, Entusiasmo no Trabalho e União entre os
+//               Irmãos."
+//             </p>
+//           </div>
+//           <div className="bg-[#bf9b30] text-white p-10 rounded-sm flex flex-col items-center text-center shadow-lg">
+//             <Trophy className="text-orange-100 mb-4" size={32} />
+//             <h3 className="font-sans font-black uppercase text-sm mb-4 tracking-widest">
+//               A Missão
+//             </h3>
+//             <p className="font-serif text-lg leading-snug">
+//               Organizar e mobilizar o trabalho masculino para a Glória do Senhor
+//               Jesus Cristo.
+//             </p>
+//           </div>
+//           <div className="bg-emerald-50 text-emerald-900 p-10 rounded-sm flex flex-col items-center text-center border border-emerald-100">
+//             <Anchor className="text-emerald-700 mb-4" size={32} />
+//             <h3 className="font-sans font-black uppercase text-sm mb-4 tracking-widest">
+//               O Lema
+//             </h3>
+//             <p className="font-serif italic text-xl">
+//               "O homem crente, fervoroso no espírito e servindo ao Senhor."
+//             </p>
+//           </div>
+//         </motion.section>
+
+//         {/* 4. DEFINIÇÃO (TEXTO ORIGINAL) */}
+//         <section className="mb-32 grid grid-cols-1 lg:grid-cols-12 gap-16">
+//           <motion.div
+//             className="lg:col-span-8 space-y-8 text-lg leading-relaxed text-zinc-800"
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8 }}
+//             variants={fadeInLeft}
+//           >
+//             <h2 className="text-emerald-800 font-sans font-black text-3xl uppercase tracking-tighter border-l-4 border-emerald-800 pl-6">
+//               O que é a UPH?
+//             </h2>
+//             <p className="text-justify first-letter:text-8xl first-letter:font-black first-letter:text-emerald-800 first-letter:mr-4 first-letter:float-left first-letter:leading-[0.7]">
+//               <strong>A União Presbiteriana de Homens (UPH)</strong> é uma das
+//               sociedades internas da{" "}
+//               <strong>Igreja Presbiteriana do Brasil (IPB)</strong>, com o
+//               objetivo de organizar o trabalho masculino dentro das igrejas,
+//               congregações e pontos de pregação. Seu foco é promover a comunhão,
+//               o crescimento espiritual e o engajamento dos homens na missão da
+//               igreja, com intuito de promover a glória do Senhor Jesus Cristo.
+//             </p>
+//             <p className="text-justify">
+//               A história da UPH remonta aos primórdios da organização da IPB.
+//               Antes mesmo de 1900, já havia homens presbiterianos organizados em
+//               igrejas locais sob o nome de “Esforço Cristão”. A UPH foi
+//               oficialmente estabelecida em 1966, com a realização do I Congresso
+//               Nacional dos Homens Presbiterianos.
+//             </p>
+//           </motion.div>
+
+//           <motion.div
+//             className="lg:col-span-4"
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8, delay: 0.3 }}
+//             variants={fadeInRight}
+//           >
+//             <div className="bg-zinc-100 p-8 border-r-4 border-emerald-800">
+//               <Quote className="text-emerald-800/10 mb-4" size={48} />
+//               <p className="text-xl italic text-zinc-600 font-light leading-snug">
+//                 "Desempenha um papel vital na promoção da unidade e no avanço do
+//                 Reino de Deus." 🙏📖
+//               </p>
+//             </div>
+//           </motion.div>
+//         </section>
+
+//         {/* 5. ESTRUTURA (TEXTO ORIGINAL REORGANIZADO) */}
+//         <section className="mb-32">
+//           <div className="flex flex-col items-center mb-16">
+//             <span className="h-px w-24 bg-emerald-800 mb-4" />
+//             <h2 className="text-4xl font-black text-emerald-950 uppercase tracking-tighter">
+//               Nossa Estrutura
+//             </h2>
+//           </div>
+
+//           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+//             {[
+//               {
+//                 level: "Local",
+//                 title: "Igreja Local",
+//                 desc: "Força de Integração da IPB Imbituba. Homens se reúnem para estudo bíblico, oração e serviço.",
+//               },
+//               {
+//                 level: "Regional",
+//                 title: "Presbiterial",
+//                 desc: "Federações que congregam várias igrejas em uma região presbiterial específica.",
+//               },
+//               {
+//                 level: "Estado",
+//                 title: "Sinodal",
+//                 desc: "Secretaria Sinodal de Orientação que coordena o trabalho em nível macro-regional.",
+//               },
+//               {
+//                 level: "Nacional",
+//                 title: "CNHP",
+//                 desc: "A Confederação Nacional (CNHP) é a entidade máxima, promovendo recursos e grandes eventos.",
+//               },
+//             ].map((item, idx) => (
+//               <motion.div
+//                 key={idx}
+//                 className="p-8 bg-white border border-zinc-100 shadow-sm hover:shadow-xl transition-shadow group"
+//                 initial="hidden"
+//                 whileInView="visible"
+//                 viewport={{ once: true }}
+//                 transition={{ delay: idx * 0.1 }}
+//                 variants={fadeInUp}
+//               >
+//                 <span className="text-[#bf9b30] font-mono text-[10px] font-black uppercase tracking-widest">
+//                   {item.level}
+//                 </span>
+//                 <h3 className="text-xl font-bold text-emerald-950 mt-2 mb-4 group-hover:text-emerald-700 transition-colors">
+//                   {item.title}
+//                 </h3>
+//                 <p className="text-sm text-zinc-500 leading-relaxed text-justify">
+//                   {item.desc}
+//                 </p>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </section>
+
+//         {/* 6. HINO E CONCLUSÃO (ACRESCENTADO) */}
+//         <footer className="mt-40 border-t border-zinc-200 pt-24 text-center">
+//           <div className="max-w-3xl mx-auto">
+//             <motion.div
+//               initial="hidden"
+//               whileInView="visible"
+//               viewport={{ once: true }}
+//               transition={{ duration: 1 }}
+//               variants={fadeInUp}
+//               className="space-y-12"
+//             >
+//               <div className="inline-block p-12 bg-emerald-950 text-white rounded-sm shadow-2xl relative">
+//                 <ScrollText
+//                   className="absolute -top-6 -left-6 text-[#bf9b30]"
+//                   size={48}
+//                 />
+//                 <h2 className="text-2xl font-sans font-black uppercase mb-8 tracking-widest text-[#bf9b30]">
+//                   O Hino dos Homens
+//                 </h2>
+//                 <p className="text-lg font-light leading-relaxed italic opacity-80 mb-8">
+//                   "Homens crentes, fervorosos no espírito, servindo ao Senhor,{" "}
+//                   <br />
+//                   Com amor e alegria, na Seara do Redentor. <br />
+//                   Trabalhemos, sim, irmãos, com coragem e valor, <br />
+//                   Pela Igreja Presbiteriana e pela Glória do Senhor!"
+//                 </p>
+//                 <div className="flex justify-center gap-4">
+//                   <div className="h-px w-12 bg-emerald-700 self-center" />
+//                   <span className="text-emerald-400 font-mono text-xs uppercase tracking-widest">
+//                     Hino Oficial UPH
+//                   </span>
+//                   <div className="h-px w-12 bg-emerald-700 self-center" />
+//                 </div>
+//               </div>
+
+//               <div className="pt-20">
+//                 <h2 className="text-5xl font-serif italic mb-8 text-emerald-900">
+//                   Propósito Final
+//                 </h2>
+//                 <p className="text-xl text-zinc-500 leading-relaxed text-justify">
+//                   A UPH busca fortalecer a fé, a liderança e o testemunho dos
+//                   homens, incentivando-os a serem ativos na igreja, na família e
+//                   na sociedade. Nosso compromisso é com a edificação mútua e o
+//                   avanço contínuo do Reino de Deus em Imbituba e no mundo.
+//                 </p>
+//                 <div className="mt-12 flex flex-col items-center">
+//                   <div className="h-20 w-[1px] bg-gradient-to-b from-emerald-800 to-transparent mb-6" />
+//                   <p className="text-[#bf9b30] font-sans font-black uppercase tracking-[0.4em] text-xs">
+//                     Igreja Presbiteriana de Imbituba • 2026
+//                   </p>
+//                 </div>
+//               </div>
+//             </motion.div>
+//           </div>
+//         </footer>
+//       </article>
+//     </main>
+//   );
+// }

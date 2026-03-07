@@ -96,7 +96,7 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="text-white/40 mt-8 max-w-sm font-light leading-relaxed text-lg"
           >
-            Porque Dele, por meio Dele, e para Ele são{" "}
+            Porque d'Ele, por meio d'Ele, e para Ele são{" "}
             <span className="text-white/80 italic">todas as coisas</span>.
           </motion.p>
         </motion.div>
