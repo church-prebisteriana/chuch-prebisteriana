@@ -32,29 +32,28 @@ export default function SectionChurch() {
   const [index, setIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(3);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const [currentIndex2, setCurrentIndex2] = useState(0);
   const router = useRouter();
   const pathname = usePathname();
 
-  const nextItem2 = () => {
-    setCurrentIndex2((prev) => (prev + 1) % historyCards.length);
-  };
+  const [itemsFathIndex, setItemsFathIndex] = useState(0);
+  const [historyIndex, setHistoryIndex] = useState(0);
 
-  const prevItem2 = () => {
-    setCurrentIndex2(
+  
+
+  const nextHistory = () =>
+    setHistoryIndex((prev) => (prev + 1) % historyCards.length);
+
+  const prevHistory = () =>
+    setHistoryIndex(
       (prev) => (prev - 1 + historyCards.length) % historyCards.length
     );
-  };
+  const nextFath = () =>
+    setItemsFathIndex((prev) => (prev + 1) % itemsFath.length);
 
-  const nextItem = () => {
-    setCurrentIndex((prev) => (prev + 1) % itemsFath.length);
-  };
-
-  const prevItem = () => {
-    setCurrentIndex((prev) => (prev - 1 + itemsFath.length) % itemsFath.length);
-  };
+  const prevFath = () =>
+    setItemsFathIndex(
+      (prev) => (prev - 1 + itemsFath.length) % itemsFath.length
+    );
 
   const itemsFath = [
     {
@@ -101,7 +100,7 @@ export default function SectionChurch() {
       subtitle: "Agenda",
       img: schedule,
       color: "bg-amber-700",
-      href: "/documents/contistuiçãoIPB.pdf",
+      href: "/church/calendar",
     },
   ];
 
@@ -168,8 +167,12 @@ export default function SectionChurch() {
   }
 
   return (
-    <section ref={containerRef} className="bg-[#fcfcfc] text-slate-900 ">
-      <div className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
+    <section
+      ref={containerRef}
+      className="bg-[#fcfcfc] text-slate-900 overflow-x-hidden"
+    >
+      {/* 1. HERO SECTION */}
+      <div className="relative h-[70vh] md:h-[85vh] w-full overflow-hidden flex items-center justify-center">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <Image
             src={churchMembers}
@@ -179,508 +182,250 @@ export default function SectionChurch() {
             priority
           />
         </motion.div>
-
         <div className="relative z-10 text-center px-6">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <span className="inline-block px-4 py-1 border border-white/30 rounded-full text-white/80 text-sm tracking-[0.3em] uppercase mb-6 backdrop-blur-sm">
+            <span className="inline-block px-4 py-1 border border-white/30 rounded-full text-white/80 text-xs md:text-sm tracking-[0.3em] uppercase mb-6 backdrop-blur-sm">
               Desde 2017
             </span>
             <h1 className="text-5xl md:text-8xl font-serif text-white mb-8 tracking-tighter">
               IPB <span className="italic font-light">Imbituba</span>
             </h1>
-            <div className="h-20 w-[1px] bg-gradient-to-b from-white to-transparent mx-auto" />
+            <div className="h-16 md:h-24 w-[1px] bg-gradient-to-b from-white to-transparent mx-auto" />
           </motion.div>
         </div>
       </div>
 
-      <motion.div
-        initial={{ x: 50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <div className="max-w-6xl mx-auto px-6 -mt-20 relative z-20">
-          <div className="bg-white p-10 md:p-20 shadow-2xl rounded-sm border-t-4 border-igreja-teal">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-slate-800">
-                Uma comunidade firmada na{" "}
-                <span className="text-igreja-teal">Rocha</span> e movida pela
-                Graça.
-              </h2>
-              <p className="text-lg text-slate-500 leading-relaxed italic border-l-2 border-slate-100 pl-6">
-                "Nesta seção, convidamos você a mergulhar em nossa trajetória,
-                compreender nossos pilares de fé e descobrir como sua vida pode
-                florescer em comunhão conosco."
-              </p>
-            </div>
+      {/* 2. CARD DE BOAS-VINDAS */}
+      <div className="max-w-7xl mx-auto px-6 -mt-16 md:-mt-24 relative z-20">
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="bg-white p-8 md:p-16 lg:p-20 shadow-2xl rounded-sm border-t-4 border-igreja-teal"
+        >
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-slate-800">
+              Uma comunidade firmada na{" "}
+              <span className="text-igreja-teal">Rocha</span> e movida pela
+              Graça.
+            </h2>
+            <p className="text-base md:text-lg text-slate-500 leading-relaxed italic border-l-2 border-slate-100 pl-6">
+              "Convidamos você a mergulhar em nossa trajetória, compreender
+              nossos pilares de fé e descobrir como sua vida pode florescer em
+              comunhão conosco."
+            </p>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
-      <div className="max-w-7xl mt-20 mx-auto px-4 py-20 ">
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-          {historyCards.map((item, index) => {
-            // Lógica de visibilidade: No mobile apenas o currentIndex2 aparece
-            const isVisible = index === currentIndex2;
-
-            return (
+      {/* 3. GRID DE HISTÓRIA / CARDS PRINCIPAIS */}
+      <div className="max-w-[1440px] mx-auto px-6 py-24">
+        {/* Grid Responsivo: 1 col (mobile), 2 col (tablet), 3 col (laptop), 4 col (desktop grande) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+          {historyCards.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              onClick={() => handleNavigation(item.href)}
+              // Lógica de visibilidade mobile: só mostra o ativo se for carrossel, ou grid normal em telas maiores
+              className={`${
+                index === historyIndex ? "block" : "hidden sm:block"
+              }`}
+            >
               <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                onClick={() => handleNavigation(item.href)}
-                // Flex no desktop, Hidden no mobile se não for o ativo
-                className={`w-full ${isVisible ? "flex" : "hidden lg:flex"}`}
+                whileHover={{ y: -10 }}
+                className="group relative h-[450px] md:h-[550px] w-full overflow-hidden rounded-xl cursor-pointer shadow-lg"
               >
-                <motion.div
-                  whileHover={{ y: -15 }}
-                  className="group relative  h-[400px] md:h-[500px] w-full max-w-[450px] mx-auto overflow-hidden rounded-2xl cursor-pointer shadow-xl border border-white/5"
-                >
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0"
-                  />
-
-                  {/* Overlay de gradiente */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-90" />
-
-                  <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full transform transition-all duration-500">
-                    <p className="text-igreja-teal font-mono text-xs mb-2 tracking-[0.2em] uppercase font-bold">
-                      {item.subtitle}
-                    </p>
-                    <h3 className="text-white text-2xl md:text-3xl font-bold mb-4 leading-tight">
-                      {item.title}
-                    </h3>
-
-                    <div className="flex items-center gap-2 text-white/60 text-sm group-hover:text-white transition-colors">
-                      <span className="font-semibold uppercase tracking-wider text-xs">
-                        Explorar
-                      </span>
-                      <ArrowUpRight
-                        size={18}
-                        className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                      />
-                    </div>
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[0.3] group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <p className="text-igreja-teal font-mono text-[10px] tracking-[0.2em] uppercase font-bold mb-2">
+                    {item.subtitle}
+                  </p>
+                  <h3 className="text-white text-2xl font-bold mb-4">
+                    {item.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-white/60 text-xs">
+                    <span className="uppercase tracking-widest group-hover:text-white transition-colors">
+                      Explorar
+                    </span>
+                    <ArrowUpRight
+                      size={16}
+                      className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                    />
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
 
-        {/* Controles do Carrossel de História (Visíveis apenas no Mobile/Tablet pequeno) */}
-        <div className="flex lg:hidden items-center justify-between mt-10 px-4 max-w-[450px] mx-auto">
+        {/* Controles Carrossel Mobile (História) */}
+        <div className="flex sm:hidden items-center justify-between mt-8 max-w-[200px] mx-auto">
           <button
-            onClick={prevItem2}
-            className="p-4 rounded-full bg-zinc-900 text-white active:scale-95 transition-transform"
+            onClick={prevHistory}
+            className="p-3 rounded-full bg-slate-900 text-white"
           >
-            <ArrowLeft size={24} />
+            <ArrowLeft size={20} />
           </button>
+          <button
+            onClick={nextHistory}
+            className="p-3 rounded-full bg-slate-900 text-white"
+          >
+            <ArrowRight size={20} />
+          </button>
+        </div>
+      </div>
 
-          <div className="flex gap-2">
-            {historyCards.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 transition-all duration-300 rounded-full ${
-                  i === currentIndex2 ? "w-8 bg-igreja-teal" : "w-2 bg-zinc-200"
-                }`}
-              />
-            ))}
+      {/* 4. SEÇÃO DE DOUTRINA (PADRÕES DA FÉ) */}
+      <div className="bg-slate-50 py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16 border-b border-slate-200 pb-12">
+            <div className="max-w-2xl">
+              <span className="text-igreja-teal font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-3 block">
+                Doutrina e Instrução
+              </span>
+              <h2 className="text-4xl md:text-7xl font-light tracking-tighter text-slate-900 leading-tight">
+                Padrões da{" "}
+                <span className="font-serif italic text-igreja-teal">Fé</span>
+              </h2>
+            </div>
+            <p className="max-w-xs text-slate-400 text-sm leading-relaxed">
+              Documentos históricos que expressam de forma sistemática as
+              verdades fundamentais das Escrituras.
+            </p>
           </div>
 
-          <button
-            onClick={nextItem2}
-            className="p-4 rounded-full bg-zinc-900 text-white active:scale-95 transition-transform"
-          >
-            <ArrowRight size={24} />
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-32 mb-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-end justify-between gap-6 border-b border-zinc-100 pb-10">
-        <div className="text-left">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-igreja-teal font-bold tracking-[0.4em] uppercase text-xs mb-2 block"
-          >
-            Doutrina e Instrução
-          </motion.span>
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-7xl font-light tracking-tighter text-zinc-900 leading-none"
-          >
-            Padrões da{" "}
-            <span className="font-serif italic text-igreja-teal">Fé</span>
-          </motion.h1>
-        </div>
-        <p className="max-w-xs text-zinc-400 text-sm leading-relaxed mb-2">
-          Documentos históricos que expressam de forma sistemática as verdades
-          fundamentais das Escrituras.
-        </p>
-      </div>
-
-      {/* Grid Desktop / Carousel Mobile */}
-      <div className="max-w-7xl mx-auto px-6 relative">
-        {/* Container dos Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10 md:mb-24">
-          {itemsFath.map((item, index) => {
-            // No mobile, escondemos os itens que não são o currentIndex
-            const isVisible = index === currentIndex;
-
-            return (
+          {/* Grid Doutrina: 1 col (mobile), 3 col (desktop) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {itemsFath.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ y: 40, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                // Classe crucial: flex no desktop, hidden no mobile se não for o ativo
-                className={`group flex-col cursor-pointer ${
-                  isVisible ? "flex" : "hidden md:flex"
+                onClick={() => handleNavigation(item.href)}
+                className={`group flex flex-col ${
+                  index === itemsFathIndex ? "block" : "hidden md:block"
                 }`}
               >
-                <div
-                  onClick={() => handleNavigation(item.href)}
-                  className="relative aspect-[3/4] overflow-hidden bg-zinc-100 rounded-sm shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2"
-                >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-white shadow-md group-hover:shadow-2xl transition-all duration-500">
                   <Image
                     src={item.img}
                     alt={item.title}
                     fill
-                    className="object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                    className="object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-igreja-teal/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-
-                <div className="mt-8 flex flex-col gap-2 relative">
-                  <span className="font-mono text-[10px] text-zinc-300 tracking-[0.3em] uppercase">
+                <div className="mt-8">
+                  <span className="font-mono text-[10px] text-slate-300 tracking-[0.3em] uppercase block mb-2">
                     Documento // 0{index + 1}
                   </span>
-                  <h2 className="text-2xl font-bold text-zinc-800 uppercase tracking-tighter transition-colors group-hover:text-igreja-teal">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-800 uppercase tracking-tighter group-hover:text-igreja-teal transition-colors">
                     {item.title}
-                  </h2>
-                  <div className="w-8 h-px bg-zinc-200 mt-4 group-hover:w-full group-hover:bg-igreja-teal transition-all duration-700" />
+                  </h3>
+                  <div className="w-12 h-0.5 bg-slate-200 mt-4 group-hover:w-full group-hover:bg-igreja-teal transition-all duration-500" />
                 </div>
               </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Controles do Carrossel (Visíveis apenas no Mobile) */}
-        <div className="flex md:hidden items-center justify-between mt-10 px-4">
-          <button
-            onClick={prevItem}
-            className="p-4 rounded-full bg-zinc-900 text-white active:scale-95 transition-transform"
-          >
-            <ArrowLeft size={24} />
-          </button>
-
-          <div className="flex gap-2">
-            {itemsFath.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 transition-all duration-300 rounded-full ${
-                  i === currentIndex ? "w-8 bg-igreja-teal" : "w-2 bg-zinc-200"
-                }`}
-              />
             ))}
           </div>
 
-          <button
-            onClick={nextItem}
-            className="p-4 rounded-full bg-zinc-900 text-white active:scale-95 transition-transform"
-          >
-            <ArrowRight size={24} />
-          </button>
+          {/* Controles Carrossel Mobile (Doutrina) */}
+          <div className="flex md:hidden items-center justify-between mt-10 max-w-[200px] mx-auto">
+            <button
+              onClick={prevFath}
+              className="p-3 rounded-full bg-slate-900 text-white"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <button
+              onClick={nextFath}
+              className="p-3 rounded-full bg-slate-900 text-white"
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="mt-32 w-full bg-white overflow-hidden border-y border-zinc-100">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          {/* Cabeçalho: Direita para o Centro e Esquerda para o Centro */}
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-6">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex items-center gap-4"
-            >
-              <span className="h-px w-12 bg-igreja-teal" />
-              <h2 className="text-sm font-bold tracking-[0.4em] uppercase text-zinc-400">
-                Governo Local
-              </h2>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl font-light tracking-tighter text-zinc-900"
-            >
-              O{" "}
-              <span className="font-serif italic text-igreja-teal">
-                Conselho
-              </span>
-            </motion.h1>
+      {/* 5. SEÇÃO CONSELHO (ESTILO EDITORIAL) */}
+      <div className="max-w-7xl mx-auto px-6 py-32">
+        <div className="flex flex-col lg:flex-row justify-between items-baseline mb-20 gap-8">
+          <div className="flex items-center gap-4">
+            <span className="h-px w-12 bg-igreja-teal" />
+            <h2 className="text-xs font-bold tracking-[0.4em] uppercase text-slate-400">
+              Liderança e Governo
+            </h2>
           </div>
+          <h2 className="text-5xl md:text-8xl font-light tracking-tighter text-slate-900">
+            O{" "}
+            <span className="font-serif italic text-igreja-teal">Conselho</span>
+          </h2>
+        </div>
 
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="hidden md:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between pointer-events-none z-30 px-4">
+        {/* Layout de Destaque para o Conselho (Mantendo sua lógica de Slide) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center bg-white p-6 md:p-12 rounded-xl shadow-sm border border-slate-100">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={council[index].name}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              className="relative aspect-square w-full max-w-md mx-auto"
+            >
+              <Image
+                src={council[index].photo}
+                alt={council[index].name}
+                fill
+                className="object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-700 shadow-xl"
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="flex flex-col justify-center">
+            <span className="text-igreja-teal font-mono text-sm tracking-widest uppercase mb-4 block">
+              {council[index].role}
+            </span>
+            <h3 className="text-4xl md:text-6xl font-bold text-slate-900 leading-none mb-6 uppercase tracking-tighter">
+              {council[index].name}
+            </h3>
+            <p className="text-slate-500 text-xl leading-relaxed italic border-l-4 border-igreja-teal/20 pl-6 mb-8">
+              "{council[index].bio}"
+            </p>
+
+            <div className="flex items-center gap-6 mt-4">
               <button
-                onClick={prevStep}
-                className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95 -translate-x-1/2"
+                onClick={() =>
+                  setIndex(
+                    (prev) => (prev - 1 + council.length) % council.length
+                  )
+                }
+                className="p-4 rounded-full bg-slate-900 text-white hover:bg-igreja-teal transition-colors"
               >
                 <ArrowLeft size={24} />
               </button>
-
               <button
-                onClick={nextStep}
-                className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95 translate-x-1/2"
+                onClick={() => setIndex((prev) => (prev + 1) % council.length)}
+                className="p-4 rounded-full bg-slate-900 text-white hover:bg-igreja-teal transition-colors"
               >
                 <ArrowRight size={24} />
               </button>
             </div>
-
-            {/* LADO ESQUERDO: Vem da Esquerda para o Centro */}
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="relative"
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={visibleItems[0].name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.6, ease: "circOut" }}
-                  className="relative aspect-[3/4] md:aspect-square w-full max-w-md mx-auto"
-                >
-                  <div className="absolute -inset-4 border border-zinc-100 rounded-sm -z-10 translate-x-8 translate-y-8" />
-                  <Image
-                    src={visibleItems[0].photo}
-                    alt={visibleItems[0].name}
-                    fill
-                    className="object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
-                  />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Navegação Mobile */}
-              <div className="flex justify-center md:hidden gap-8 mt-10 z-30">
-                <button
-                  onClick={prevStep}
-                  className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
-                >
-                  <ArrowLeft size={24} />
-                </button>
-                <button
-                  onClick={nextStep}
-                  className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
-                >
-                  <ArrowRight size={24} />
-                </button>
-              </div>
-
-              {/* Navegação Desktop */}
-            </motion.div>
-
-            {/* LADO DIREITO: Vem da Direita para o Centro */}
-            <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="flex flex-col justify-center"
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={visibleItems[0].name + "info"}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <span className="text-igreja-teal font-mono text-sm tracking-widest uppercase mb-4 block">
-                    {visibleItems[0].role}
-                  </span>
-                  <h3 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-none mb-8 tracking-tighter uppercase">
-                    {visibleItems[0].name}
-                  </h3>
-                  <div className="relative py-10 border-y border-zinc-100">
-                    <p className="text-zinc-500 text-xl md:text-2xl leading-relaxed font-light italic">
-                      "{visibleItems[0].bio}"
-                    </p>
-                    <span className="absolute top-4 left-0 text-8xl text-zinc-50 opacity-10 font-serif leading-none select-none">
-                      “
-                    </span>
-                  </div>
-                  <div className="mt-12 flex items-center gap-6">
-                    <div className="flex gap-1">
-                      {council.map((_, i) => (
-                        <div
-                          key={i}
-                          className={`h-1 transition-all duration-500 ${
-                            visibleItems[0].name === council[i].name
-                              ? "w-12 bg-igreja-teal"
-                              : "w-4 bg-zinc-200"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-zinc-400 font-mono text-xs uppercase tracking-widest">
-                      Liderança Oficial
-                    </span>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
           </div>
         </div>
       </div>
-      {/* <div className="mt-32 w-full bg-white overflow-hidden border-y border-zinc-100">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-         
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-6">
-            <div className="flex items-center gap-4">
-              <span className="h-px w-12 bg-igreja-teal" />
-              <h2 className="text-sm font-bold tracking-[0.4em] uppercase text-zinc-400">
-                Governo Local
-              </h2>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-light tracking-tighter text-zinc-900">
-              O{" "}
-              <span className="font-serif italic text-igreja-teal">
-                Conselho
-              </span>
-            </h1>
-          </div>
-
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-           
-            <div className="relative">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={visibleItems[0].name} // Focado no item central ou primeiro visível
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.6, ease: "circOut" }}
-                  className="relative aspect-[3/4] md:aspect-square w-full max-w-md mx-auto"
-                >
-                  
-                  <div className="absolute -inset-4 border border-zinc-100 rounded-sm -z-10 translate-x-8 translate-y-8" />
-
-                  <Image
-                    src={visibleItems[0].photo}
-                    alt={visibleItems[0].name}
-                    fill
-                    className="object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
-                  />
-                </motion.div>
-                <div className="flex justify-center md:hidden gap-8 mt-10 z-30">
-                  <button
-                    onClick={prevStep}
-                    className=" pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
-                  >
-                    <ArrowLeft size={24} />
-                  </button>
-                  <button
-                    onClick={nextStep}
-                    className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
-                  >
-                    <ArrowRight size={24} />
-                  </button>
-                </div>
-              </AnimatePresence>
-
-            
-              <div className="relative flex items-center justify-center w-full max-w-6xl mt-10"></div>
-              <div className="hidden md:flex absolute -left-20 -right-20 lg:-left-20 lg:-right-180 top-1/2 -translate-y-1/2 justify-between pointer-events-none z-30">
-                <button
-                  onClick={prevStep}
-                  className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
-                >
-                  <ArrowLeft size={24} />
-                </button>
-
-                <button
-                  onClick={nextStep}
-                  className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
-                >
-                  <ArrowRight size={24} />
-                </button>
-              </div>
-            </div>
-
-
-            <div className="flex flex-col justify-center">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={visibleItems[0].name + "info"}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <span className="text-igreja-teal font-mono text-sm tracking-widest uppercase mb-4 block">
-                    {visibleItems[0].role}
-                  </span>
-
-                  <h3 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-none mb-8 tracking-tighter uppercase">
-                    {visibleItems[0].name}
-                  </h3>
-
-                  <div className="relative py-10 border-y border-zinc-100">
-                    <p className="text-zinc-500 text-xl md:text-2xl leading-relaxed font-light italic italic">
-                      "{visibleItems[0].bio}"
-                    </p>
-                   
-                    <span className="absolute top-4 left-0 text-8xl text-zinc-50 opacity-10 font-serif leading-none select-none">
-                      “
-                    </span>
-                  </div>
-
-                  <div className="mt-12 flex items-center gap-6">
-                    <div className="flex gap-1">
-                      
-                      {council.map((_, i) => (
-                        <div
-                          key={i}
-                          className={`h-1 transition-all duration-500 ${
-                            visibleItems[0].name === council[i].name
-                              ? "w-12 bg-igreja-teal"
-                              : "w-4 bg-zinc-200"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-zinc-400 font-mono text-xs uppercase tracking-widest">
-                      Liderança Oficial
-                    </span>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </section>
   );
 }

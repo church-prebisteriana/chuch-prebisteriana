@@ -4,10 +4,18 @@ import { usePathname, useRouter } from "next/navigation"; // Adicionado useRoute
 import SocialButtons from "@/src/components/ui/social_icons";
 import logoIgreja from "@/public/image/logo_igreja.png";
 import Image from "next/image";
-import { Menu, ArrowLeft, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  ArrowLeft,
+  ChevronDown,
+  ArrowUpRight,
+  Users,
+} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import LoadingTelaCheia from "@/src/app/loading"; // Importe seu componente de loading
+import LoadingLogin from "@/src/components/layout/loadingLogin";
+import { Button } from "../ui/button";
 type SubmenuItem = {
   name: string;
   href: string;
@@ -27,12 +35,25 @@ export default function Navbar() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   // --- LÓGICA DE LOADING FIXO ---
-  const [isNavigating, setIsNavigating] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const handleLogin = () => {
+    setIsLoggingIn(true);
+    setTimeout(() => {
+      router.push("/login");
+    }, 1400);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFirstLoad(false);
+      setIsLoggingIn(false);
+    }, 3000);
 
-  // Toda vez que o pathname mudar, desligamos o loading
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFirstLoad(false);
@@ -84,6 +105,7 @@ export default function Navbar() {
     <>
       {/* EXIBIÇÃO DA TELA DE LOADING */}
       {isFirstLoad && <LoadingTelaCheia />}
+      {isLoggingIn && <LoadingLogin />}
 
       <nav className="w-full sticky top-0 z-[100] bg-gray-50 px-4 md:px-8 pt-5 pb-10 py-4 font-roboto">
         {/* Barra de Redes Sociais */}
@@ -234,6 +256,15 @@ export default function Navbar() {
                   </li>
                 );
               })}
+              <li>
+                <button
+                  onClick={() => handleLogin()}
+                  className="flex items-center gap-2 bg-igreja-teal cursor-pointer text-white px-10 py-2 text-lg font-bold rounded-lg border-b-2 border-black/30 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] hover:brightness-110 active:border-b-0 active:translate-y-[1px] active:shadow-inner"
+                >
+                  <Users size={18} />
+                  Usuário
+                </button>
+              </li>
             </ul>
 
             <button
@@ -327,6 +358,18 @@ export default function Navbar() {
               </li>
             );
           })}
+          <li className="px-6 mt-6">
+            <button
+              onClick={() => {
+                handleLogin();
+                setMenuOpen(false);
+              }}
+              className=" bg-igreja-teal px-8 text-white py-4 font-black uppercase  text-xs rounded-xl flex items-center justify-center gap-2"
+            >
+              <Users size={18} />
+              Usuário
+            </button>
+          </li>
         </ul>
       </nav>
     </>

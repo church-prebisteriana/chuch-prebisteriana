@@ -15,9 +15,16 @@ export function getFormattedDate() {
 
   return `${day} de ${month} de ${year}`;
 }
+export function getYearDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+
+  return year;
+}
 
 export interface NavItem {
   title: string;
   subtitles?: string;
   img: StaticImageData;
 }
+  

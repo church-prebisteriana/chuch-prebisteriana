@@ -3,7 +3,9 @@
 import { Button } from "@/src/components/ui/button";
 import { motion } from "framer-motion";
 
+
 export default function SectionOne() {
+  
   return (
     <section className="bg-gray-50 py-20 md:py-32 px-5 flex justify-center text-black overflow-hidden">
       <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-4xl w-full gap-6">
@@ -63,7 +65,7 @@ export default function SectionOne() {
               className="bg-igreja-dourado hover:bg-igreja-dourado-dark rounded-none text-white w-full md:w-60 h-16 md:h-18 text-lg cursor-pointer transition-all"
             >
               <a
-                href="/sobre-nos"
+                href="/church/hystoryIPB_Imbituba"
                 className="flex justify-center items-center gap-2"
               >
                 Conheça nossa história

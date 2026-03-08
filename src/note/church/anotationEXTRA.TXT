@@ -1,0 +1,127 @@
+{/* <div className="mt-32 w-full bg-white overflow-hidden border-y border-zinc-100">
+    <div className="max-w-7xl mx-auto px-6 py-24">
+     
+      <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-6">
+        <div className="flex items-center gap-4">
+          <span className="h-px w-12 bg-igreja-teal" />
+          <h2 className="text-sm font-bold tracking-[0.4em] uppercase text-zinc-400">
+            Governo Local
+          </h2>
+        </div>
+        <h1 className="text-5xl md:text-7xl font-light tracking-tighter text-zinc-900">
+          O{" "}
+          <span className="font-serif italic text-igreja-teal">
+            Conselho
+          </span>
+        </h1>
+      </div>
+
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+       
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={visibleItems[0].name} // Focado no item central ou primeiro visível
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.6, ease: "circOut" }}
+              className="relative aspect-[3/4] md:aspect-square w-full max-w-md mx-auto"
+            >
+              
+              <div className="absolute -inset-4 border border-zinc-100 rounded-sm -z-10 translate-x-8 translate-y-8" />
+
+              <Image
+                src={visibleItems[0].photo}
+                alt={visibleItems[0].name}
+                fill
+                className="object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
+              />
+            </motion.div>
+            <div className="flex justify-center md:hidden gap-8 mt-10 z-30">
+              <button
+                onClick={prevStep}
+                className=" pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
+              >
+                <ArrowLeft size={24} />
+              </button>
+              <button
+                onClick={nextStep}
+                className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
+              >
+                <ArrowRight size={24} />
+              </button>
+            </div>
+          </AnimatePresence>
+
+        
+          <div className="relative flex items-center justify-center w-full max-w-6xl mt-10"></div>
+          <div className="hidden md:flex absolute -left-20 -right-20 lg:-left-20 lg:-right-180 top-1/2 -translate-y-1/2 justify-between pointer-events-none z-30">
+            <button
+              onClick={prevStep}
+              className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
+            >
+              <ArrowLeft size={24} />
+            </button>
+
+            <button
+              onClick={nextStep}
+              className="pointer-events-auto w-16 h-16 bg-zinc-900 text-white flex items-center justify-center rounded-full transition-all duration-300 hover:bg-igreja-teal hover:scale-125 active:scale-95"
+            >
+              <ArrowRight size={24} />
+            </button>
+          </div>
+        </div>
+
+
+        <div className="flex flex-col justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={visibleItems[0].name + "info"}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <span className="text-igreja-teal font-mono text-sm tracking-widest uppercase mb-4 block">
+                {visibleItems[0].role}
+              </span>
+
+              <h3 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-none mb-8 tracking-tighter uppercase">
+                {visibleItems[0].name}
+              </h3>
+
+              <div className="relative py-10 border-y border-zinc-100">
+                <p className="text-zinc-500 text-xl md:text-2xl leading-relaxed font-light italic italic">
+                  "{visibleItems[0].bio}"
+                </p>
+               
+                <span className="absolute top-4 left-0 text-8xl text-zinc-50 opacity-10 font-serif leading-none select-none">
+                  “
+                </span>
+              </div>
+
+              <div className="mt-12 flex items-center gap-6">
+                <div className="flex gap-1">
+                  
+                  {council.map((_, i) => (
+                    <div
+                      key={i}
+                      className={`h-1 transition-all duration-500 ${
+                        visibleItems[0].name === council[i].name
+                          ? "w-12 bg-igreja-teal"
+                          : "w-4 bg-zinc-200"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="text-zinc-400 font-mono text-xs uppercase tracking-widest">
+                  Liderança Oficial
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  </div> */}

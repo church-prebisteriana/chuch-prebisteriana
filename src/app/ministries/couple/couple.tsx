@@ -182,8 +182,18 @@ import photoMain from "@/public/image/couple/couple.jpg";
 
 export default function CouplePage() {
   const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0 },
   };
   const year = new Date().getFullYear();
 
@@ -199,6 +209,7 @@ export default function CouplePage() {
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1 , delay: 0.2} }
             className="text-3xl md:text-[9rem] font-black text-white leading-[0.8] tracking-tighter uppercase italic drop-shadow-2xl"
           >
             Ministério de Casais.
@@ -222,6 +233,7 @@ export default function CouplePage() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
+            transition={{ duration: 1 , delay: 0.2} }
           >
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
               O Nosso <br /> <span className="text-[#bf9b30]">Propósito.</span>
@@ -234,6 +246,7 @@ export default function CouplePage() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
+            transition={{ duration: 1 , delay: 0.2} }
           >
             <p>
               O Ministério de Casais da Igreja Presbiteriana de Imbituba é um
@@ -258,37 +271,61 @@ export default function CouplePage() {
           {/* SEÇÃO: BÍBLIA E GLÓRIA DE DEUS */}
           <section className="grid md:grid-cols-2 gap-20 border-t border-zinc-100 pt-20">
             <div className="space-y-8">
-              <div className="flex items-center gap-4 text-[#bf9b30]">
+              <motion.div
+                className="flex items-center gap-4 text-[#bf9b30]"
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 1 , delay: 0.2} }
+              >
                 <BookOpen size={24} />
                 <h3 className="font-black uppercase tracking-widest text-sm">
                   Bíblia como Padrão
                 </h3>
-              </div>
-              <p className="text-lg leading-relaxed text-zinc-600 text-justify">
+              </motion.div>
+              <motion.p
+                className="text-lg leading-relaxed text-zinc-600 text-justify"
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 1 , delay: 0.2} }
+              >
                 O Departamento de Casais fundamenta todas as suas atividades na
                 Palavra de Deus. A Bíblia é reconhecida como a autoridade
                 suprema para orientar o casamento, a família e a vida cristã. Os
                 casais são incentivados a desenvolver uma vida devocional
                 conjunta, estudando as Escrituras, orando juntos e aplicando os
                 princípios bíblicos no cotidiano do lar.
-              </p>
+              </motion.p>
             </div>
 
             <div className="space-y-8">
-              <div className="flex items-center gap-4 text-[#bf9b30]">
+              <motion.div
+                className="flex items-center gap-4 text-[#bf9b30]"
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 1 , delay: 0.2} }
+              >
                 <Star size={24} />
                 <h3 className="font-black uppercase tracking-widest text-sm">
                   Glória de Deus
                 </h3>
-              </div>
-              <p className="text-lg leading-relaxed text-zinc-600 text-justify">
+              </motion.div>
+              <motion.p
+                className="text-lg leading-relaxed text-zinc-600 text-justify"
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 1 , delay: 0.2} }
+              >
                 O objetivo central do ministério é glorificar a Deus em todas as
                 coisas. Os casamentos são vistos como uma oportunidade de
                 refletir o caráter de Cristo, demonstrando amor, perdão, graça,
                 compromisso e fidelidade. Dessa forma, cada casal é encorajado a
                 viver de maneira que seu relacionamento seja um testemunho do
                 evangelho.
-              </p>
+              </motion.p>
             </div>
           </section>
 
@@ -299,35 +336,36 @@ export default function CouplePage() {
             </div>
             <div className="relative z-10 grid md:grid-cols-2 gap-16">
               <div className="space-y-6">
-                <h4 className="text-[#bf9b30] font-black uppercase tracking-[0.3em] text-xs">
+                
+                <motion.h4    variants={fadeInUp} initial="hidden" whileInView="visible" className="text-[#bf9b30] font-black uppercase tracking-[0.3em] text-xs">
                   Crescimento Mútuo
-                </h4>
-                <h3 className="text-4xl font-bold uppercase tracking-tighter">
+                </motion.h4>
+                <motion.h3  variants={fadeInUp} initial="hidden" whileInView="visible" className="text-4xl font-bold uppercase tracking-tighter">
                   Edificação dos Relacionamentos
-                </h3>
-                <p className="text-zinc-400 leading-relaxed text-justify">
+                </motion.h3>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" className="text-zinc-400 leading-relaxed text-justify">
                   O ministério promove encontros, estudos bíblicos, palestras,
                   seminários e momentos de aconselhamento que auxiliam no
                   fortalecimento do vínculo entre marido e esposa. Os casais são
                   estimulados a cultivar diálogo, respeito, compreensão e
                   cuidado mútuo, desenvolvendo uma relação sólida capaz de
                   enfrentar desafios.
-                </p>
+                </motion.p>
               </div>
               <div className="space-y-6">
-                <h4 className="text-[#bf9b30] font-black uppercase tracking-[0.3em] text-xs">
+                <motion.h4 variants={fadeInRight} initial="hidden" whileInView="visible" className="text-[#bf9b30] font-black uppercase tracking-[0.3em] text-xs">
                   Mentoria
-                </h4>
-                <h3 className="text-4xl font-bold uppercase tracking-tighter">
+                </motion.h4>
+                <motion.h3 variants={fadeInRight} initial="hidden" whileInView="visible" className="text-4xl font-bold uppercase tracking-tighter">
                   Discipulado e Maturidade
-                </h3>
-                <p className="text-zinc-400 leading-relaxed text-justify">
+                </motion.h3>
+                <motion.p  variants={fadeInRight} initial="hidden" whileInView="visible" className="text-zinc-400 leading-relaxed text-justify">
                   Incentivamos o discipulado entre casais mais experientes e
                   casais mais jovens. Esse acompanhamento promove aprendizado
                   prático, troca de experiências e apoio espiritual,
                   contribuindo para o amadurecimento na fé e no compromisso um
                   com o outro.
-                </p>
+                </motion.p>
               </div>
             </div>
           </section>
@@ -336,33 +374,33 @@ export default function CouplePage() {
           <section className="grid md:grid-cols-12 gap-16 items-center">
             <div className="md:col-span-4 flex justify-center">
               <div className="w-56 h-56 rounded-full border-2 border-dashed border-[#bf9b30] flex items-center justify-center p-4">
-                <div className="w-full h-full bg-[#bf9b30] rounded-full flex items-center justify-center text-white shadow-2xl">
+                <motion.div variants={fadeInRight} initial="hidden" whileInView="visible" className="w-full h-full bg-[#bf9b30] rounded-full flex items-center justify-center text-white shadow-2xl">
                   <Anchor size={60} />
-                </div>
+                </motion.div>
               </div>
             </div>
             <div className="md:col-span-8 space-y-8">
               <div className="space-y-4">
-                <h3 className="text-3xl font-black uppercase tracking-tighter">
+                <motion.h3  variants={fadeInRight} initial="hidden" whileInView="visible" className="text-3xl font-black uppercase tracking-tighter">
                   Envolvimento na Vida da Igreja
-                </h3>
-                <p className="text-lg text-zinc-600 leading-relaxed text-justify">
+                </motion.h3>
+                <motion.p variants={ fadeInRight} initial="hidden" whileInView="visible" className="text-lg text-zinc-600 leading-relaxed text-justify">
                   Os casais são encorajados a participar ativamente da vida da
                   igreja local. São convidados a servir em diferentes
                   ministérios, colaborar na organização de eventos e apoiar
                   famílias, tornando o casamento um instrumento de serviço no
                   Reino de Deus.
-                </p>
+                </motion.p>
               </div>
               <div className="space-y-4">
-                <h3 className="text-3xl font-black uppercase tracking-tighter">
+                <motion.h3  variants={fadeInLeft} initial="hidden" whileInView="visible" className="text-3xl font-black uppercase tracking-tighter">
                   Ambiente Saudável e Acolhedor
-                </h3>
-                <p className="text-lg text-zinc-600 leading-relaxed text-justify">
+                </motion.h3>
+                <motion.p variants={fadeInLeft} initial="hidden" whileInView="visible" className="text-lg text-zinc-600 leading-relaxed text-justify">
                   Proporcionamos momentos de comunhão genuína, onde possam
                   compartilhar experiências, fortalecer amizades e caminhar
                   juntos na fé em um ambiente respeitoso e acolhedor.
-                </p>
+                </motion.p>
               </div>
             </div>
           </section>
@@ -370,12 +408,12 @@ export default function CouplePage() {
           {/* GRID DE EVENTOS (VISUAL) */}
           <section className="pt-20 border-t border-zinc-100">
             <div className="mb-12">
-              <h3 className="text-4xl font-black uppercase tracking-tighter mb-4">
+              <motion.h3  variants={fadeInLeft} initial="hidden" whileInView="visible" className="text-4xl font-black uppercase tracking-tighter mb-4">
                 Eventos e Atividades
-              </h3>
-              <p className="text-zinc-500 uppercase tracking-widest text-xs font-bold">
+              </motion.h3>
+              <motion.p variants={fadeInLeft} initial="hidden" whileInView="visible" className="text-zinc-500 uppercase tracking-widest text-xs font-bold">
                 Fortalecendo a Família Cristã
-              </p>
+              </motion.p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
@@ -397,10 +435,10 @@ export default function CouplePage() {
                   className="p-10 bg-white border border-zinc-100 hover:border-[#bf9b30] transition-colors group"
                 >
                   <Plus className="text-[#bf9b30] mb-6 group-hover:rotate-90 transition-transform" />
-                  <h4 className="text-xl font-bold uppercase mb-4">{item.t}</h4>
-                  <p className="text-sm text-zinc-500 leading-relaxed">
+                  <motion.h4    variants={fadeInLeft} initial="hidden" whileInView="visible" className="text-xl font-bold uppercase mb-4">{item.t}</motion.h4>
+                  <motion.p variants={fadeInLeft} initial="hidden" whileInView="visible" className="text-sm text-zinc-500 leading-relaxed">
                     {item.d}
-                  </p>
+                  </motion.p>
                 </div>
               ))}
             </div>
@@ -414,6 +452,7 @@ export default function CouplePage() {
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
+            
           >
             <Quote className="mx-auto text-zinc-100" size={120} />
             <h2 className="text-4xl md:text-7xl font-serif italic text-zinc-400 leading-[1.1]">

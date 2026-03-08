@@ -7,37 +7,49 @@ import photos2 from "@/public/image/event-2-390x273.jpg";
 import photos3 from "@/public/image/event-3-390x273.jpg";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 
 interface NavItem {
   title: string;
   subtitles: string;
   img: StaticImageData;
+  href: string;
 }
 
 export default function SectionTwo() {
   const date = getFormattedDate();
+  const router = useRouter();
 
   const items: NavItem[] = [
     {
       title: "Temer a Deus",
       subtitles: `IPI, ${date}`,
       img: photos1,
+      href: "/feargod",
     },
     {
       title: "Congregai-vos ",
       subtitles: `IPI, ${date}`,
       img: photos2,
+      href: "/together",
     },
     {
       title: "Base Bíblica Para Evangelização ",
       subtitles: `IPI, ${date}`,
       img: photos3,
+      href: "/biblicalbasis",
     },
   ];
+
+  const handleNavigate = (href: string) => {
+    if (!href || href === "#") return;
+    router.push(href);
+  };
 
   return (
     <section className="bg-mauve-50 py-20 px-4 flex justify-center overflow-hidden">
       {/* Container com largura máxima controlada e gap generoso */}
+
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-12">
         {items.map((item, index) => (
           <motion.div
@@ -58,7 +70,7 @@ export default function SectionTwo() {
                 src={item.img}
                 alt={item.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-hover:scale-110 cursor-pointer"
               />
             </div>
 
@@ -73,7 +85,11 @@ export default function SectionTwo() {
             </h3>
 
             {/* 4. Link "Read More" igual ao da foto */}
-            <div className="flex items-center text-[1rem] font-semibold  text-gray-500 group-hover:text-igreja-dourado transition-colors cursor-pointer">
+            <div
+              className="flex items-center text-[1rem] font-semibold  text-gray-500 group-hover:text-igreja-dourado transition-colors cursor-pointer"
+              onClick={() => handleNavigate(item.href)}
+              
+            >
               Leia Mais <span className="ml-2">→</span>
             </div>
           </motion.div>
