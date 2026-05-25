@@ -29,7 +29,7 @@ export default function SectionChurch() {
   const [itemsFathIndex, setItemsFathIndex] = useState(0);
   const [historyIndex, setHistoryIndex] = useState(0);
 
-  
+
 
   const nextHistory = () =>
     setHistoryIndex((prev) => (prev + 1) % historyCards.length);
@@ -46,7 +46,7 @@ export default function SectionChurch() {
       (prev) => (prev - 1 + itemsFath.length) % itemsFath.length
     );
 
-  
+
   const handleNavigation = (href?: string) => {
     if (!href || href === "#") return;
     if (href === pathname) {
@@ -145,9 +145,9 @@ export default function SectionChurch() {
       </div>
 
       {/* 3. GRID DE HISTÓRIA / CARDS PRINCIPAIS */}
-      <div className=" xl:max-w-5xl 2xl:max-w-8xl mx-auto px-6 py-24">
-        {/* Grid Responsivo: 1 col (mobile), 2 col (tablet), 3 col (laptop), 4 col (desktop grande) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8">
+      <div className="xl:max-w-5xl 2xl:max-w-7xl mx-auto px-6 py-24">
+        {/* Ajustado as colunas e o gap-10 para ter o mesmo tamanho e largura que o bloco 4 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {historyCards.map((item, index) => (
             <motion.div
               key={index}
@@ -156,14 +156,13 @@ export default function SectionChurch() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               onClick={() => handleNavigation(item.href)}
-              // Lógica de visibilidade mobile: só mostra o ativo se for carrossel, ou grid normal em telas maiores
-              className={`${
-                index === historyIndex ? "block" : "hidden sm:block"
-              }`}
+              className={`${index === historyIndex ? "block" : "hidden md:block"
+                }`}
             >
               <motion.div
                 whileHover={{ y: -10 }}
-                className="group relative h-[450px] md:h-[550px] w-full overflow-hidden rounded-xl cursor-pointer shadow-lg"
+               
+                className="group relative aspect-[4/5] w-full overflow-hidden rounded-sm cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500"
               >
                 <Image
                   src={item.img}
@@ -194,8 +193,8 @@ export default function SectionChurch() {
           ))}
         </div>
 
-        {/* Controles Carrossel Mobile (História) */}
-        <div className="flex sm:hidden items-center justify-between mt-8 max-w-[200px] mx-auto">
+        {/* Controles Carrossel Mobile (História) ajustados para md:hidden para sincronizar layouts */}
+        <div className="flex md:hidden items-center justify-between mt-10 max-w-[200px] mx-auto">
           <button
             onClick={prevHistory}
             className="p-3 rounded-full bg-slate-900 text-white"
@@ -214,14 +213,14 @@ export default function SectionChurch() {
       {/* 4. SEÇÃO DE DOUTRINA (PADRÕES DA FÉ) */}
       <div className="bg-slate-50 py-24">
         <div className="xl:max-w-5xl 2xl:max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16 border-b border-slate-200 pb-12">
+          <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-8 mb-16 border-b border-slate-200 pb-12">
             <div className="max-w-2xl">
-              <span className="text-igreja-teal font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-3 block">
+              <span className="text-igreja-teal text-center font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-3 block">
                 Doutrina e Instrução
               </span>
-              <h2 className="text-4xl md:text-7xl font-light tracking-tighter text-slate-900 leading-tight">
+              <h2 className="text-5xl md:text-7xl font-light tracking-tighter text-slate-900 leading-tight">
                 Padrões da{" "}
-                <span className="font-serif italic text-igreja-teal">Fé</span>
+                <span className="font-serif italic text-igreja-teal  ">Fé</span>
               </h2>
             </div>
             <p className="max-w-xs text-slate-400 text-sm leading-relaxed">
@@ -239,9 +238,8 @@ export default function SectionChurch() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 onClick={() => handleNavigation(item.href)}
-                className={`group flex flex-col ${
-                  index === itemsFathIndex ? "block" : "hidden md:block"
-                }`}
+                className={`group flex flex-col ${index === itemsFathIndex ? "block" : "hidden md:block"
+                  }`}
               >
                 <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-white shadow-md group-hover:shadow-2xl transition-all duration-500">
                   <Image

@@ -1,39 +1,107 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import SocialButtons from "@/src/components/ui/social_icons";
+import { useState, useEffect } from "react"; // Adicionado useEffect
+import { usePathname, useRouter } from "next/navigation"; // Adicionado useRouter
+import router from "next/router";
 
-type MenuType = "Igreja" | "Ministerio" | "Midias" | "Contato" | null;
 
-type NavItem = {
-  name: MenuType | "Inicio";
-  submenu?: string[];
+type SubmenuItem = {
+  name: string;
+  href: string;
 };
 
+type MenuType = "Igreja" | "Ministerio" | "Mídia" | "Contato" | null;
+type NavItem = {
+  name: MenuType | "Inicio" | "Contato";
+  submenu?: SubmenuItem[];
+  href?: string;
+};
+
+
 export default function FooterPage() {
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+
+
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogin = () => {
+    setIsLoggingIn(true);
+    setTimeout(() => {
+      router.push("/login");
+    }, 1400);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFirstLoad(false);
+      setIsLoggingIn(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFirstLoad(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleNavigation = (href?: string) => {
+    if (!href || href === "#") return;
+    if (href === pathname) {
+      setMenuOpen(false);
+      return;
+    }
+    if (href === "/documents/contistuiçãoIPB.pdf") {
+      window.open(href, "_blank", "noopener noreferrer");
+      return;
+    }
+    // setTimeout(() => {
+    //   setMenuOpen(false);
+    // }, 3000);
+
+    router.push(href);
+  };
   const navItems: NavItem[] = [
     { name: "Inicio" },
     {
       name: "Igreja",
       submenu: [
-        "Agenda de Atividades",
-        "Padrões da fé",
-        "Oficiais",
-        "Breve História da IPB",
-        "História da IPB de Imbituba",
-        "Manual Presbiteriano",
+        { name: "Nossa Igreja", href: "/church" },
+        { name: "História do padrão de fé", href: "/church/hystoryconfessionOfFaith" },
+        { name: "Confissão de fé", href: "/church/confessionOfFaith" },
+        { name: "Catecismo maior", href: "/church/largeCatechism" },
+        { name: "Catecismo menor", href: "/church/smallCatechism" },
+        { name: "Breve História da IPB", href: "/church/hystoryIPB" },
+        { name: "História da IPB de Imbituba", href: "/church/hystoryIPB_Imbituba" },
+        { name: "Manual Presbiteriano", href: "/church/manualPresbyterian" },
       ],
     },
     {
       name: "Ministerio",
-      submenu: ["UPH", "SAF", "UPA", "UCP", "Casais"],
+      submenu: [
+        { name: "Conheça Nosso Ministério", href: "/ministries" },
+        { name: "UPH", href: "/ministries/uph" },
+        { name: "SAF", href: "/ministries/saf" },
+        { name: "UPA", href: "/ministries/upa" },
+        { name: "UCP", href: "/ministries/ucp" },
+        { name: "Casais", href: "/ministries/couples" },
+      ],
     },
     {
-      name: "Midias",
-      submenu: ["Fotos", "Mensagens", "Devocionarios 2025", "Vídeos"],
+      name: "Mídia",
+      submenu: [
+        { name: "Calendário da Igreja", href: "/church/calendar" },
+        { name: "Manual Presbiteriano", href: "/documents/contistuiçãoIPB.pdf" },
+      ],
     },
-    { name: "Contato" },
+    { name: "Contato", href: "/contacts" },
   ];
 
   return (
@@ -49,11 +117,10 @@ export default function FooterPage() {
           return (
             <div
               key={index}
-              className={`flex flex-col ${
-                item.name === "Contato"
-                  ? "md:pl-12 border-l md:border-neutral-200 min-w-fit"
-                  : "md:col-span-1"
-              }`}
+              className={`flex flex-col ${item.name === "Contato"
+                ? "md:pl-12 border-l md:border-neutral-200 min-w-fit"
+                : "md:col-span-1"
+                }`}
             >
               {/* Título da Coluna com sua cor personalizada */}
 
@@ -95,8 +162,13 @@ export default function FooterPage() {
                     <li
                       key={subIndex}
                       className="text-gray-600  hover:text-igreja-dourado hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm md:text-base xl:text-sm 2xl:text-sm list-none"
+                      onClick={() => {
+                        if (subItem.href) {
+                          router.push(subItem.href);
+                        }
+                      }}
                     >
-                      {subItem}
+                      {subItem.name}
                     </li>
                   ))}
                 </motion.ul>
@@ -112,7 +184,7 @@ export default function FooterPage() {
                     delay: 0.4,
                   }}
                   viewport={{ once: true }}
-                  
+
                   className="text-gray-600 text-sm leading-relaxed "
                 >
                   {item.name === "Contato" ? (

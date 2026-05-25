@@ -1,10 +1,10 @@
 
-import ConfissionOfFaith from "./confessionOfFaith";
+import HystoryConfissionOfFaith from "./hystoryconfissionOfFaith";
 export default function ChurchPage() {
   return (
     <main>
       {/* Aqui você coloca os componentes específicos desta página */}
-      <ConfissionOfFaith />
+      <HystoryConfissionOfFaith />
     </main>
   );
 }

@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function ConfissionOfFaith() {
+export default function HystoryConfissionOfFaith() {
   // Variantes de animação para reutilização
   const fadeInRight = {
     hidden: { opacity: 0, x: 100 },
@@ -35,7 +35,7 @@ export default function ConfissionOfFaith() {
       {/* CAPA EDITORIAL IMPACTANTE */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         <HeroSection
-          title="Confissão de Fé de Westminster"
+          title="História da Confissão de Fé de Westminster"
           image={confession}
         />
         <div className="absolute inset-0 bg-black/20" />

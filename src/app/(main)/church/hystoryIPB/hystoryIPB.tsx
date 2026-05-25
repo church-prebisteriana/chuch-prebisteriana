@@ -41,7 +41,7 @@ export default function HystoryIPB() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-base  2xl:text-2xl first-letter:xl:text-6xl 2xl:text-7xl first-letter:font-black first-letter:mr-4 first-letter:float-left first-letter:text-igreja-teal text-justify font-serif">
+            <p className="text-base  first-letter:xl:text-6xl xl:text-xl 2xl:text-2xl first-letter:font-black first-letter:mr-4 first-letter:float-left first-letter:text-igreja-teal text-justify font-serif">
               A Igreja Presbiteriana do Brasil (IPB) tem uma história rica e
               significativa que remonta ao século XIX. Seu surgimento está
               intrinsecamente ligado ao trabalho missionário de Ashbel Green
@@ -70,7 +70,7 @@ export default function HystoryIPB() {
             transition={{ duration: 0.3, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p className="text-base 2xl:text-xl text-justify">
+            <p className="text-base 2xl:text-2xl text-justify">
               O Rev. Simonton enfrentou desafios significativos ao estabelecer a
               primeira igreja presbiteriana no Rio de Janeiro. Ele pregou seu
               primeiro sermão em português em 1860 e fundou a Primeira Igreja
@@ -130,7 +130,7 @@ export default function HystoryIPB() {
             transition={{ duration: 0.3, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="xl:text-base 2xl:text-xl text-justify">
+            <p className="xl:text-base 2xl:text-2xl text-justify">
               A base doutrinária da IPB está fundamentada na Confissão de Fé de
               Westminster. Essa confissão sintetiza as principais crenças,
               incluindo a soberania de Deus, a salvação pela graça e a

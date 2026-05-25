@@ -14,7 +14,7 @@ type SubmenuItem = {
   href: string;
 };
 
-type MenuType = "Igreja" | "Ministerio" | "Extra" | "Contato" | null;
+type MenuType = "Igreja" | "Ministerio" | "Mídia" | "Contato" | null;
 type NavItem = {
   name: MenuType | "Inicio" | "Contato";
   submenu?: SubmenuItem[];
@@ -77,22 +77,33 @@ export default function Navbar() {
     { name: "Inicio", href: "/" },
     {
       name: "Igreja",
-      href: "/church",
-      // submenu: [
-      //   "Agenda de Atividades",
-      //   "Padrões da fé",
-      //   "Oficiais",
-      //   "Breve História da IPB",
-      //   "História da IPB de Imbituba",
-      //   "Manual Presbiteriano",
-      // ],
+      submenu: [
+        { name: "Nossa Igreja", href: "/church" },
+        { name: "História do padrão de fé", href: "/church/hystoryconfessionOfFaith" },
+        { name: "Confissão de fé", href: "/church/confessionOfFaith" },
+        { name: "Catecismo maior", href: "/church/largeCatechism" },
+        { name: "Catecismo menor", href: "/church/smallCatechism" },
+        { name: "Breve História da IPB", href: "/church/hystoryIPB" },
+        { name: "História da IPB de Imbituba", href: "/church/hystoryIPB_Imbituba" },
+        { name: "Manual Presbiteriano", href: "/church/manualPresbyterian" },
+      ],
     },
-    { name: "Ministerio", href: "/ministries" },
     {
-      name: "Extra",
+      name: "Ministerio", submenu: [
+        { name: "Conheço nosso ministério", href: "/ministries" },
+        { name: "UPH", href: "/ministries/uph" },
+        { name: "SAF", href: "/ministries/saf" },
+        { name: "UPA", href: "/ministries/upa" },
+        { name: "UPA", href: "/ministries/upa" },
+        { name: "Ministério dos Casais", href: "/ministries/casais" },
+        
+      ],
+    },
+    {
+      name: "Mídia",
       submenu: [
         // { name: "Fotos", href: "/media/photos" },
-        { name: "Calendário", href: "/church/calendar" },
+        { name: "Calendário da Igreja", href: "/church/calendar" },
         {
           name: "Manual Presbiteriano",
           href: "/documents/contistuiçãoIPB.pdf",
@@ -124,7 +135,7 @@ export default function Navbar() {
               >
                 <FaWhatsapp
                   className="text-gray-600 group-hover:text-igreja-dourado text-sm transition-colors cursor-pointer"
-                  
+
                 />
                 <p className="xl:text-xs 2xl:text-sm text-gray-500 group-hover:hover:text-igreja-dourado">
                   48 9868-0229
@@ -141,7 +152,7 @@ export default function Navbar() {
               >
                 <IoLocationSharp
                   className="text-gray-600 group-hover:hover:text-igreja-dourado text-sm transition-colors"
-                
+
                 />
                 <p className="xl:text-xs 2xl:text-sm text-gray-500 group-hover:hover:text-igreja-dourado">
                   Av. Vinte Um de Junho, s/n - Centro, Imbituba - SC
@@ -208,7 +219,7 @@ export default function Navbar() {
 
                         {/* O menu agora não "some" porque o mouse ainda está dentro da LI pai */}
                         <ul
-                          className={`absolute top-full left-[-25] w-64 bg-white shadow-xl rounded-md z-[110] transition-all ${hoveredMenu === item.name
+                          className={`absolute top-full left-[-25] w-68 bg-white shadow-xl rounded-md z-[110] transition-all ${hoveredMenu === item.name
                             ? "block opacity-100"
                             : "hidden opacity-0"
                             }`}
@@ -229,7 +240,7 @@ export default function Navbar() {
                               </div>
 
                               <span
-                                className={`transition-all duration-300 xl:text-base 2xl:text-lg ${hoveredIndex === subIndex
+                                className={`transition-all duration-300 xl:text-base 2xl:text-base ${hoveredIndex === subIndex
                                   ? "translate-x-1 text-igreja-teal"
                                   : "translate-x-0 text-gray-400"
                                   }`}
