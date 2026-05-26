@@ -68,7 +68,7 @@ export default function SectionOne() {
                 href="/church/hystoryIPB_Imbituba"
                 className="flex justify-center items-center gap-2"
               >
-                Conheça nossa história
+                Nossa história
                 <span className="flex items-center">
                   <svg
                     width="18"

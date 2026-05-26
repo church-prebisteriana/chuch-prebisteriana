@@ -15,6 +15,7 @@ import churchMembers from "@/public/image/index/heroSection/foto da igreja 1.jpg
 import { usePathname, useRouter } from "next/navigation";
 import { council, historyCards, itemsFath } from "@/lib/church";
 
+
 export default function SectionChurch() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
@@ -228,9 +229,9 @@ export default function SectionChurch() {
               verdades fundamentais das Escrituras.
             </p>
           </div>
-
-          {/* Grid Doutrina: 1 col (mobile), 3 col (desktop) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 cursor-pointer">
+        <div></div>
+          {/* Grid Doutrina: 1 card em cima (col-span-3), 3 cards abaixo */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 cursor-pointer">
             {itemsFath.map((item, index) => (
               <motion.div
                 key={index}
@@ -238,10 +239,10 @@ export default function SectionChurch() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 onClick={() => handleNavigation(item.href)}
-                className={`group flex flex-col ${index === itemsFathIndex ? "block" : "hidden md:block"
+                className={`group flex flex-col ${index === 0 ? "md:col-span-3" : ""} ${index === itemsFathIndex ? "block" : "hidden md:block"
                   }`}
               >
-                <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-white shadow-md group-hover:shadow-2xl transition-all duration-500">
+                <div className={`relative overflow-hidden rounded-sm bg-white shadow-md group-hover:shadow-2xl transition-all duration-500 ${index === 0 ? "aspect-[16/6]" : "aspect-[4/5]"}`}>
                   <Image
                     src={item.img}
                     alt={item.title}
@@ -290,8 +291,8 @@ export default function SectionChurch() {
             </h2>
           </div>
           <h2 className="text-5xl xl:text-7xl 2xl:text-8xl font-light tracking-tighter text-slate-900">
-            O{" "}
-            <span className="font-serif italic text-igreja-teal">Conselho</span>
+            A{" "}
+            <span className="font-serif italic text-igreja-teal">Liderença</span>
           </h2>
         </div>
 

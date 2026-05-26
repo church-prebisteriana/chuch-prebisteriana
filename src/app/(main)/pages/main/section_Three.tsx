@@ -3,6 +3,10 @@
 import Image from "next/image";
 import autor1 from "@/public/image/membros/pastor-emersn.jpg";
 import autor2 from "@/public/image/membros/suelly.jpg";
+import autor3 from "@/public/image/membros/ronaldo-damazio.png";
+import autor4 from "@/public/image/membros/gilson.jpeg";
+import autor5 from "@/public/image/membros/jeferson.png";
+import autor6 from "@/public/image/membros/solange.png";
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -24,6 +28,31 @@ export default function SectionThree() {
       name: "Suelly",
       position: "Coordenadora de Mulheres",
     },
+     {
+      img: autor3,
+      text: "Zelar com integridade pela mordomia cristã e servir à igreja com dedicação.",
+      name: "Ronaldo damásio",
+      position: "Diácono",
+    },
+    {
+      img: autor4,
+      text: "Administrar com fidelidade e transparência os recursos dedicados ao Reino de Deus.",
+      name: "Gilson",
+      position: "Tesoureiro",
+    },
+      {
+      img: autor5,
+      text: "Coordeno o grupo de homens presbiterianos: U.P.H Para melhor atender e  direcionar aqueles  que  glorifiquem o Senhor.",
+      name: "Jeferson",
+      position: "Diácono",
+    },
+      {
+      img: autor6,
+      text: "Coordenar o ministério de louvor, conduzindo a igreja em adoração sincera e espírito de excelência.",
+      name: "Solange",
+      position: "Grupo de Louvor",
+    },
+
   ];
 
   const nextStep = useCallback(() => {

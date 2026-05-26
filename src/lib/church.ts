@@ -3,7 +3,7 @@ import photo2 from "@/public/image/igreja/img_sobre_historia.png";
 import photo3 from "@/public/image/igreja/manual.png";
 import minister from "@/public/image/igreja/advice/pastor-emersn.jpg";
 import official from "@/public/image/igreja/advice/rodrigo.jpg";
-import official2 from "@/public/image/igreja/advice/ronaldo.jpg";
+import official2 from "@/public/image/igreja/advice/ronaldo-damazio.png";
 import confession from "@/public/image/minister/confissão de fé.png";
 import catecismoMaior from "@/public/image/minister/catecismo maior.png";
 import catecismoMenos from "@/public/image/minister/catecismo menor.png";

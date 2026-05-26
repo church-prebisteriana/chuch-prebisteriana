@@ -3,13 +3,22 @@ import photo2 from "@/public/image/igreja/img_sobre_historia.png";
 import photo3 from "@/public/image/igreja/manual.png";
 import minister from "@/public/image/igreja/advice/pastor-emersn.jpg";
 import official from "@/public/image/igreja/advice/rodrigo.jpg";
-import official2 from "@/public/image/igreja/advice/ronaldo.jpg";
+import official2 from "@/public/image/igreja/advice/ronaldo-damazio.png";
+import official3 from "@/public/image/igreja/advice/gilson.jpg";
+import official4 from "@/public/image/igreja/advice/jeferson.png";
 import confession from "@/public/image/minister/confissão de fé.png";
 import catecismoMaior from "@/public/image/minister/catecismo maior.png";
 import catecismoMenos from "@/public/image/minister/catecismo menor.png";
 import schedule from "@/public/image/igreja/agendamento de atividades.jpg";
+import ImgHystoryConfectionFath from '@/public/image/hystoryconfectionFath/historia-da-confissão-de fé-card.png'
 
 export const itemsFath = [
+
+  {
+    title: "História de Westminster",
+    img: ImgHystoryConfectionFath,
+    href: "/church/hystoryconfessionOfFaith",
+  },
   {
     title: "Confissão de fé",
     img: confession,
@@ -25,6 +34,7 @@ export const itemsFath = [
     img: catecismoMenos,
     href: "/church/smallCatechism",
   },
+
 ];
 
 export const historyCards = [
@@ -76,5 +86,17 @@ export const council = [
     role: "Tesoureiro",
     photo: official2,
     bio: "Zelando com integridade pela mordomia cristã.",
+  },
+  {
+    name: "Jeferson Alves",
+    role: "Diácono",
+    photo: official4,
+    bio: "Coordeno a U.P.H. (União Presbiteriana de Homens) com o propósito de liderar e orientar irmãos para que, em tudo, o nome do Senhor seja glorificado.",
+  },
+  {
+    name: "Gilson",
+    role: "Tesoureiro",
+    photo: official3,
+    bio: "Dedicado a servir ao Senhor através da administração financeira, com foco na transparência, ética e mordomia cristã.",
   },
 ];

@@ -1,7 +1,7 @@
 
 "use client";
 import HeroSection from "@/src/components/ui/HeroBanner";
-import confession from "@/public/image/confissão de fé/confissão de fé.jpg";
+import confession from "@/public/image/hystoryconfectionFath/historia-da-confissão-de-fé.png";
 import {
   Quote,
   BookOpen,

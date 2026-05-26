@@ -13,10 +13,11 @@ import logoUPH from "@/public/image/UPH/UPH logo.png";
 // Lista da Diretoria com fotos (ajuste os caminhos conforme seus arquivos)
 const boardMembers = [
   { role: "Presidente", name: "Emerson Barsan", photo: "/image/membros/pastor-emersn.jpg" },
-  { role: "Vice-Pres.", name: "Gilson Ferreira", photo: "/image/membros/gilson.jpg" },
-  { role: "Secretário", name: "Bruno Viera", photo: "/image/membros/bruno.jpg" },
-  { role: "Tesoureiro", name: "Rodrigo Pinho", photo: "/image/membros/rodrigo.jpg" },
-  { role: "Tesoureiro", name: "Ronaldo Damasio", photo: "/image/membros/ronaldo.jpg" },
+  { role: "Tesoureiro", name: "Gilson Ferreira", photo: "/image/membros/gilson.jpeg" },
+  { role: "Diácono", name: "Bruno Viera", photo: "/image/membros/bruno.jpg" },
+  { role: "Diácono", name: "Rodrigo Pinho", photo: "/image/membros/rodrigo.jpg" },
+  { role: "Diácono", name: "Ronaldo Damasio", photo: "/image/membros/ronaldo-damazio.png" },
+  { role: "Diácono", name: "Jeferson", photo: "/image/membros/jeferson.png" },
 ];
 
 export default function UPHContent() {
