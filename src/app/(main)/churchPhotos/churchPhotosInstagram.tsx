@@ -1034,7 +1034,7 @@ const ChurchPhotosGallery = () => {
 export default function ChurchPhotosInstagram() {
     return (
         <div className="bg-[#061f1d] min-h-screen">
-            <HeroSection title="Galeria de Fotos" image={photo1} />
+            <HeroSection title="Galeria de Fotos" image="https://get.pxhere.com/photo/sea-coast-rock-architecture-hill-chateau-cliff-europe-tower-castle-landmark-italy-fortification-terrain-european-san-marino-945044.jpg" />
             <ChurchPhotosGallery />
         </div>
     );

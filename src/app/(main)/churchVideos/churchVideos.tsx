@@ -193,7 +193,7 @@ export default function ChurchVideosGallery() {
 
     return (
         <div className="bg-[#061f1d] min-h-screen">
-            <HeroSection title="Galeria de Vídeos" image={photo1} />
+            <HeroSection title="Galeria de Vídeos" image="https://get.pxhere.com/photo/rock-mountain-hill-town-chateau-mountain-range-cityscape-cliff-tower-castle-landmark-fortification-tourism-terrain-fortress-monastery-aerial-photography-san-marino-489116.jpg" />
 
             <section className="py-24 text-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 relative z-10">

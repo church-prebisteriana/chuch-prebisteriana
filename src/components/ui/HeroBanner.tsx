@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 interface HeroSectionProps {
   title: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   height?: string; // Opcional, caso queira mudar o tamanho em páginas diferentes
 }
 
