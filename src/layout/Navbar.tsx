@@ -96,7 +96,7 @@ export default function Navbar() {
         { name: "UPA", href: "/ministries/upa" },
         { name: "UPA", href: "/ministries/upa" },
         { name: "Ministério dos Casais", href: "/ministries/casais" },
-        
+
       ],
     },
     {
@@ -105,7 +105,7 @@ export default function Navbar() {
         // { name: "Fotos", href: "/media/photos" },
         { name: "Calendário da Igreja", href: "/church/calendar" },
         { name: "Fotos", href: "/churchPhotos" },
-          { name: "Vídeos", href: "/churchVideos" },
+        { name: "Vídeos", href: "/churchVideos" },
         {
           name: "Manual Presbiteriano",
           href: "/documents/contistuiçãoIPB.pdf",

@@ -98,6 +98,9 @@ export default function FooterPage() {
       name: "Mídia",
       submenu: [
         { name: "Calendário da Igreja", href: "/church/calendar" },
+        { name: "Fotos", href: "/churchPhotos" },
+        { name: "Vídeos", href: "/churchVideos" },
+
         { name: "Manual Presbiteriano", href: "/documents/contistuiçãoIPB.pdf" },
       ],
     },
