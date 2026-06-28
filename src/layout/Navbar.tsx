@@ -120,7 +120,7 @@ export default function Navbar() {
       {isFirstLoad && <LoadingTelaCheia />}
       {isLoggingIn && <LoadingLogin />}
 
-      <nav className="w-full sticky top-0 z-[100] bg-gray-50 px-4 md:px-8 pt-5 pb-10 py-4 font-roboto">
+      <nav className="w-full sticky top-0 z-[100] bg-gray-50 px-4 md:px-10 pt-1 pb-6 py-4 font-roboto">
         {/* Barra de Redes Sociais */}
         <div className="hidden md:flex justify-between items-center w-full pb-2 pt-1 border-b border-gray-100">
           <div className="flex justify-between gap-10">
