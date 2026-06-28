@@ -130,7 +130,7 @@ export default function MinistriesPage() {
             </div>
 
             {/* NÚMERO GIGANTE DE FUNDO (Apenas Desktop) */}
-            <span className="absolute -top-20 -left-20 xl:text-[18rem] 2xl:text-[20rem] font-black text-white/25 select-none z-0 hidden md:block">
+            <span className={`absolute -top-20 ${item.align === "justify-start" ? "-right-20" : "-left-20"} xl:text-[18rem] 2xl:text-[20rem] font-black text-white/25 select-none z-0 hidden md:block`}>
               0{index + 1}
             </span>
           </motion.div>
