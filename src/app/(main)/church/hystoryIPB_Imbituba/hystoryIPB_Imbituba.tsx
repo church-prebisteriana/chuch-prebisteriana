@@ -246,10 +246,8 @@ export default function HystoryIPB_Imbituba() {
             </h2>
             <div className="space-y-6 text-xl xl:text-base 2xl:text-lg text-neutral-300 leading-relaxed text-justify font-light">
               <p>
-                O Rev. Emerson Baran Santos chegou em Imbituba em dezembro de
-                2016. Com uma população de 45 mil habitantes na época, o desafio
-                era levar a Palavra a um solo onde 83% das pessoas ainda
-                careciam do Evangelho.
+                O Rev. Emerson Baran Santos chegou em Imbituba em 30 de dezembro de
+                2016. iniciando as atividades de plantação de igreja em 01 de janeiro de 2017.
               </p>
               <p className="border-l-4 border-[#215D63] pl-6 italic text-[#8ec1c7]">
                 "Foram 20 bairros percorridos, anunciando a Cristo em cada rua,

@@ -112,10 +112,10 @@ export default function SectionChurch() {
             transition={{ duration: 1 }}
           >
             <span className="inline-block px-4 py-1 border border-white/30 rounded-full text-white/80 text-xs md:text-sm tracking-[0.3em] uppercase mb-6 backdrop-blur-sm">
-              Desde 2017
+              Desde 2023
             </span>
             <h1 className="text-5xl md:text-8xl font-serif text-white mb-8 tracking-tighter">
-              IPB <span className="italic font-light">Imbituba</span>
+              I.P. <span className="italic font-light">Imbituba</span>
             </h1>
             <div className="h-16 md:h-24 w-[1px] bg-gradient-to-b from-white to-transparent mx-auto" />
           </motion.div>

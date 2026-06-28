@@ -85,31 +85,28 @@ export default function Navbar() {
         { name: "Catecismo menor", href: "/church/smallCatechism" },
         { name: "Breve História da IPB", href: "/church/hystoryIPB" },
         { name: "História da IPB de Imbituba", href: "/church/hystoryIPB_Imbituba" },
-        { name: "Manual Presbiteriano", href: "/church/manualPresbyterian" },
+        { name: "Manual Presbiteriano", href: "/documents/contistuiçãoIPB.pdf" },
       ],
     },
     {
       name: "Ministerio", submenu: [
-        { name: "Conheço nosso ministério", href: "/ministries" },
+        { name: "NOSSO MINISTÉRIO", href: "/ministries" },
         { name: "UPH", href: "/ministries/uph" },
         { name: "SAF", href: "/ministries/saf" },
         { name: "UPA", href: "/ministries/upa" },
-        { name: "UPA", href: "/ministries/upa" },
-        { name: "Ministério dos Casais", href: "/ministries/casais" },
+        { name: "UCP", href: "/ministries/ucp" },
+        { name: "Ministério dos Casais", href: "/ministries/couples" },
 
       ],
     },
     {
-      name: "Mídia",
+      name: "Mídia",                                                                                                                                                                                                                                                                                                                                                                                    
       submenu: [
         // { name: "Fotos", href: "/media/photos" },
         { name: "Calendário da Igreja", href: "/church/calendar" },
         { name: "Fotos", href: "/churchPhotos" },
         { name: "Vídeos", href: "/churchVideos" },
-        {
-          name: "Manual Presbiteriano",
-          href: "/documents/contistuiçãoIPB.pdf",
-        },
+        
         // { name: "Devocionarios", href: "/media/devotionals" },
         // ,,,{ name: "Vídeos", href: "/media/videos" },
       ],

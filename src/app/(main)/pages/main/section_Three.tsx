@@ -25,7 +25,7 @@ export default function SectionThree() {
     {
       img: autor2,
       text: "Coordeno o grupo de mulheres presbiterianas, buscando sempre a edificação e o serviço ao Reino de Deus.",
-      name: "Suelly",
+      name: "Suely",
       position: "Coordenadora de Mulheres",
     },
      {
@@ -38,7 +38,7 @@ export default function SectionThree() {
       img: autor4,
       text: "Administrar com fidelidade e transparência os recursos dedicados ao Reino de Deus.",
       name: "Gilson",
-      position: "Tesoureiro",
+      position: "Presbítero",
     },
       {
       img: autor5,
@@ -46,12 +46,7 @@ export default function SectionThree() {
       name: "Jeferson",
       position: "Diácono",
     },
-      {
-      img: autor6,
-      text: "Coordenar o ministério de louvor, conduzindo a igreja em adoração sincera e espírito de excelência.",
-      name: "Solange",
-      position: "Grupo de Louvor",
-    },
+     
 
   ];
 

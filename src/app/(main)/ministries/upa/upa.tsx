@@ -26,10 +26,9 @@ export default function ContentUPA() {
 
   // Diretoria UPA (Espaço para preencher)
   const boardUPA = [
-    { role: "Presidente", name: "Em Definição", photo: "" },
-    { role: "Vice-Pres.", name: "Em Definição", photo: "" },
-    { role: "Secretário", name: "Em Definição", photo: "" },
-    { role: "Tesoureiro", name: "Em Definição", photo: "" },
+    { role: "Presidente", name: "Maria Heloísa", photo: "" },
+    { role: "Secretário", name: "Leonardo Baran", photo: "" },
+    { role: "Tesoureiro", name: "João Vitor", photo: "" },
   ];
 
   return (

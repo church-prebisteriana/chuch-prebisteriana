@@ -12,12 +12,7 @@ import logoUPH from "@/public/image/UPH/UPH logo.png";
 
 // Lista da Diretoria com fotos (ajuste os caminhos conforme seus arquivos)
 const boardMembers = [
-  { role: "Presidente", name: "Emerson Barsan", photo: "/image/membros/pastor-emersn.jpg" },
-  { role: "Tesoureiro", name: "Gilson Ferreira", photo: "/image/membros/gilson.jpeg" },
-  { role: "Diácono", name: "Bruno Viera", photo: "/image/membros/bruno.jpg" },
-  { role: "Diácono", name: "Rodrigo Pinho", photo: "/image/membros/rodrigo.jpg" },
-  { role: "Diácono", name: "Ronaldo Damasio", photo: "/image/membros/ronaldo-damazio.png" },
-  { role: "Diácono", name: "Jeferson", photo: "/image/membros/jeferson.png" },
+  { role: "Presidente", name: "Jeferson", photo: "/image/membros/jeferson.png" },
 ];
 
 export default function UPHContent() {
@@ -135,7 +130,7 @@ export default function UPHContent() {
                 SEJA BEM-VINDO
               </h2>
               <p className="xl:text-lg 2xl:text-3xl font-serif text-zinc-700 max-w-xl mx-auto italic">
-                À Força de Integração Masculina da IPB Imbituba
+                Confiança em Jesus, Entusiasmo no Trabalho e União entre os Irmãos.
               </p>
               <div className="h-1 w-40 bg-black mx-auto mt-8" />
             </div>

@@ -28,20 +28,10 @@ export default function ContentSaf() {
   const boardMembers = [
     {
       role: "Presidente",
-      name: "Suelly Barsan",
+      name: "Suely Barsan",
       photo: "/image/membros/suelly.jpg",
     },
-    { role: "Vice-Pres.", name: "A definir", photo: "" },
-    {
-      role: "Secretária",
-      name: "A definir",
-      photo: "/image/membros/teste.jpg",
-    },
-    {
-      role: "Tesoureira",
-      name: "A definir",
-      photo: "/image/membros/teste.jpg",
-    },
+   
   ];
 
   return (
@@ -86,7 +76,7 @@ export default function ContentSaf() {
               <h1 className="text-7xl 2xl:text-9xl font-black tracking-tighter leading-[0.85] text-[#003366] uppercase">
                 Sociedade <br />{" "}
                 <span className="font-light italic tracking-normal lowercase text-zinc-500">
-                  Auxiliadora
+                  Auxiliadora Feminina
                 </span>
               </h1>
               <p className="text-[#bf9b30] font-sans text-sm xl:text-xl 2xl:text-2xl uppercase tracking-[0.2em] font-black">
