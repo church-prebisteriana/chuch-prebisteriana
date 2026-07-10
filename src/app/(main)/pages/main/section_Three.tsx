@@ -50,7 +50,7 @@ export default function SectionThree() {
     },
       {
       img: autor8,
-      text: "I Inspirador ver a dedicação dos nossos adolescentes a Cristo. Eles não são o amanhã, são o serviço de hoje na na igreja.",
+      text: "Inspirador ver a dedicação dos nossos adolescentes a Cristo. Eles não são o amanhã, são o serviço de hoje na na igreja.",
       name: "Maria Heloisa",
       position: "Presidente da UPA",
     },
