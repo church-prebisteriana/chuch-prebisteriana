@@ -19,33 +19,45 @@ export default function SectionThree() {
     {
       img: autor1,
       text: "Na igreja presbiteriana nosso foco é a evangelização, a evangelização é a missão da igreja, a missão da igreja é a evangelização.",
-      name: "Emerson Baran",
-      position: "Pastor",
+      name: "Rev. Emerson Baran",
+      position: "Pastor da IP Imbituba",
     },
     {
       img: autor2,
       text: "Coordeno o grupo de mulheres presbiterianas, buscando sempre a edificação e o serviço ao Reino de Deus.",
-      name: "Suely",
-      position: "Coordenadora de Mulheres",
+      name: "Suely Baran",
+      position: "Presidente da SAF",
     },
      {
       img: autor3,
       text: "Zelar com integridade pela mordomia cristã e servir à igreja com dedicação.",
-      name: "Ronaldo damásio",
-      position: "Diácono",
+      name: "Presb. Ronaldo",
+      position: "Professor Escola Dominical",
     },
     {
       img: autor4,
       text: "Administrar com fidelidade e transparência os recursos dedicados ao Reino de Deus.",
-      name: "Gilson",
-      position: "Presbítero",
+      name: "Presb. Gilson",
+      position: "Tesoureiro da Igreja",
     },
       {
       img: autor5,
       text: "Coordeno o grupo de homens presbiterianos: U.P.H Para melhor atender e  direcionar aqueles  que  glorifiquem o Senhor.",
-      name: "Jeferson",
-      position: "Diácono",
+      name: "Diác. Jefferson",
+      position: "Presidente da UPH",
     },
+    //   {
+    //   img: autor5,
+    //   text: "Coordeno o grupo de homens presbiterianos: U.P.H Para melhor atender e  direcionar aqueles  que  glorifiquem o Senhor.",
+    //   name: "Maria Heloisa",
+    //   position: "Presidente da UPA",
+    // },
+    //   {
+    //   img: autor5,
+    //   text: "Coordeno o grupo de homens presbiterianos: U.P.H Para melhor atender e  direcionar aqueles  que  glorifiquem o Senhor.",
+    //   name: "Diác. Joaquim",
+    //   position: "Presidente da Junta Diaconal",
+    // },
      
 
   ];
