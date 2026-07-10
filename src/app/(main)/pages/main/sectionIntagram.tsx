@@ -76,6 +76,7 @@ const InstagramSectionMinimal = () => {
 
 
   const [posts, setPosts] = useState<Post[]>([]);
+  const [feedError, setFeedError] = useState(false);
   const token = process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN;
 
   const nextStep = useCallback((e: any) => {
@@ -125,12 +126,20 @@ const InstagramSectionMinimal = () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
+
+        if (data.error) {
+          console.error("Erro da API do Instagram:", data.error.message);
+          setFeedError(true);
+          return;
+        }
+
         // Filtra para garantir que pegamos apenas imagens/carrosséis e limita a 6
         const onlyImages =
           data.data?.filter((photo: { media_type: string }) => photo.media_type !== "VIDEO").slice(0, 12) || [];
         setPosts(onlyImages);
       } catch (err) {
         console.error("Erro ao carregar Instagram:", err);
+        setFeedError(true);
       }
     };
 
@@ -175,17 +184,33 @@ const InstagramSectionMinimal = () => {
 
 
         {/* Grid de Fotos */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {posts.map((post, index) => (
-            <InstagramCard key={post.id} post={post}
-              onClickImagem={() => {
-                setIndex(index)
-                setIndexCarrosel(0)
-                setImagemSelect(post.media_url)
-              }}
-            />
-          ))}
-        </div>
+        {feedError ? (
+          <div className="text-center py-12 px-6 bg-gray-50 rounded-2xl border border-gray-100">
+            <p className="text-gray-600">
+              Não foi possível carregar as fotos do Instagram no momento.
+            </p>
+            <a
+              href="https://instagram.com/ipbimbituba"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-igreja-teal font-semibold hover:underline"
+            >
+              Confira diretamente no nosso perfil.
+            </a>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {posts.map((post, index) => (
+              <InstagramCard key={post.id} post={post}
+                onClickImagem={() => {
+                  setIndex(index)
+                  setIndexCarrosel(0)
+                  setImagemSelect(post.media_url)
+                }}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {imagemSelect && (

@@ -95,7 +95,7 @@ export default function Navbar() {
         { name: "SAF", href: "/ministries/saf" },
         { name: "UPA", href: "/ministries/upa" },
         { name: "UCP", href: "/ministries/ucp" },
-        { name: "Ministério dos Casais", href: "/ministries/couples" },
+        { name: "Ministério dos Casais", href: "/ministries/couple" },
 
       ],
     },
@@ -118,7 +118,7 @@ export default function Navbar() {
     <>
       {/* EXIBIÇÃO DA TELA DE LOADING */}
       {isFirstLoad && <LoadingTelaCheia />}
-      {isLoggingIn && <LoadingLogin />}
+      {/* {isLoggingIn && <LoadingLogin />} */}
 
       <nav className="w-full sticky top-0 z-[100] bg-gray-50 px-4 md:px-10 pt-1 pb-6 py-4 font-roboto">
         {/* Barra de Redes Sociais */}
@@ -239,7 +239,7 @@ export default function Navbar() {
                               </div>
 
                               <span
-                                className={`transition-all duration-300 xl:text-base 2xl:text-base ${hoveredIndex === subIndex
+                                className={`transition-all duration-300 md:text-base xl:text-base 2xl:text-base ${hoveredIndex === subIndex
                                   ? "translate-x-1 text-igreja-teal"
                                   : "translate-x-0 text-gray-400"
                                   }`}
@@ -264,7 +264,7 @@ export default function Navbar() {
                   </li>
                 );
               })}
-              <li>
+              {/* <li>
                 <button
                   onClick={() => handleLogin()}
                   className="flex items-center gap-2 bg-igreja-teal cursor-pointer text-white px-10 py-2 xl:text-sm  2xl:text-lg font-bold rounded-lg border-b-2 border-black/30 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] hover:brightness-110 active:border-b-0 active:translate-y-[1px] active:shadow-inner"
@@ -272,7 +272,7 @@ export default function Navbar() {
                   <Users size={18} />
                   Usuário
                 </button>
-              </li>
+              </li> */}
             </ul>
 
             <button
@@ -374,7 +374,7 @@ export default function Navbar() {
               </li>
             );
           })}
-          <li className="px-6 mt-6">
+          {/* <li className="px-6 mt-6">
             <button
               onClick={() => {
                 handleLogin();
@@ -385,7 +385,7 @@ export default function Navbar() {
               <Users size={18} />
               Usuário
             </button>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </>

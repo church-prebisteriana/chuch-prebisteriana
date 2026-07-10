@@ -11,12 +11,12 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <InstagramSectionMinimal/>
       <SectionOne />
       <SectionTwo />
-      <InstagramSectionMinimal/>
       <SectionThree />
       <SectionLocation />
-      <SectionVideo />
+      {/* <SectionVideo /> */}
     </main>
   );
 }

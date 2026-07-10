@@ -15,18 +15,17 @@ export default function ContentfearGod() {
   return (
     <div className="bg-white pb-20">
       {/* Hero com título impactante */}
-      <HeroSection title="Temer a Deus" image={photos1} />
+      <HeroSection title="Palavra Pastoral para 2026" image={photos1} />
 
       <article className="max-w-5xl mx-auto px-6 mt-16 md:mt-24">
-        {/* 1. Bloco de Citação Bíblica (Destaque) */}
+        {/* 1. Bloco de Destaque do Tema */}
         <motion.div
           {...fadeInUp}
           className="border-l-4 border-igreja-dourado pl-6 py-4 mb-12 bg-gray-50 italic text-xl md:text-3xl text-igreja-teal font-serif"
         >
-          “...Não estendas a mão sobre o rapaz e nada lhe faças; pois agora sei
-          que temes a Deus, porquanto não me negaste o filho, teu único filho.”
+          “Sacerdotes do Mediador Jesus”
           <span className="block text-sm mt-2 font-sans font-bold not-italic text-gray-400">
-            Gênesis 22:12
+            Tema Pastoral de 2026
           </span>
         </motion.div>
 
@@ -37,23 +36,22 @@ export default function ContentfearGod() {
           className="text-gray-700 text-lg md:text-2xl leading-relaxed mb-8"
         >
           <p className="first-letter:text-7xl first-letter:font-bold first-letter:text-igreja-teal first-letter:mr-3 first-letter:float-left">
-            Muitos querem obedecer a Deus por motivos totalmente contrários à
-            Palavra, como, por exemplo, permuta para salvação. Qual deve ser a
-            base de seu temor e obediência à Deus?
+            Amados irmãos da Igreja Presbiteriana de Imbituba, a Palavra
+            Pastoral para 2026 se ergue sob o tema: “Sacerdotes do Mediador
+            Jesus”.
           </p>
         </motion.div>
 
         {/* 3. Corpo do Texto - Dividido em Parágrafos para melhor leitura */}
         <div className="space-y-8 text-gray-600 text-2xl leading-relaxed text-justify">
           <motion.p {...fadeInUp} transition={{ delay: 0.3 }}>
-            Abraão, sendo obediente ao Senhor, tomou seu único filho e
-            ofereceu-Lhe em sacrifício; porém, no momento de sacrificar Isaque,
-            o Senhor impediu-lhe. Ele colocou esta prova diante de seu servo
-            para que o mesmo viesse a{" "}
+            Neste ano, somos chamados a viver e exercer plenamente nosso{" "}
             <span className="text-igreja-teal font-semibold">
-              confiar nas promessas
-            </span>{" "}
-            e obedecer ao grandioso Rei.
+              sacerdócio real
+            </span>
+            . As orientações pastorais para aprofundarmos nessa vocação serão
+            transmitidas através do nosso Devocionário Diário de 2026, que
+            trará subtemas mensais para a nossa reflexão e crescimento.
           </motion.p>
 
           <motion.div
@@ -71,41 +69,55 @@ export default function ContentfearGod() {
                 <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.948 1.561c-3.22 1.962-3.033 7.403-2.948 10.164h-8zm-13 0c0-5.141 3.892-10.519 10-11.725l.948 1.561c-3.22 1.962-3.033 7.403-2.948 10.164h-8z" />
               </svg>
             </div>
-            <p className="relative z-10 text-xl md:text-3xl font-serif italic">
-              "O Senhor proveu um cordeiro no lugar de seu filho já apontando o
-              que o Messias, Jesus Cristo, estava por fazer: morrer
-              substitutivamente."
+            <p className="relative z-10 text-xl md:text-3xl font-serif italic mb-4">
+              Nossa área de atuação prática será guiada pelo acróstico DOCES.
+              Que estas cinco colunas nos sustentem.
             </p>
+            <ul className="relative z-10 grid grid-cols-2 md:grid-cols-5 gap-3 text-sm md:text-base font-sans not-italic">
+              <li className="bg-white/10 rounded-lg px-3 py-2 text-center">
+                <span className="block font-bold text-igreja-dourado">D</span>
+                Discipulado
+              </li>
+              <li className="bg-white/10 rounded-lg px-3 py-2 text-center">
+                <span className="block font-bold text-igreja-dourado">O</span>
+                Oração
+              </li>
+              <li className="bg-white/10 rounded-lg px-3 py-2 text-center">
+                <span className="block font-bold text-igreja-dourado">C</span>
+                Comunhão
+              </li>
+              <li className="bg-white/10 rounded-lg px-3 py-2 text-center">
+                <span className="block font-bold text-igreja-dourado">E</span>
+                Evangelização
+              </li>
+              <li className="bg-white/10 rounded-lg px-3 py-2 text-center">
+                <span className="block font-bold text-igreja-dourado">S</span>
+                Santificação
+              </li>
+            </ul>
           </motion.div>
 
           <motion.p {...fadeInUp} transition={{ delay: 0.5 }}>
-            Assim como Abraão temeu ao Senhor e agiu imediatamente em obediência
-            à ordem divina, você deve obedecer à Palavra de Deus em confiança
-            nas eternas e benditas promessas do grande Rei, provedor de perdão e
-            comunhão com Ele mesmo. Nosso temor deve ter, como base, a{" "}
+            Nosso anuário 2026, além de conter este guia devocional e as
+            direções, trará informações gerais da igreja, planejamento anual,
+            atividades agendadas, a{" "}
             <span className="text-igreja-dourado font-bold italic">
-              fé nas promessas eternas
-            </span>
-            .
+              lista atualizada de nossa membresia
+            </span>{" "}
+            e uma lista de cânticos para a edificação.
           </motion.p>
 
-          <motion.p {...fadeInUp} transition={{ delay: 0.6 }}>
-            Nossas atitudes devem ser oriundas de um coração cheio de fé no
-            Grande Rei Provedor! O único que pode saciar sua sede da Verdade é
-            Jesus que te chama para viver esta liberdade da escravidão eterna.
-          </motion.p>
-
-          {/* 4. Conclusão / Call to Action Criativo */}
+          {/* 4. Conclusão / Assinatura Pastoral */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="mt-16 p-10 border-2 border-dashed border-igreja-dourado/30 rounded-3xl text-center"
           >
             <h3 className="text-2xl md:text-4xl font-serif text-igreja-teal mb-4 italic">
-              Creia no grande Libertador
+              Que sejamos sacerdotes fiéis a Cristo, nosso Mediador.
             </h3>
             <p className="text-gray-500 mb-6 uppercase tracking-widest text-sm">
-              A grande Verdade: Jesus Cristo.
+              Pastor Emerson
             </p>
             <div className="w-16 h-1 bg-igreja-dourado mx-auto"></div>
           </motion.div>

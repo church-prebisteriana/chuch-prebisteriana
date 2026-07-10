@@ -200,9 +200,10 @@
 // }
 
 "use_client";
-import Church from "@/public/image/hystoryIPB_Imb/photo_church.png";
-import photo1 from "@/public/image/hystoryIPB_Imb/history.jpg";
-import photo2 from "@/public/image/hystoryIPB_Imb/sala local.jpg";
+import photo3 from "@/public/image/hystoryIPB_Imb/terceiroLocal.png";
+import photo1 from "@/public/image/hystoryIPB_Imb/primeirolocal.png";
+import logo from "@/public/image/hystoryIPB_Imb/history.jpg";
+import photo2 from "@/public/image/hystoryIPB_Imb/segundoLocal.jpg";
 import Image from "next/image";
 import Land from "@/public/image/hystoryIPB_Imb/terreno.jpg";
 import HandMass from "@/public/image/hystoryIPB_Imb/Projeto Mão na massa 2.jpg";
@@ -216,7 +217,7 @@ export default function HystoryIPB_Imbituba() {
       {/* 1. HERO REFINADO */}
       <section className="relative h-[85vh] overflow-hidden">
         <Image
-          src={photo1}
+          src={logo}
           alt="História IPB"
           fill
           className="object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-1000"
@@ -227,7 +228,7 @@ export default function HystoryIPB_Imbituba() {
 
         <div className="absolute bottom-16 left-6 md:left-20 z-10">
           <p className="text-[#8ec1c7] font-mono tracking-[0.3em] uppercase text-sm mb-4">
-            Desde 2016 • Imbituba/SC
+            Desde 2023 • Imbituba/SC
           </p>
           <h1 className="text-6xl md:text-9xl font-black leading-none tracking-tighter text-white uppercase">
             Nossa
@@ -284,7 +285,7 @@ export default function HystoryIPB_Imbituba() {
           </div>
           <div className="md:col-span-6 h-full min-h-[400px] relative">
             <Image
-              src={photo2}
+              src={photo1}
               alt="Primeiro Local"
               fill
               className="object-cover brightness-90 hover:brightness-100 transition-all duration-500"
@@ -294,8 +295,96 @@ export default function HystoryIPB_Imbituba() {
 
         <div className="h-px bg-white w-full my-24" />
 
+        <section className="mb-48 flex flex-col md:flex-row gap-x-28 gap-y-12 items-center px-3 md:px-10 ">
+          <div className="w-full md:w-[45%] order-2 md:order-1 flex flex-col justify-center ">
+            <h2 className="text-5xl xl:text-6xl 2xl:text-7xl font-black uppercase text-white leading-none mb-8 tracking-tighter">
+              SEGUNDO
+              <br />
+              <span className="text-[#215D63] bg-white px-3">LOCAL</span>
+            </h2>
+            <div className="space-y-6 text-lg text-neutral-300">
+              <p className="text-2xl font-bold text-white italic leading-tight">
+                Dia 30 de maio de 2019
+              </p>
+              <p className="text-sm xl:text-base 2xl:text-lg leading-relaxed text-justify">
+                O novo salão na Av. Santa Catarina, 1098, com capacidade para 80 pessoas, trouxe uma localização ainda melhor para a igreja. Ali, o discipulado nos lares e o ensino da Fé Reformada continuaram a florescer, atraindo aqueles que buscavam a verdade bíblica.
+              </p>
+            </div>
+            <div className="text-sm font-mono text-[#8ec1c7] mt-4">
+              Av Santa Catarina, 1098 • Centro
+            </div>
+          </div>
+
+          <div className="w-full md:w-[55%] order-1 md:order-2">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl ring-8 ring-[#215D63]/20 hover:scale-[1.02] transition-transform duration-500">
+              <Image
+                src={photo2}
+                alt="Terreno IPB Imbituba"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
+        
+        <div className="h-px bg-white w-full my-24" />
+
         <section className="mb-48 flex flex-col md:flex-row-reverse gap-x-28 gap-y-12 items-center px-3 md:px-10 ">
           <div className="w-full md:w-[45%] order-2 md:order-1 flex flex-col justify-center ">
+            <h2 className="text-5xl xl:text-6xl 2xl:text-7xl font-black uppercase text-white leading-none mb-8 tracking-tighter">
+              TERCEIRO
+              <br />
+              <span className="text-[#215D63] bg-white px-3">LOCAL</span>
+            </h2>
+            <div className="space-y-6 text-lg text-neutral-300">
+              <p className="text-2xl font-bold text-white italic leading-tight">
+                Dia 03 de Dezembro de 2023
+              </p>
+              <p className="text-sm xl:text-base 2xl:text-lg leading-relaxed text-justify">
+                A igreja na Av. Vinte e Um de Junho para 60 pessoas foi o marco inicial. Ali, o discipulado nos lares e o ensino da Fé Reformada começaram a florescer, atraindo aqueles que buscavam a verdade bíblica.
+              </p>
+            </div>
+            <div className="text-sm font-mono text-[#8ec1c7] mt-4">
+              Av. Vinte e Um de Junho, s/n • Centro
+            </div>
+          </div>
+
+          <div className="w-full md:w-[55%] order-1 md:order-2">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl ring-8 ring-[#215D63]/20 hover:scale-[1.02] transition-transform duration-500">
+              <Image
+                src={photo3}
+                alt="Terreno IPB Imbituba"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
+        <div className="h-px bg-white w-full my-24" />
+
+        {/* 4. RUMO AO TEMPLO PRÓPRIO (abertura da sub-história: terreno → construção → inauguração) */}
+        <div className="text-center max-w-3xl mx-auto mb-24 px-3">
+          <p className="text-[#8ec1c7] font-mono tracking-[0.3em] uppercase text-sm mb-4">
+            Uma nova etapa
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6">
+            Rumo ao <span className="text-[#39a0ab] italic">Templo Próprio</span>
+          </h2>
+          <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+            Da compra do terreno, em 2020, à mobilização de voluntários no
+            Projeto Mão na Massa, até a inauguração do templo em 2023, esta é
+            a trajetória que culminou na organização da Igreja Presbiteriana
+            de Imbituba.
+          </p>
+        </div>
+
+        <section className="mb-48 flex flex-col md:flex-row-reverse gap-x-28 gap-y-12 items-center px-3 md:px-10 ">
+          <div className="w-full md:w-[45%] order-2 md:order-1 flex flex-col justify-center ">
+            <span className="text-sm font-mono text-[#8ec1c7] tracking-widest uppercase mb-3 block">
+              Passo 1 · Terreno
+            </span>
             <h2 className=" text-5xl xl:text-6xl 2xl:text-7xl font-black uppercase text-white leading-none mb-8 tracking-">
               <span className="text-[#215D63] bg-white px-3">TERRENO</span>
             </h2>
@@ -329,6 +418,9 @@ export default function HystoryIPB_Imbituba() {
         <section className="mb-48 flex flex-col md:flex-row gap-x-28 gap-y-12 items-center px-3 md:px-10">
           {/* Texto ocupa 45% */}
           <div className="w-full md:w-[45%] order-2 md:order-1 flex flex-col justify-center">
+            <span className="text-sm font-mono text-[#8ec1c7] tracking-widest uppercase mb-3 block">
+              Passo 2 · Construção
+            </span>
             <h2 className="text-5xl xl:text-6xl 2xl:text-7xl font-black uppercase text-white leading-none mb-8 tracking-tighter">
               MÃO NA
               <br />
@@ -364,6 +456,9 @@ export default function HystoryIPB_Imbituba() {
         <section className="mb-48 flex flex-col md:flex-row gap-x-28 gap-y-12 items-center px-6 md:px-16">
           {/* Texto ocupa 45% */}
           <div className="w-full md:w-[45%] order-2 md:order-1 flex flex-col justify-center">
+            <span className="text-sm font-mono text-[#8ec1c7] tracking-widest uppercase mb-3 block">
+              Passo 3 · Inauguração
+            </span>
             <h2 className="text-4xl xl:text-6xl 2xl:text-7xl font-black uppercase text-white leading-none mb-8 tracking-tighter">
               {/* Corrigido: INAUGURAÇÃO */}
               <span className="text-[#215D63] bg-white px-3 italic">
@@ -429,22 +524,10 @@ export default function HystoryIPB_Imbituba() {
         <div className="h-px bg-white w-full my-24" />
         {/* 6. A ORGANIZAÇÃO (GRANDE FINAL) */}
         <section className="text-center">
-          <div className="inline-block px-4 py-1 border border-[#215D63] text-[#8ec1c7] font-mono text-xs uppercase tracking-[0.4em] mb-12">
-            Igreja Organizada
-          </div>
-          <div className="relative max-w-5xl mx-auto mb-20 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(33,93,99,0.3)]">
-            <Image
-              src={Church}
-              alt="Inauguração"
-              width={1400}
-              height={500}
-              className="grayscale hover:grayscale-0 transition-all duration-1000"
-            />
-          </div>
-
+         
           <div className="max-w-2xl mx-auto space-y-8">
             <h2 className=" text-5xl xl:text-6xl 2xl:text-6xl font-black text-white italic uppercase tracking-tighter leading-none">
-              03 DE DEZEMBRO <br /> DE 2023
+              AGRADECIMENTOS
             </h2>
             <div className="h-1 w-20 bg-[#215D63] mx-auto" />
             <p className="text-sm xl:text-base 2xl:text-xl text-neutral-400 leading-relaxed font-light italic">

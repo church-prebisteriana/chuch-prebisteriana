@@ -196,7 +196,7 @@ export default function ContentUCP() {
             transition={{ delay: 0.6 }}
             variants={fadeInUp}
           >
-            <div className="bg-[#1a1a1a] text-white xl:p-3 2xl:p-6 rounded-sm shadow-xl">
+            {/* <div className="bg-[#1a1a1a] text-white xl:p-3 2xl:p-6 rounded-sm shadow-xl">
               <Users size={32} className="text-[#ffcc00] mb-4" />
               <h4 className="font-sans font-black uppercase xl:text-sm 2xl:text-base mb-6 tracking-widest text-white border-b border-zinc-700 pb-2 uppercase">
                 Condução UCP
@@ -225,7 +225,7 @@ export default function ContentUCP() {
               <p className="text-[10px] text-zinc-500 mt-6 italic">
                 Nomeada pelo conselho da IP Imbituba.
               </p>
-            </div>
+            </div> */}
 
             <div className="border-t-4 border-black pt-8">
               <h3 className="font-sans font-black uppercase text-2xl tracking-tighter text-black mb-6 uppercase">

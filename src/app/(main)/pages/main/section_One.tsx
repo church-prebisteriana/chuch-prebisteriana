@@ -8,7 +8,7 @@ export default function SectionOne() {
 
   return (
     <section className="bg-gray-50 py-20 md:py-32 px-5 flex justify-center text-black overflow-hidden">
-      <div className="flex flex-col items-center md:items-start text-center md:text-left xl:max-w-3xl 2xl:max-w-4xl w-full gap-6">
+      <div className="flex flex-col items-center md:items-start text-center md:text-left   xl:max-w-3xl 2xl:max-w-4xl w-full gap-6">
         {/* 1. Esquerda para Direita */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
