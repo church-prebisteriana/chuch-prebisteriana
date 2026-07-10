@@ -7,6 +7,8 @@ import autor3 from "@/public/image/membros/ronaldo-damazio.png";
 import autor4 from "@/public/image/membros/gilson.jpeg";
 import autor5 from "@/public/image/membros/jeferson.png";
 import autor6 from "@/public/image/membros/solange.png";
+import autor7 from "@/public/image/membros/joaquim.png";
+import autor8 from "@/public/image/membros/maria.png";
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -46,18 +48,18 @@ export default function SectionThree() {
       name: "Diác. Jefferson",
       position: "Presidente da UPH",
     },
-    //   {
-    //   img: autor5,
-    //   text: "Coordeno o grupo de homens presbiterianos: U.P.H Para melhor atender e  direcionar aqueles  que  glorifiquem o Senhor.",
-    //   name: "Maria Heloisa",
-    //   position: "Presidente da UPA",
-    // },
-    //   {
-    //   img: autor5,
-    //   text: "Coordeno o grupo de homens presbiterianos: U.P.H Para melhor atender e  direcionar aqueles  que  glorifiquem o Senhor.",
-    //   name: "Diác. Joaquim",
-    //   position: "Presidente da Junta Diaconal",
-    // },
+      {
+      img: autor8,
+      text: "Inspirador ver a dedicação dos nossos adolescentes. Eles não são o amanhã, são a força viva trabalhando hoje na nossa igreja.",
+      name: "Maria Heloisa",
+      position: "Presidente da UPA",
+    },
+      {
+      img: autor7,
+      text: "Diaconia é o amor de Deus em ação. Servir como diácono é colocar o coração nas mãos para cuidar da igreja e estender o braço a quem mais precisa.",
+      name: "Diác. Joaquim",
+      position: "Presidente da Junta Diaconal",
+    },
      
 
   ];
