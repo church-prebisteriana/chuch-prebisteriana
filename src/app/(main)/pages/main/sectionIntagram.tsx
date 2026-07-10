@@ -214,7 +214,7 @@ const InstagramSectionMinimal = () => {
                 onClickImagem={() => {
                   setIndex(index)
                   setIndexCarrosel(0)
-                  setImagemSelect(post.media_url)
+                  setImagemSelect(post.id)
                 }}
               />
             ))}
