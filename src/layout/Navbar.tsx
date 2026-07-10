@@ -84,7 +84,7 @@ export default function Navbar() {
         { name: "Catecismo maior", href: "/church/largeCatechism" },
         { name: "Catecismo menor", href: "/church/smallCatechism" },
         { name: "Breve História da IPB", href: "/church/hystoryIPB" },
-        { name: "História da IPB de Imbituba", href: "/church/hystoryIPB_Imbituba" },
+        { name: "História da IP de Imbituba", href: "/church/hystoryIPB_Imbituba" },
         { name: "Manual Presbiteriano", href: "/documents/contistuiçãoIPB.pdf" },
       ],
     },
