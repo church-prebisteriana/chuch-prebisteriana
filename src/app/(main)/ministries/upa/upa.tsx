@@ -16,6 +16,7 @@ import HeroSection from "@/src/components/ui/HeroBanner";
 // Assets originais
 import photoUPA from "@/public/image/UPA/UPA.jpg";
 import photoLogo from "@/public/image/UPA/logoUPA2.png";
+import photoPresidenteUPA from "@/public/image/UPA/maria.png";
 
 export default function ContentUPA() {
   const fadeIn = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
@@ -26,7 +27,7 @@ export default function ContentUPA() {
 
   // Diretoria UPA (Espaço para preencher)
   const boardUPA = [
-    { role: "Presidente", name: "Maria Heloísa", photo: "" },
+    { role: "Presidente", name: "Maria Heloísa", photo: photoPresidenteUPA },
     { role: "Secretário", name: "Leonardo Baran", photo: "" },
     { role: "Tesoureiro", name: "João Vitor", photo: "" },
   ];
