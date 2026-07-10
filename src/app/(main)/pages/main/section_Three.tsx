@@ -50,13 +50,13 @@ export default function SectionThree() {
     },
       {
       img: autor8,
-      text: "Inspirador ver a dedicação dos nossos adolescentes. Eles não são o amanhã, são a força viva trabalhando hoje na nossa igreja.",
+      text: "I Inspirador ver a dedicação dos nossos adolescentes a Cristo. Eles não são o amanhã, são o serviço de hoje na na igreja.",
       name: "Maria Heloisa",
       position: "Presidente da UPA",
     },
       {
       img: autor7,
-      text: "Diaconia é o amor de Deus em ação. Servir como diácono é colocar o coração nas mãos para cuidar da igreja e estender o braço a quem mais precisa.",
+      text: "Diaconia é o amor do Senhor em ação. Servir como diácono é colocar o coração ao serviço de Jesus para cuidar da igreja e estender o braço a quem mais precisa.",
       name: "Diác. Joaquim",
       position: "Presidente da Junta Diaconal",
     },
