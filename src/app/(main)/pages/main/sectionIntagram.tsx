@@ -26,6 +26,15 @@ const InstagramCard = ({ post, onClickImagem }: { post: any, onClickImagem: (ima
   // Verificação simples para pular vídeos se a media_type não for IMAGE ou CAROUSEL_ALBUM
   if (post.media_type === "VIDEO") return null;
 
+  // Para álbuns, o media_url da raiz nem sempre vem preenchido pela API do Instagram.
+  // Usamos a primeira foto dos children como capa nesse caso.
+  const coverUrl =
+    post.media_type === "CAROUSEL_ALBUM" && post.children?.data?.length
+      ? post.children.data[0].media_url
+      : post.media_url;
+
+  if (!coverUrl) return null;
+
   return (
     <a
       onClick={() => onClickImagem(post.media_url)}
@@ -33,7 +42,7 @@ const InstagramCard = ({ post, onClickImagem }: { post: any, onClickImagem: (ima
     >
       {/* Imagem Principal */}
       <img
-        src={post.media_url}
+        src={coverUrl}
         alt={post.caption || "Post do Instagram"}
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         loading="lazy"
