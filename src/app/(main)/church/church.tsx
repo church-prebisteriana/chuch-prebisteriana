@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import {
   motion,
-  AnimatePresence,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -13,7 +12,7 @@ import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import churchMembers from "@/public/image/index/heroSection/foto da igreja 1.jpg";
 
 import { usePathname, useRouter } from "next/navigation";
-import { council, historyCards, itemsFath } from "@/lib/church";
+import { historyCards, itemsFath } from "@/lib/church";
 
 
 export default function SectionChurch() {
@@ -21,16 +20,11 @@ export default function SectionChurch() {
   const { scrollYProgress } = useScroll({ target: containerRef });
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
-  const [index, setIndex] = useState(0);
-  const [itemsToShow, setItemsToShow] = useState(3);
-
   const router = useRouter();
   const pathname = usePathname();
 
   const [itemsFathIndex, setItemsFathIndex] = useState(0);
   const [historyIndex, setHistoryIndex] = useState(0);
-
-
 
   const nextHistory = () =>
     setHistoryIndex((prev) => (prev + 1) % historyCards.length);
@@ -60,34 +54,6 @@ export default function SectionChurch() {
 
     router.push(href);
   };
-
-  useEffect(() => {
-    const updateSize = () => {
-      setItemsToShow(window.innerWidth < 768 ? 1 : 3);
-    };
-
-    updateSize();
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
-  const nextStep = useCallback(() => {
-    setIndex((prev) => (prev + 1) % council.length);
-  }, [council.length]);
-
-  const prevStep = useCallback(() => {
-    setIndex((prev) => (prev - 1 + council.length) % council.length);
-  }, [council.length]);
-
-  // const visibleItems = Array.from({ length: itemsToShow }).map((_, i) => {
-  //   return adviceList[(index + i) % adviceList.length];
-  // });
-
-  const visibleItems: any = [];
-  for (let i = 0; i < itemsToShow; i++) {
-    const skip = (index + i) % council.length;
-    visibleItems.push(council[skip]);
-  }
 
   return (
     <section
@@ -147,7 +113,6 @@ export default function SectionChurch() {
 
       {/* 3. GRID DE HISTÓRIA / CARDS PRINCIPAIS */}
       <div className="xl:max-w-5xl 2xl:max-w-7xl mx-auto px-6 py-24">
-        {/* Ajustado as colunas e o gap-10 para ter o mesmo tamanho e largura que o bloco 4 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {historyCards.map((item, index) => (
             <motion.div
@@ -194,7 +159,6 @@ export default function SectionChurch() {
           ))}
         </div>
 
-        {/* Controles Carrossel Mobile (História) ajustados para md:hidden para sincronizar layouts */}
         <div className="flex md:hidden items-center justify-between mt-10 max-w-[200px] mx-auto">
           <button
             onClick={prevHistory}
@@ -230,7 +194,6 @@ export default function SectionChurch() {
             </p>
           </div>
         <div></div>
-          {/* Grid Doutrina: 1 card em cima (col-span-3), 3 cards abaixo */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 cursor-pointer">
             {itemsFath.map((item, index) => (
               <motion.div
@@ -263,7 +226,6 @@ export default function SectionChurch() {
             ))}
           </div>
 
-          {/* Controles Carrossel Mobile (Doutrina) */}
           <div className="flex md:hidden items-center justify-between mt-10 max-w-[200px] mx-auto">
             <button
               onClick={prevFath}
@@ -277,73 +239,6 @@ export default function SectionChurch() {
             >
               <ArrowRight size={20} />
             </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 5. SEÇÃO CONSELHO (ESTILO EDITORIAL) */}
-      <div className=" xl:max-w-5xl 2xl:max-w-7xl mx-auto px-6 py-32">
-        <div className="flex flex-col lg:flex-row justify-between items-baseline mb-20 gap-8">
-          <div className="flex items-center gap-4">
-            <span className="h-px w-12 bg-igreja-teal" />
-            <h2 className="text-xs font-bold tracking-[0.4em] uppercase text-slate-400">
-              Liderança e Governo
-            </h2>
-          </div>
-          <h2 className="text-5xl xl:text-7xl 2xl:text-8xl font-light tracking-tighter text-slate-900">
-            A{" "}
-            <span className="font-serif italic text-igreja-teal">Liderença</span>
-          </h2>
-        </div>
-
-        {/* Layout de Destaque para o Conselho (Mantendo sua lógica de Slide) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center bg-white p-6 md:p-12 rounded-xl shadow-sm border border-slate-100">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={council[index].name}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
-              className="relative aspect-square w-full xl:w-1/2 max-w-2xl mx-auto"
-            >
-              <Image
-                src={council[index].photo}
-                alt={council[index].name}
-                fill
-                className="object-cover  rounded-xl grayscale hover:grayscale-0 transition-all duration-700 shadow-xl"
-              />
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="flex flex-col justify-center">
-            <span className="text-igreja-teal text-xs xl:text-xs 2xl:text-sm font-mono text-sm tracking-widest uppercase mb-4 block">
-              {council[index].role}
-            </span>
-            <h3 className="text-4xl xl:text-4xl 2xl:text-5xl font-bold text-slate-900 leading-none mb-6 uppercase tracking-tighter">
-              {council[index].name}
-            </h3>
-            <p className="text-slate-500 text-sm xl:text-lg 2xl:text-xl leading-relaxed italic border-l-4 border-igreja-teal/20 pl-6 mb-8">
-              "{council[index].bio}"
-            </p>
-
-            <div className="flex items-center gap-6 mt-4">
-              <button
-                onClick={() =>
-                  setIndex(
-                    (prev) => (prev - 1 + council.length) % council.length
-                  )
-                }
-                className="p-4 xl:p-3 2xl:p-4 rounded-full bg-slate-900 text-white hover:bg-igreja-teal transition-colors"
-              >
-                <ArrowLeft size={24} />
-              </button>
-              <button
-                onClick={() => setIndex((prev) => (prev + 1) % council.length)}
-                className="p-4 xl:p-3 2xl:p-4 rounded-full bg-slate-900 text-white hover:bg-igreja-teal transition-colors"
-              >
-                <ArrowRight size={24} />
-              </button>
-            </div>
           </div>
         </div>
       </div>

@@ -1,11 +1,14 @@
 import photo1 from "@/public/image/index/heroSection/foto da igreja 1.jpg";
 import photo2 from "@/public/image/igreja/img_sobre_historia.png";
 import photo3 from "@/public/image/igreja/manual.png";
-import minister from "@/public/image/igreja/advice/pastor-emersn.jpg";
-import official from "@/public/image/igreja/advice/rodrigo.jpg";
-import official2 from "@/public/image/igreja/advice/ronaldo-damazio.png";
-import official3 from "@/public/image/igreja/advice/gilson.jpg";
-import official4 from "@/public/image/igreja/advice/jeferson.png";
+import minister from "@/public/image/membros/pastor-emersn.jpg";
+import officialBruno from "@/public/image/membros/bruno.jpg";
+import officialGilson from "@/public/image/membros/gilson.jpeg";
+import officialRonaldo from "@/public/image/membros/ronaldo-damazio.png";
+import officialJefferson from "@/public/image/membros/jeferson.png";
+import officialJoaquim from "@/public/image/membros/joaquim.png";
+import officialRodrigo from "@/public/image/membros/rodrigo.jpg";
+import officialMaria from "@/public/image/membros/maria.png";
 import confession from "@/public/image/minister/confissão de fé.png";
 import catecismoMaior from "@/public/image/minister/catecismo maior.png";
 import catecismoMenos from "@/public/image/minister/catecismo menor.png";
@@ -70,33 +73,67 @@ export const historyCards = [
 
 export const council = [
   {
-    name: "Emerson Baran",
-    role: "Pastor Efetivo",
+    name: "Rev. Emerson Baran",
+    role: "Pastor",
+    subtitle: "Pastor da IP Imbituba",
     photo: minister,
-    bio: "Liderando com dedicação e amor à Palavra.",
+    bio: "Na igreja presbiteriana nosso foco é a evangelização: a evangelização é a missão da igreja.",
+    tier: "pastor" as const,
   },
   {
-    name: "Rodrigo Pinho",
+    name: "Presb. Bruno",
     role: "Presbítero",
-    photo: official,
-    bio: "Auxiliando no pastoreio e governo da igreja local.",
+    subtitle: "Oficial da Igreja",
+    photo: officialBruno,
+    bio: "Servindo no pastoreio e no governo da igreja local.",
+    tier: "presbitero" as const,
   },
   {
-    name: "Ronaldo Damazio",
-    role: "Tesoureiro",
-    photo: official2,
-    bio: "Zelando com integridade pela mordomia cristã.",
+    name: "Presb. Gilson",
+    role: "Presbítero",
+    subtitle: "Tesoureiro da Igreja",
+    photo: officialGilson,
+    bio: "Administrar com fidelidade e transparência os recursos dedicados ao Reino de Deus.",
+    tier: "presbitero" as const,
   },
   {
-    name: "Jeferson Alves",
+    name: "Presb. Ronaldo",
+    role: "Presbítero",
+    subtitle: "Professor Escola Dominical",
+    photo: officialRonaldo,
+    bio: "Zelar com integridade pela mordomia cristã e servir à igreja com dedicação.",
+    tier: "presbitero" as const,
+  },
+  {
+    name: "Diác. Jefferson",
     role: "Diácono",
-    photo: official4,
-    bio: "Coordeno a U.P.H. (União Presbiteriana de Homens) com o propósito de liderar e orientar irmãos para que, em tudo, o nome do Senhor seja glorificado.",
+    subtitle: "Presidente da UPH",
+    photo: officialJefferson,
+    bio: "Coordeno a U.P.H. com o propósito de liderar e orientar irmãos para que, em tudo, o nome do Senhor seja glorificado.",
+    tier: "diacono" as const,
   },
   {
-    name: "Gilson",
-    role: "Tesoureiro",
-    photo: official3,
-    bio: "Dedicado a servir ao Senhor através da administração financeira, com foco na transparência, ética e mordomia cristã.",
+    name: "Diác. Joaquim",
+    role: "Diácono",
+    subtitle: "Presidente da Junta Diaconal",
+    photo: officialJoaquim,
+    bio: "Diaconia é o amor do Senhor em ação. Servir como diácono é colocar o coração ao serviço de Jesus.",
+    tier: "diacono" as const,
+  },
+  {
+    name: "Diác. Rodrigo",
+    role: "Diácono",
+    subtitle: "Oficial da Igreja",
+    photo: officialRodrigo,
+    bio: "Servindo a igreja na diaconia com dedicação e amor ao próximo.",
+    tier: "diacono" as const,
+  },
+  {
+    name: "Maria Heloisa",
+    role: "Liderança",
+    subtitle: "Presidente da UPA",
+    photo: officialMaria,
+    bio: "Inspirador ver a dedicação dos nossos adolescentes a Cristo. Eles não são o amanhã: são o serviço de hoje na igreja.",
+    tier: "ministerio" as const,
   },
 ];

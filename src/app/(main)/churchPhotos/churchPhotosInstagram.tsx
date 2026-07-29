@@ -724,7 +724,7 @@
 
 "use client";
 import { ArrowLeft, ArrowRight, X, Instagram } from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HeroSection from "@/src/components/ui/HeroBanner";
 import photo1 from "@/public/image/biblicsbase/breadcrumbs-bg-2.jpg";
@@ -738,6 +738,32 @@ interface Post {
     children?: {
         data: { media_url: string; media_type: string }[];
     };
+}
+
+/** Expande a última publicação (carrossel) em itens individuais no grid. */
+function buildDisplayPosts(posts: Post[]): Post[] {
+    if (!posts.length) return [];
+
+    const [latest, ...rest] = posts;
+
+    if (
+        latest.media_type === "CAROUSEL_ALBUM" &&
+        latest.children?.data?.length
+    ) {
+        const expanded = latest.children.data
+            .filter((child) => child.media_type !== "VIDEO")
+            .map((child, i) => ({
+                id: `${latest.id}-child-${i}`,
+                media_url: child.media_url,
+                permalink: latest.permalink,
+                caption: latest.caption,
+                media_type: "IMAGE",
+            }));
+
+        return [...expanded, ...rest];
+    }
+
+    return posts;
 }
 
 // --- Lightbox Premium Minimalista ---
@@ -860,12 +886,20 @@ const ExhibitionCard = ({
 }: {
     post: Post;
     onClick: () => void;
-}) => (
+}) => {
+    const coverUrl =
+        post.media_type === "CAROUSEL_ALBUM" && post.children?.data?.length
+            ? post.children.data[0].media_url
+            : post.media_url;
+
+    if (!coverUrl) return null;
+
+    return (
     <div className="flex flex-col space-y-3 group cursor-pointer" onClick={onClick}>
         {/* Janela de Imagem Controlada */}
         <div className="relative aspect-square w-full overflow-hidden border border-emerald-900/30 bg-[#03100f]">
             <img
-                src={post.media_url}
+                src={coverUrl}
                 alt="Galeria"
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.9] group-hover:brightness-100"
                 loading="lazy"
@@ -893,7 +927,8 @@ const ExhibitionCard = ({
             </div>
         </div>
     </div>
-);
+    );
+};
 
 // --- Galeria Principal ---
 const ChurchPhotosGallery = () => {
@@ -902,6 +937,8 @@ const ChurchPhotosGallery = () => {
     const [indexCarrosel, setIndexCarrosel] = useState(0);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const token = process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN;
+
+    const displayPosts = useMemo(() => buildDisplayPosts(posts), [posts]);
 
     const openLightbox = useCallback((i: number) => {
         setIndex(i);
@@ -915,14 +952,14 @@ const ChurchPhotosGallery = () => {
     }, []);
 
     const nextPost = useCallback(() => {
-        setIndex((prev) => (prev + 1) % posts.length);
+        setIndex((prev) => (prev + 1) % displayPosts.length);
         setIndexCarrosel(0);
-    }, [posts.length]);
+    }, [displayPosts.length]);
 
     const prevPost = useCallback(() => {
-        setIndex((prev) => (prev - 1 + posts.length) % posts.length);
+        setIndex((prev) => (prev - 1 + displayPosts.length) % displayPosts.length);
         setIndexCarrosel(0);
-    }, [posts.length]);
+    }, [displayPosts.length]);
 
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
@@ -994,7 +1031,7 @@ const ChurchPhotosGallery = () => {
 
                 {/* Grid Tradicional Equilibrado e Simétrico */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
-                    {posts.map((post, i) => (
+                    {displayPosts.map((post, i) => (
                         <ExhibitionCard key={post.id} post={post} onClick={() => openLightbox(i)} />
                     ))}
                 </div>
@@ -1017,7 +1054,7 @@ const ChurchPhotosGallery = () => {
             <AnimatePresence>
                 {lightboxOpen && (
                     <CleanLightbox
-                        posts={posts}
+                        posts={displayPosts}
                         index={index}
                         indexCarrosel={indexCarrosel}
                         onClose={closeLightbox}

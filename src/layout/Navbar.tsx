@@ -79,6 +79,7 @@ export default function Navbar() {
       name: "Igreja",
       submenu: [
         { name: "Nossa Igreja", href: "/church" },
+        { name: "Liderança", href: "/church/leadership" },
         { name: "História do padrão de fé", href: "/church/hystoryconfessionOfFaith" },
         { name: "Confissão de fé", href: "/church/confessionOfFaith" },
         { name: "Catecismo maior", href: "/church/largeCatechism" },
